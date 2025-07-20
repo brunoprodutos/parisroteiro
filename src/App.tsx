@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Clock, Star, Camera, Coffee, Utensils } from 'lucide-react';
+import { MapPin, Clock, Star, Camera, Coffee, Utensils, Info, X } from 'lucide-react';
 
 interface ItineraryItem {
   id: number;
