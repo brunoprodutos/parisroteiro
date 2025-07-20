@@ -110,10 +110,10 @@ function App() {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8">
           {/* Lista do Roteiro */}
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">Cronograma do Dia</h2>
+          <div className="space-y-3 lg:space-y-4">
+            <h2 className="text-lg lg:text-xl font-semibold text-gray-900 mb-4 lg:mb-6">Cronograma do Dia</h2>
             
             {parisItinerary.map((item, index) => (
               <div
@@ -123,7 +123,7 @@ function App() {
                   selectedItem?.id === item.id ? 'border-blue-500 ring-2 ring-blue-200' : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
-                <div className="p-6">
+                <div className="p-4 lg:p-6">
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
@@ -133,22 +133,22 @@ function App() {
                     
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center space-x-2 mb-2">
-                        <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getTypeColor(item.type)}`}>
+                        <div className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${getTypeColor(item.type)}`}>
                           {getIcon(item.type)}
-                          <span className="ml-1 capitalize">{item.type}</span>
+                          <span className="ml-1 capitalize hidden sm:inline">{item.type}</span>
                         </div>
-                        <div className="flex items-center space-x-1">
+                        <div className="flex items-center space-x-1 flex-shrink-0">
                           <Star className="w-4 h-4 text-yellow-400 fill-current" />
                           <span className="text-sm text-gray-600">{item.rating}</span>
                         </div>
-                        <div className="flex items-center space-x-1">
+                        <div className="flex items-center space-x-1 flex-shrink-0">
                           <Clock className="w-4 h-4 text-gray-400" />
                           <span className="text-sm text-gray-600">{item.duration}</span>
                         </div>
                       </div>
                       
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
-                      <p className="text-sm text-gray-600 mb-2">{item.location}</p>
+                      <h3 className="text-base lg:text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
+                      <p className="text-xs lg:text-sm text-gray-600 mb-2 truncate">{item.location}</p>
                       <p className="text-gray-700 text-sm line-clamp-2">{item.description}</p>
                     </div>
                   </div>
@@ -158,58 +158,58 @@ function App() {
           </div>
 
           {/* Detalhes do Item Selecionado */}
-          <div className="lg:sticky lg:top-8">
+          <div className="xl:sticky xl:top-8">
             {selectedItem && (
               <div className="bg-white rounded-lg shadow-lg border border-gray-200">
-                <div className="p-6">
+                <div className="p-4 lg:p-6">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <div className="text-blue-600">
                         {getIcon(selectedItem.type)}
                       </div>
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-900">{selectedItem.title}</h2>
-                      <p className="text-gray-600">{selectedItem.time} • {selectedItem.duration}</p>
+                      <h2 className="text-xl lg:text-2xl font-bold text-gray-900">{selectedItem.title}</h2>
+                      <p className="text-sm lg:text-base text-gray-600">{selectedItem.time} • {selectedItem.duration}</p>
                     </div>
                   </div>
 
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-2">Descrição</h3>
-                      <p className="text-gray-700 leading-relaxed">{selectedItem.description}</p>
+                      <h3 className="text-xs lg:text-sm font-semibold text-gray-900 uppercase tracking-wide mb-2">Descrição</h3>
+                      <p className="text-sm lg:text-base text-gray-700 leading-relaxed">{selectedItem.description}</p>
                     </div>
 
                     <div>
-                      <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-2">Localização</h3>
+                      <h3 className="text-xs lg:text-sm font-semibold text-gray-900 uppercase tracking-wide mb-2">Localização</h3>
                       <div className="flex items-center space-x-2">
                         <MapPin className="w-4 h-4 text-gray-400" />
-                        <p className="text-gray-700">{selectedItem.location}</p>
+                        <p className="text-sm lg:text-base text-gray-700">{selectedItem.location}</p>
                       </div>
                     </div>
 
-                    <div className="flex items-center space-x-6">
+                    <div className="grid grid-cols-2 gap-4 lg:flex lg:items-center lg:space-x-6">
                       <div>
-                        <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-1">Avaliação</h3>
+                        <h3 className="text-xs lg:text-sm font-semibold text-gray-900 uppercase tracking-wide mb-1">Avaliação</h3>
                         <div className="flex items-center space-x-1">
                           <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                          <span className="text-lg font-semibold text-gray-900">{selectedItem.rating}</span>
-                          <span className="text-gray-600">/5.0</span>
+                          <span className="text-base lg:text-lg font-semibold text-gray-900">{selectedItem.rating}</span>
+                          <span className="text-sm lg:text-base text-gray-600">/5.0</span>
                         </div>
                       </div>
                       
                       <div>
-                        <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-1">Duração</h3>
+                        <h3 className="text-xs lg:text-sm font-semibold text-gray-900 uppercase tracking-wide mb-1">Duração</h3>
                         <div className="flex items-center space-x-1">
                           <Clock className="w-5 h-5 text-gray-400" />
-                          <span className="text-lg font-semibold text-gray-900">{selectedItem.duration}</span>
+                          <span className="text-base lg:text-lg font-semibold text-gray-900">{selectedItem.duration}</span>
                         </div>
                       </div>
                     </div>
 
                     {selectedItem.tips && (
                       <div className="bg-blue-50 rounded-lg p-4">
-                        <h3 className="text-sm font-semibold text-blue-900 mb-2">💡 Dica Especial</h3>
+                        <h3 className="text-xs lg:text-sm font-semibold text-blue-900 mb-2">💡 Dica Especial</h3>
                         <p className="text-blue-800 text-sm">{selectedItem.tips}</p>
                       </div>
                     )}
