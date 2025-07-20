@@ -125,7 +125,11 @@ function App() {
               >
                 <div className="p-4 lg:p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 flex items-center space-x-2">
+                      <input 
+                        type="checkbox" 
+                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      />
                       <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                         <span className="text-blue-600 font-semibold text-sm">{item.time}</span>
                       </div>
