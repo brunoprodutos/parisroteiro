@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Roteiro Barcelona 2025 - Checklist Prático</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navegação entre roteiros -->
+        <div class="navigation">
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn">Paris</a>
+                <a href="chamonix.html" class="nav-btn">Chamonix</a>
+                <a href="florenca.html" class="nav-btn">Florença</a>
+                <a href="roma.html" class="nav-btn">Roma</a>
+                <a href="barcelona.html" class="nav-btn active">Barcelona</a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1><i id="roteiro-icone" class="fas fa-map-marked-alt"></i> <span id="roteiro-titulo"></span></h1>
+            <p id="roteiro-subtitulo"></p>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="summary-stats" id="estatisticas-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Legenda -->
+        <div class="legend" id="legenda-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Dias do roteiro -->
+        <div id="dias-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Seção de Orçamento -->
+        <div class="budget-section" id="orcamento-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Dicas -->
+        <div id="dicas-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+    </div>
+
+    <!-- Modal para informações -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+
+    const ROTEIRO_BARCELONA = {
+      "meta": {
+        "titulo": "Roteiro Barcelona 2025",
+        "subtitulo": "11 a 15 de Outubro • Checklist Prática",
+        "icone": "fas fa-map-marked-alt"
+      },
+      "estatisticas": [
+        { "numero": "4", "label": "Dias em Barcelona" },
+        { "numero": "6", "label": "Agendamentos" },
+        { "numero": "€523", "label": "Orçamento Estimado (Casal)" },
+        { "numero": "20+", "label": "Atrações" }
+      ],
+      "legenda": [
+        { "icone": "fas fa-utensils", "texto": "Refeição" },
+        { "icone": "fas fa-coffee", "texto": "Café/Lanche" },
+        { "icone": "fas fa-clock", "texto": "Agendamento Necessário" },
+        { "icone": "fas fa-ticket-alt", "texto": "Ingresso Pago" },
+        { "icone": "fas fa-camera", "texto": "Foto Obrigatória" },
+        { "icone": "fas fa-subway", "texto": "Estação Metrô" }
+      ],
+      "dias": [
+        {
+          "numero": 1,
+          "titulo": "Chegada",
+          "data": "11/10/2025",
+          "diaSemana": "Sábado",
+          "atividades": [
+            {
+              "horario": "23h35",
+              "icone": "✈️",
+              "texto": "Chegada voo Iberia de Roma",
+              "duracao": "30min"
+            },
+            {
+              "horario": "00h05",
+              "icone": "🚌",
+              "texto": "Aerobus T2 → Centro (ou Hola Barcelona)",
+              "duracao": "45min",
+              "preco": "€5,50",
+              "info": {
+                "titulo": "Transporte Aeroporto → Centro",
+                "opcao1": "Aerobus A1/A2: €5,50 (24h funcionamento)",
+                "opcao2": "Hola Barcelona 72h: €26,30 (inclui aeroporto + transporte ilimitado)",
+                "recomendacao": "Hola Barcelona vale os €5 extras pela conveniência",
+                "dicas": [
+                  "Validar Hola Barcelona no aeroporto às 23h35",
+                  "Expira terça 23h35 (cobre toda viagem)",
+                  "Inclui funicular Montjuïc",
+                  "Transporte ilimitado 3 dias"
+                ]
+              }
+            },
+            {
+              "horario": "00h50",
+              "icone": "🏨",
+              "texto": "Check-in hotel + descanso",
+              "duracao": "30min"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Centro Histórico e Modernismo",
+          "data": "12/10/2025",
+          "diaSemana": "Domingo",
+          "atividades": [
+            {
+              "horario": "09h00",
+              "icone": "☕",
+              "texto": "La Boqueria - Café El Quin",
+              "duracao": "1h",
+              "preco": "€8-12",
+              "info": {
+                "titulo": "La Boqueria - Café El Quin",
+                "endereco": "Mercat de la Boqueria, La Rambla, 91",
+                "metro": "Liceu (Linha L3)",
+                "especialidade": "Café da manhã tradicional catalão",
+                "precoMedio": "€8-12 (café + pa amb tomàquet)",
+                "dicas": [
+                  "Experimente 'pa amb tomàquet' (pão com tomate)",
+                  "Ambiente autêntico do mercado",
+                  "Chegue cedo para evitar multidões",
+                  "Prove sucos naturais frescos"
+                ]
+              }
+            },
+            {
+              "horario": "10h00",
+              "icone": "🚶",
+              "texto": "La Rambla → Praça Catalunha",
+              "duracao": "1h",
+              "info": {
+                "titulo": "La Rambla → Praça Catalunha",
+                "endereco": "La Rambla até Plaça Catalunya",
+                "metro": "Catalunya (L1, L3, L6, L7)",
+                "distancia": "1,2km caminhada",
+                "pontosFoto": [
+                  "Mosaico Joan Miró no chão",
+                  "Estátuas humanas",
+                  "Font de Canaletes",
+                  "Plaça Catalunya - centro de Barcelona"
+                ],
+                "dicas": [
+                  "Cuidado com batedores de carteira",
+                  "Evite comprar nas barracas turísticas",
+                  "Observe arquitetura dos edifícios",
+                  "Praça Catalunya é hub de transporte"
+                ]
+              }
+            },
+            {
+              "horario": "11h00",
+              "icone": "🏛️",
+              "texto": "Passeig de Gràcia - Casas Modernistas",
+              "duracao": "45min",
+              "info": {
+                "titulo": "Passeig de Gràcia - Casas Modernistas",
+                "endereco": "Passeig de Gràcia (Quadrat d'Or)",
+                "metro": "Passeig de Gràcia (L2, L3, L4)",
+                "casasExternas": [
+                  "Casa Lleó Morera (Domènech i Montaner)",
+                  "Casa Amatller (Josep Puig i Cadafalch)",
+                  "Preparação para Casa Batlló"
+                ],
+                "dicas": [
+                  "Manzana de la Discordia (quarteirão da discórdia)",
+                  "Três estilos modernistas diferentes",
+                  "Fotos externas gratuitas",
+                  "Loja Apple icônica no térreo Casa Batlló"
+                ]
+              }
+            },
+            {
+              "horario": "11h45",
+              "icone": "🏠",
+              "texto": "Casa Batlló",
+              "duracao": "2h",
+              "preco": "€29",
+              "reservado": true,
+              "info": {
+                "titulo": "Casa Batlló - Antoni Gaudí",
+                "endereco": "Passeig de Gràcia, 43",
+                "metro": "Passeig de Gràcia (L2, L3, L4)",
+                "ingresso": "€29 (audioguia incluído)",
+                "reservaObrigatoria": "2-3 semanas antecedência",
+                "destaques": [
+                  "Fachada com mosaicos coloridos",
+                  "Pátio de luzes azul degradê",
+                  "Sótão com arcos catenários",
+                  "Terraço com chaminés esculturais"
+                ],
+                "dicas": [
+                  "Fazem questão desta atração",
+                  "Melhor luz: manhã/meio-dia",
+                  "Audioguia em português disponível",
+                  "Tempo estendido para aproveitar melhor: 2h"
+                ]
+              }
+            },
+            {
+              "horario": "14h00",
+              "icone": "🏠",
+              "texto": "Casa Milà (La Pedrera) - Externa",
+              "duracao": "15min",
+              "info": {
+                "titulo": "Casa Milà (La Pedrera) - Externa",
+                "endereco": "Passeig de Gràcia, 92",
+                "metro": "Diagonal (L3, L5)",
+                "distancia": "200m da Casa Batlló",
+                "visitaExterna": "Fotos da fachada ondulada",
+                "dicas": [
+                  "Apenas fotos externas (economia €25)",
+                  "Fachada de pedra ondulada única",
+                  "Terraço com chaminés icônicas (visível da rua)",
+                  "Patrimônio Mundial UNESCO"
+                ]
+              }
+            },
+            {
+              "horario": "14h15",
+              "icone": "🍽️",
+              "texto": "Almoço - Casa Carmen",
+              "duracao": "1h",
+              "preco": "€15",
+              "info": {
+                "titulo": "Casa Carmen",
+                "endereco": "Carrer de Mallorca, próximo Sagrada Família",
+                "metro": "Sagrada Família (L2, L5)",
+                "especialidade": "Menu completo catalão",
+                "precoMedio": "€15 (entrada + principal + sobremesa)",
+                "dicas": [
+                  "Menu tradicional catalão",
+                  "Boa relação custo-benefício",
+                  "Ambiente familiar",
+                  "Próximo à área da Catedral"
+                ]
+              }
+            },
+            {
+              "horario": "15h30",
+              "icone": "🎨",
+              "texto": "Mural do Beijo",
+              "duracao": "15min",
+              "info": {
+                "titulo": "Mural do Beijo - Joan Fontcuberta",
+                "endereco": "Plaça d'Isidre Nonell, Barri Gòtic",
+                "metro": "Jaume I (L4)",
+                "artista": "Joan Fontcuberta (2014)",
+                "titulo": "El món neix en cada besada (O mundo nasce a cada beijo)",
+                "dicas": [
+                  "Instalação permanente celebrando liberdade",
+                  "Rua escondida no coração do Bairro Gótico",
+                  "Obra de arte urbana famosa",
+                  "Ótimo para fotos artísticas"
+                ]
+              }
+            },
+            {
+              "horario": "15h45",
+              "icone": "⛪",
+              "texto": "Catedral de Barcelona",
+              "duracao": "1h30min",
+              "preco": "€14",
+              "info": {
+                "titulo": "Catedral de Barcelona (Santa Eulàlia)",
+                "endereco": "Pla de la Seu, s/n, Barri Gòtic",
+                "metro": "Jaume I (L4) ou Liceu (L3)",
+                "horarioDomingo": "14:00-17:00 APENAS (visita cultural)",
+                "ingresso": "€14 (inclui terraços e coro)",
+                "destaques": [
+                  "Gótico catalão (séc. XIII-XV)",
+                  "Claustro com gansos",
+                  "Vista panorâmica dos terraços",
+                  "Cripta de Santa Eulàlia"
+                ],
+                "dicas": [
+                  "ATENÇÃO: Domingo horário limitado!",
+                  "Vale a pena subir aos terraços",
+                  "Entrada gratuita para oração (7h-12h45)",
+                  "Tempo estendido para explorar melhor: 1h30min"
+                ]
+              }
+            },
+            {
+              "horario": "17h15",
+              "icone": "🌉",
+              "texto": "Pont del Bisbe",
+              "duracao": "20min",
+              "info": {
+                "titulo": "Pont del Bisbe (Ponte do Bispo)",
+                "endereco": "Carrer del Bisbe, Barri Gòtic",
+                "metro": "Jaume I (L4)",
+                "arquiteto": "Joan Rubió i Bellver (discípulo de Gaudí)",
+                "ano": "1928 (parece medieval, mas tem menos de 100 anos!)",
+                "funcao": "Liga Palau de la Generalitat com Casa dels Canonges",
+                "dicas": [
+                  "Estilo neogótico com detalhes intrincados",
+                  "Lenda da maldição na caveira esculpida",
+                  "Ângulo clássico para fotos",
+                  "Símbolo icônico do Bairro Gótico"
+                ]
+              }
+            },
+            {
+              "horario": "17h30",
+              "icone": "🏛️",
+              "texto": "Temple d'August",
+              "duracao": "15min",
+              "info": {
+                "titulo": "Temple d'August - Colunas Romanas",
+                "endereco": "Carrer del Paradís, 10, Barri Gòtic",
+                "metro": "Jaume I (L4)",
+                "periodo": "Século I d.C. (época romana)",
+                "dedicacao": "Culto ao Imperador Augusto",
+                "preservacao": "4 colunas coríntias originais (10m altura)",
+                "dicas": [
+                  "Localizado no ponto mais alto da Barcelona romana",
+                  "Entrada gratuita (pátio medieval)",
+                  "Contraste impressionante: romano + medieval",
+                  "Patrimônio histórico único"
+                ]
+              }
+            },
+            {
+              "horario": "17h45",
+              "icone": "👑",
+              "texto": "Plaça del Rei",
+              "duracao": "25min",
+              "info": {
+                "titulo": "Plaça del Rei - Centro Medieval",
+                "endereco": "Plaça del Rei, Barri Gòtic",
+                "metro": "Jaume I (L4)",
+                "periodo": "Século XIV",
+                "importancia": "Centro do poder medieval catalão",
+                "edificios": [
+                  "Palau Reial Major",
+                  "Capella de Santa Àgata",
+                  "Mirador del Rei Martí"
+                ],
+                "historia": "Onde os Reis Católicos receberam Colombo (1493)",
+                "dicas": [
+                  "Arquitetura gótica catalã pura",
+                  "Praça medieval mais bem preservada",
+                  "Cenário de eventos históricos importantes",
+                  "Ambiente único para fotos"
+                ]
+              }
+            },
+            {
+              "horario": "18h00",
+              "icone": "🍦",
+              "texto": "Rocambolesc",
+              "duracao": "15min",
+              "preco": "€5-8",
+              "info": {
+                "titulo": "Rocambolesc - Sorvete Artesanal",
+                "endereco": "Carrer de Girona, 21 (próximo Sagrada Família)",
+                "metro": "Girona (L4)",
+                "criador": "Jordi Roca (premiado confeiteiro)",
+                "especialidade": "Sorvetes artesanais criativos",
+                "precoMedio": "€5-8 por sorvete",
+                "dicas": [
+                  "Sorvete premiado mundialmente",
+                  "Sabores únicos e criativos",
+                  "Apresentação artística",
+                  "Pausa doce antes do jantar"
+                ]
+              }
+            },
+            {
+              "horario": "18h30",
+              "icone": "🍷",
+              "texto": "Jantar - Bodega de Palma",
+              "duracao": "1h30min",
+              "preco": "€25-35",
+              "info": {
+                "titulo": "Bodega de Palma",
+                "endereco": "Carrer de Palma de Sant Just, 7",
+                "metro": "Jaume I (L4)",
+                "especialidade": "Tapas tradicionais catalãs",
+                "precoMedio": "€25-35 por pessoa",
+                "reservaObrigatoria": "FAZER RESERVA",
+                "dicas": [
+                  "Ambiente autêntico de bodega",
+                  "Tapas tradicionais catalãs",
+                  "Boa seleção de vinhos locais",
+                  "Reserva essencial (muito procurado)",
+                  "Horário ajustado: 18h30-20h00"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Gaudí - Park Güell e Sagrada Família",
+          "data": "13/10/2025",
+          "diaSemana": "Segunda-feira",
+          "atividades": [
+            {
+              "horario": "09h00",
+              "icone": "🚇",
+              "texto": "Metro → Park Güell",
+              "duracao": "30min",
+              "preco": "€2,40",
+              "info": {
+                "titulo": "Transporte para Park Güell",
+                "rota": "L3 até Lesseps ou L4 até Alfons X",
+                "caminhada": "10-15min subida até entrada",
+                "alternativa": "Ônibus 24 ou 92 mais próximo",
+                "dicas": [
+                  "Lesseps: caminhada mais íngreme",
+                  "Alfons X: caminhada mais suave",
+                  "Chegue 15min antes do horário",
+                  "Leve água (subida cansativa)"
+                ]
+              }
+            },
+            {
+              "horario": "09h30",
+              "icone": "🌳",
+              "texto": "Park Güell",
+              "reservado": true,
+              "reservado": true,
+              "reservaLink": "https://drive.google.com/file/d/1pcV7cVb3EgW9ffdvoN9Th-cni4O6SmJ2",
+              "duracao": "2h",
+              "preco": "€18",
+              "info": {
+                "titulo": "Park Güell - Antoni Gaudí",
+                "endereco": "Carrer d'Olot, s/n, Gràcia",
+                "metro": "Lesseps (L3) + 10min caminhada",
+                "ingresso": "€18 (horário específico 09h30)",
+                "reservaObrigatoria": "2-3 semanas antecedência",
+                "destaques": [
+                  "Escadaria com dragão de mosaico",
+                  "Sala Hipóstila (86 colunas)",
+                  "Banco ondulado com vista panorâmica",
+                  "Casa-Museu Gaudí (opcional +€6)"
+                ],
+                "recomendacao": "Park Güell básico (€18) - economia de €12 vs com museu",
+                "dicas": [
+                  "Melhor horário: manhã (luz suave)",
+                  "Vista panorâmica de Barcelona",
+                  "Patrimônio Mundial UNESCO",
+                  "Tempo ideal: 2h para aproveitar bem"
+                ]
+              }
+            },
+            {
+              "horario": "12h00",
+              "icone": "🏠",
+              "texto": "Casa Vicens (externa) - Opcional",
+              "duracao": "15min",
+              "info": {
+                "titulo": "Casa Vicens - Externa (Opcional)",
+                "endereco": "Carrer de les Carolines, 20-26, Gràcia",
+                "metro": "Fontana (L3)",
+                "distancia": "15min caminhada do Park Güell",
+                "visitaExterna": "Primeira casa projetada por Gaudí",
+                "dicas": [
+                  "Apenas fotos externas (economia €18)",
+                  "Primeira obra de Gaudí (1883-1885)",
+                  "Estilo neomudéjar único",
+                  "Opcional - pode pular se cansados"
+                ]
+              }
+            },
+            {
+              "horario": "12h30",
+              "icone": "🍽️",
+              "texto": "Almoço - Bairro Gràcia",
+              "duracao": "1h",
+              "preco": "€20-25",
+              "info": {
+                "titulo": "Almoço no Bairro Gràcia",
+                "area": "Vila de Gràcia - bairro boêmio",
+                "metro": "Fontana (L3)",
+                "opcoes": [
+                  "Restaurante local tradicional",
+                  "Tapas bar autêntico",
+                  "Café com terraço",
+                  "Menu do dia catalão"
+                ],
+                "precoMedio": "€20-25 por pessoa",
+                "dicas": [
+                  "Bairro alternativo e autêntico",
+                  "Praças charmosas (Plaça del Sol)",
+                  "Ambiente local, menos turístico",
+                  "Boa pausa antes da Sagrada Família"
+                ]
+              }
+            },
+            {
+              "horario": "14h00",
+              "icone": "⛪",
+              "texto": "Sagrada Família (SEM torres)",
+              "duracao": "1h30min",
+              "preco": "€26",
+              "reservado": true,
+              "reservado": true,
+              "reservaLink": "https://drive.google.com/file/d/13HdncQiVxeNc4SknQXyG1c3SKW7qT4az",
+              "info": {
+                "titulo": "Sagrada Família - Antoni Gaudí",
+                "endereco": "Carrer de Mallorca, 401",
+                "metro": "Sagrada Família (L2, L5)",
+                "ingresso": "€26 (entrada básica + audioguia)",
+                "reservaObrigatoria": "2-3 semanas antecedência",
+                "opcaoEscolhida": "SEM torres (economia €10 por pessoa)",
+                "destaques": [
+                  "Fachada da Natividade (Gaudí)",
+                  "Fachada da Paixão (Subirachs)",
+                  "Interior com colunas-árvore",
+                  "Vitrais coloridos espetaculares"
+                ],
+                "dicas": [
+                  "Melhor luz: fim da tarde",
+                  "Audioguia em português incluído",
+                  "Patrimônio Mundial UNESCO",
+                  "Obra-prima inacabada de Gaudí"
+                ]
+              }
+            },
+            {
+              "horario": "15h30",
+              "icone": "🍦",
+              "texto": "Rocambolesc",
+              "duracao": "15min",
+              "preco": "€5-8",
+              "info": {
+                "titulo": "Rocambolesc - Segunda Visita",
+                "endereco": "Carrer de Girona, 21",
+                "metro": "Girona (L4)",
+                "distancia": "5min caminhada da Sagrada Família",
+                "especialidade": "Sorvete artesanal Jordi Roca",
+                "dicas": [
+                  "Merecida pausa doce após Sagrada Família",
+                  "Experimente sabor diferente do domingo",
+                  "Localização conveniente",
+                  "Refresco perfeito"
+                ]
+              }
+            },
+            {
+              "horario": "16h00",
+              "icone": "🛍️",
+              "texto": "Tempo livre/compras",
+              "duracao": "2h",
+              "info": {
+                "titulo": "Tempo Livre - Área Sagrada Família",
+                "horario": "16h00-18h00",
+                "area": "Eixample - entorno Sagrada Família",
+                "opcoes": [
+                  "Compras de souvenirs Gaudí",
+                  "Café com vista da Sagrada Família",
+                  "Passeio pelo Eixample",
+                  "Retorno ao hotel para descanso"
+                ],
+                "dicas": [
+                  "Área comercial desenvolvida",
+                  "Muitas opções de café",
+                  "Souvenirs oficiais Sagrada Família",
+                  "Preparação para último dia"
+                ]
+              }
+            },
+            {
+              "horario": "19h00",
+              "icone": "🍽️",
+              "texto": "Jantar (a definir)",
+              "duracao": "1h30min",
+              "preco": "€25-35",
+              "info": {
+                "titulo": "Jantar - Opções Flexíveis",
+                "horario": "19h00-20h30",
+                "opcoes": [
+                  "Restaurante próximo ao hotel",
+                  "Tapas bar no Eixample",
+                  "Cozinha catalã tradicional",
+                  "Ambiente descontraído"
+                ],
+                "precoMedio": "€25-35 por pessoa",
+                "dicas": [
+                  "Escolha baseada no cansaço do dia",
+                  "Preparação para último dia",
+                  "Não precisa ser muito elaborado",
+                  "Foco no descanso"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "numero": 4,
+          "titulo": "Montjuïc e Barceloneta - Último Dia",
+          "data": "14/10/2025",
+          "diaSemana": "Terça-feira",
+          "atividades": [
+            {
+              "horario": "09h00",
+              "icone": "🚇",
+              "texto": "Metro → Montjuïc",
+              "duracao": "30min",
+              "preco": "€2,40",
+              "info": {
+                "titulo": "Transporte para Montjuïc",
+                "rota": "L1 ou L3 até Espanya",
+                "caminhada": "5min até base das escadas",
+                "alternativa": "Ônibus 150 direto",
+                "dicas": [
+                  "Estação Espanya: saída Montjuïc",
+                  "Prepare-se para subidas",
+                  "Leve água e calçado confortável",
+                  "Dia mais relaxado (último dia)"
+                ]
+              }
+            },
+            {
+              "horario": "09h30",
+              "icone": "🏔️",
+              "texto": "Montjuïc - Les Cascades",
+              "duracao": "2h",
+              "info": {
+                "titulo": "Montjuïc - Les Cascades",
+                "endereco": "Avinguda de la Reina Maria Cristina",
+                "metro": "Espanya (L1, L3)",
+                "destaques": [
+                  "Font Màgica (fontes dançantes)",
+                  "Palau de la Reina Victoria Eugènia",
+                  "Jardins em terraços",
+                  "Vista panorâmica da cidade"
+                ],
+                "dicas": [
+                  "Subida gradual e agradável",
+                  "Jardins bem cuidados",
+                  "Vistas espetaculares de Barcelona",
+                  "Ambiente tranquilo para último dia"
+                ]
+              }
+            },
+            {
+              "horario": "11h30",
+              "icone": "🚡",
+              "texto": "Funicular Montjuïc",
+              "duracao": "30min",
+              "preco": "Gratuito*",
+              "info": {
+                "titulo": "Funicular de Montjuïc",
+                "rota": "Parc de Montjuïc ↔ Castell de Montjuïc",
+                "funcionamento": "9h00-20h00",
+                "precoNormal": "€3,70 por pessoa",
+                "comHolaBarcelona": "INCLUÍDO (economia €7,40 casal)",
+                "vistas": "Panorâmica 360° de Barcelona",
+                "dicas": [
+                  "Incluído no Hola Barcelona",
+                  "Vista incrível do porto e cidade",
+                  "Alternativa ao teleférico (€17)",
+                  "Acesso fácil ao Castell"
+                ]
+              }
+            },
+            {
+              "horario": "12h30",
+              "icone": "🏖️",
+              "texto": "Barceloneta",
+              "duracao": "1h30min",
+              "info": {
+                "titulo": "Barceloneta - Bairro Marítimo",
+                "endereco": "Barceloneta",
+                "metro": "Barceloneta (L4)",
+                "atividades": [
+                  "Praia de Barceloneta",
+                  "Passeio marítimo (Passeig Marítim)",
+                  "Port Vell (porto antigo)",
+                  "Arquitetura de pescadores"
+                ],
+                "dicas": [
+                  "Brisa marinha refrescante",
+                  "Contraste com Barcelona urbana",
+                  "Ambiente descontraído",
+                  "Perfeito para relaxar"
+                ]
+              }
+            },
+            {
+              "horario": "14h00",
+              "icone": "🍽️",
+              "texto": "Almoço - El Xampanyet",
+              "duracao": "1h",
+              "preco": "€25-30",
+              "info": {
+                "titulo": "El Xampanyet",
+                "endereco": "Carrer de Montcada, 22, Born",
+                "metro": "Jaume I (L4)",
+                "especialidade": "Tapas tradicionais + cava",
+                "precoMedio": "€25-30 por pessoa",
+                "ambiente": "Autêntico bar de tapas catalão",
+                "dicas": [
+                  "Famoso pelas tapas tradicionais",
+                  "Cava (espumante catalão) obrigatório",
+                  "Ambiente local autêntico",
+                  "Pode ter fila (vale a espera)"
+                ]
+              }
+            },
+            {
+              "horario": "15h30",
+              "icone": "🏛️",
+              "texto": "Arco do Triunfo",
+              "duracao": "30min",
+              "info": {
+                "titulo": "Arc de Triomf",
+                "endereco": "Passeig de Lluís Companys",
+                "metro": "Arc de Triomf (L1)",
+                "construcao": "1888 (Exposição Universal)",
+                "estilo": "Neomudéjar (tijolos vermelhos)",
+                "dicas": [
+                  "Diferente do Arco de Paris",
+                  "Entrada gratuita do Parc de la Ciutadella",
+                  "Ótimo para fotos",
+                  "Símbolo da Barcelona moderna"
+                ]
+              }
+            },
+            {
+              "horario": "16h00",
+              "icone": "🌳",
+              "texto": "Parc de la Ciutadella",
+              "duracao": "1h",
+              "info": {
+                "titulo": "Parc de la Ciutadella",
+                "endereco": "Passeig de Picasso, 21",
+                "metro": "Arc de Triomf (L1) ou Ciutadella-Vila Olímpica (L4)",
+                "destaques": [
+                  "Cascata monumental (Gaudí colaborou)",
+                  "Lago com barquinhos",
+                  "Parlamento da Catalunha",
+                  "Zoo de Barcelona (opcional)"
+                ],
+                "dicas": [
+                  "Maior parque do centro de Barcelona",
+                  "Perfeito para relaxar",
+                  "Muitas áreas verdes",
+                  "Preparação mental para partida"
+                ]
+              }
+            },
+            {
+              "horario": "17h30",
+              "icone": "🏨",
+              "texto": "Retorno hotel",
+              "duracao": "30min",
+              "preco": "Gratuito*",
+              "info": {
+                "titulo": "Retorno ao Hotel - Preparação Partida",
+                "transporte": "Hola Barcelona (incluído)",
+                "atividades": [
+                  "Organizar bagagem",
+                  "Check-out antecipado (se possível)",
+                  "Descanso antes do jantar",
+                  "Preparação para voo 7h05"
+                ],
+                "dicas": [
+                  "Não chegar tarde (voo cedo)",
+                  "Organizar tudo para partida",
+                  "Jantar leve e cedo",
+                  "Dormir máximo 22h"
+                ]
+              }
+            },
+            {
+              "horario": "20h00",
+              "icone": "🍽️",
+              "texto": "Jantar leve no hotel",
+              "duracao": "1h",
+              "preco": "€15-20",
+              "info": {
+                "titulo": "Jantar Leve - Preparação Partida",
+                "opcoes": [
+                  "Room service do hotel",
+                  "Restaurante próximo ao hotel",
+                  "Tapas bar simples",
+                  "Supermercado (lanche)"
+                ],
+                "precoMedio": "€15-20 por pessoa",
+                "dicas": [
+                  "Jantar leve (voo cedo)",
+                  "Próximo ao hotel",
+                  "Dormir cedo obrigatório",
+                  "Preparação final da viagem"
+                ]
+              }
+            },
+            {
+              "horario": "05h00",
+              "icone": "✈️",
+              "texto": "Check-out + Aeroporto",
+              "duracao": "2h",
+              "preco": "Gratuito*",
+              "info": {
+                "titulo": "Partida - Voo 7h05",
+                "checkOut": "5h00 (2h antes do voo)",
+                "transporte": "Hola Barcelona (válido até 23h35)",
+                "aeroporto": "Terminal 2 (T2)",
+                "voo": "7h05 - Iberia",
+                "dicas": [
+                  "Acordar 4h30",
+                  "Check-out expresso",
+                  "Transporte incluído no Hola Barcelona",
+                  "Chegada aeroporto 5h30-6h00"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "orcamento": {
+        "pessoa": { "totalGeral": "€261" },
+        "casal": { "totalGeral": "€523" }
+      },
+      "dicas": [
+        "🎫 Agendamentos Obrigatórios: Casa Batlló, Park Güell, Sagrada Família",
+        "🎫 Agendamentos Recomendados: Bodega de Palma (jantar domingo)",
+        "🚇 Passe Recomendado: Hola Barcelona 72h (€26,30) - inclui aeroporto",
+        "📱 Apps Essenciais: Citymapper, Google Translate, Google Maps offline"
+      ]
+    };
+
+
+
+        // Função para renderizar estatísticas
+        function renderizarEstatisticas() {
+            const container = document.getElementById('estatisticas-container');
+            let html = '';
+            ROTEIRO_BARCELONA.estatisticas.forEach(stat => {
+                html += `
+                    <div class="stat-card">
+                        <div class="stat-number">${stat.numero}</div>
+                        <div class="stat-label">${stat.label}</div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar legenda
+        function renderizarLegenda() {
+            const container = document.getElementById('legenda-container');
+            let html = `
+                <h3><i class="fas fa-info-circle"></i> Legenda</h3>
+                <div class="legend-grid">
+            `;
+            ROTEIRO_BARCELONA.legenda.forEach(item => {
+                html += `
+                    <div class="legend-item">
+                        <i class="${item.icone}"></i> ${item.texto}
+                    </div>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar dias
+        function renderizarDias() {
+            const container = document.getElementById('dias-container');
+            let html = '';
+            
+            ROTEIRO_BARCELONA.dias.forEach(dia => {
+                html += `
+                    <div class="day-card">
+                        <div class="day-header">
+                            <h2>Dia ${dia.numero} - ${dia.titulo}</h2>
+                            <div class="date-info">${dia.data} • ${dia.diaSemana}</div>
+                        </div>
+                        <div class="activities">
+                `;
+                
+                dia.atividades.forEach(atividade => {
+                    let detailsHtml = '';
+                    
+                    if (atividade.duracao) {
+                        detailsHtml += `<span class="activity-duration">${atividade.duracao}</span>`;
+                    }
+                    
+                    if (atividade.preco) {
+                        detailsHtml += `<span class="price">${atividade.preco}</span>`;
+                    }
+                    
+                    if (atividade.reservado === true && atividade.reservaLink) {
+                        detailsHtml += `<a href="${atividade.reservaLink}" target="_blank" class="reserved-btn">✓ Reservado</a>`;
+                    } else if (atividade.reservado === false) {
+                        detailsHtml += `<button class="pending-btn">⚠ Reservar</button>`;
+                    }
+                    
+                    if (atividade.info) {
+                        const infoIndex = ROTEIRO_BARCELONA.dias.findIndex(d => d.numero === dia.numero);
+                        const atividadeIndex = dia.atividades.findIndex(a => a === atividade);
+                        detailsHtml += `<button class="info-btn" onclick="showInfoByIndex(${infoIndex}, ${atividadeIndex})">Info</button>`;
+                    } else {
+                        detailsHtml += `<button class="info-btn" disabled>Info</button>`;
+                    }
+                    
+                    html += `
+                        <div class="activity">
+                            <input type="checkbox" class="activity-checkbox">
+                            <span class="activity-time">${atividade.horario}</span>
+                            <span class="activity-icon">${atividade.icone}</span>
+                            <span class="activity-text">${atividade.texto}</span>
+                            <div class="activity-details">
+                                ${detailsHtml}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar orçamento
+        function renderizarOrcamento() {
+            const container = document.getElementById('orcamento-container');
+            container.innerHTML = `
+                <h3><i class="fas fa-calculator"></i> Orçamento Detalhado</h3>
+                
+                <div class="budget-toggle">
+                    <button class="toggle-btn active" onclick="toggleBudget('pessoa')">Por Pessoa</button>
+                    <button class="toggle-btn" onclick="toggleBudget('casal')">Para Casal</button>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #2c3e50, #34495e); color: white; border-radius: 15px;">
+                    <h4 style="margin-bottom: 10px;">
+                        <i class="fas fa-calculator"></i> 
+                        <span id="total-label">Total por Pessoa</span>
+                    </h4>
+                    <div style="font-size: 2rem; font-weight: bold;" id="total-amount">${ROTEIRO_BARCELONA.orcamento.pessoa.totalGeral}</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">*Valores estimados, sem hospedagem</div>
+                </div>
+            `;
+        }
+
+        // Função para renderizar dicas
+        function renderizarDicas() {
+            const container = document.getElementById('dicas-container');
+            let html = `
+                <div class="legend">
+                    <h3><i class="fas fa-lightbulb"></i> Dicas Importantes</h3>
+                    <div style="margin-top: 15px; text-align: left;">
+            `;
+            ROTEIRO_BARCELONA.dicas.forEach(dica => {
+                html += `<p><strong>${dica}</strong></p>`;
+            });
+            html += `</div></div>`;
+            container.innerHTML = html;
+        }
+
+        // Função para toggle do orçamento
+        function toggleBudget(type) {
+            const totalLabel = document.getElementById('total-label');
+            const totalAmount = document.getElementById('total-amount');
+            const buttons = document.querySelectorAll('.toggle-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            if (type === 'pessoa') {
+                totalLabel.textContent = 'Total por Pessoa';
+                totalAmount.textContent = ROTEIRO_BARCELONA.orcamento.pessoa.totalGeral;
+                buttons[0].classList.add('active');
+            } else {
+                totalLabel.textContent = 'Total para Casal';
+                totalAmount.textContent = ROTEIRO_BARCELONA.orcamento.casal.totalGeral;
+                buttons[1].classList.add('active');
+            }
+        }
+
+        // Função para checkboxes
+        function inicializarCheckboxes() {
+            const checkboxes = document.querySelectorAll('.activity-checkbox');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const activity = this.closest('.activity');
+                    if (this.checked) {
+                        activity.classList.add('completed');
+                    } else {
+                        activity.classList.remove('completed');
+                    }
+                    saveProgress();
+                });
+            });
+            
+            loadProgress();
+        }
+
+        function saveProgress() {
+            const checkboxes = document.querySelectorAll('.activity-checkbox');
+            const progress = Array.from(checkboxes).map(cb => cb.checked);
+            const storageKey = 'roteiro_' + ROTEIRO_BARCELONA.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            localStorage.setItem(storageKey, JSON.stringify(progress));
+        }
+
+        function loadProgress() {
+            const storageKey = 'roteiro_' + ROTEIRO_BARCELONA.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                const progress = JSON.parse(saved);
+                const checkboxes = document.querySelectorAll('.activity-checkbox');
+                checkboxes.forEach((checkbox, index) => {
+                    if (progress[index]) {
+                        checkbox.checked = true;
+                        checkbox.closest('.activity').classList.add('completed');
+                    }
+                });
+            }
+        }
+
+        // Função helper para acessar informações por índice
+        function showInfoByIndex(diaIndex, atividadeIndex) {
+            const infoData = ROTEIRO_BARCELONA.dias[diaIndex].atividades[atividadeIndex].info;
+            showInfo(infoData);
+        }
+
+        // Função para exibir informações no modal
+        function showInfo(infoData) {
+            const modalContent = document.getElementById('modalContent');
+            const modal = document.getElementById('infoModal');
+            
+            // Construir HTML das informações
+            let html = `<h3>${infoData.titulo}</h3>`;
+            
+            // Adicionar informações básicas se existirem
+            if (infoData.endereco) html += `<p><strong>Endereço:</strong> ${infoData.endereco}</p>`;
+            if (infoData.metro) html += `<p><strong>Metrô:</strong> ${infoData.metro}</p>`;
+            if (infoData.especialidade) html += `<p><strong>Especialidade:</strong> ${infoData.especialidade}</p>`;
+            if (infoData.precoMedio) html += `<p><strong>Preço médio:</strong> ${infoData.precoMedio}</p>`;
+            if (infoData.entrada) html += `<p><strong>Entrada:</strong> ${infoData.entrada}</p>`;
+            if (infoData.horarios) html += `<p><strong>Horários:</strong> ${infoData.horarios}</p>`;
+            if (infoData.ingresso) html += `<p><strong>Ingresso:</strong> ${infoData.ingresso}</p>`;
+            if (infoData.acesso) html += `<p><strong>Acesso:</strong> ${infoData.acesso}</p>`;
+            if (infoData.estrategia) html += `<p><strong>Estratégia:</strong> ${infoData.estrategia}</p>`;
+            if (infoData.objetivo) html += `<p><strong>Objetivo:</strong> ${infoData.objetivo}</p>`;
+            if (infoData.orcamento) html += `<p><strong>Orçamento:</strong> ${infoData.orcamento}</p>`;
+            if (infoData.terraco) html += `<p><strong>Terraço:</strong> ${infoData.terraco}</p>`;
+            if (infoData.visita) html += `<p><strong>Visita:</strong> ${infoData.visita}</p>`;
+            if (infoData.petitTrain) html += `<p><strong>Petit Train:</strong> ${infoData.petitTrain}</p>`;
+            if (infoData.dica) html += `<p><strong>Dica:</strong> ${infoData.dica}</p>`;
+            
+            // Adicionar listas se existirem
+            if (infoData.dicas && infoData.dicas.length > 0) {
+                html += `<p><strong>Dicas:</strong></p><ul>`;
+                infoData.dicas.forEach(dica => html += `<li>${dica}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.pontosFoto && infoData.pontosFoto.length > 0) {
+                html += `<p><strong>Pontos de foto:</strong></p><ul>`;
+                infoData.pontosFoto.forEach(ponto => html += `<li>${ponto}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro5h30 && infoData.roteiro5h30.length > 0) {
+                html += `<p><strong>Roteiro 5h30:</strong></p><ul>`;
+                infoData.roteiro5h30.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro6h && infoData.roteiro6h.length > 0) {
+                html += `<p><strong>Roteiro 6h com pausa:</strong></p><ul>`;
+                infoData.roteiro6h.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro3h && infoData.roteiro3h.length > 0) {
+                html += `<p><strong>Roteiro 3h:</strong></p><ul>`;
+                infoData.roteiro3h.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.estrategiaAntiCansaco && infoData.estrategiaAntiCansaco.length > 0) {
+                html += `<p><strong>Estratégia Anti-Cansaço:</strong></p><ul>`;
+                infoData.estrategiaAntiCansaco.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.obrasImperdiveis && infoData.obrasImperdiveis.length > 0) {
+                html += `<p><strong>Obras Imperdíveis:</strong></p><ul>`;
+                infoData.obrasImperdiveis.forEach(obra => html += `<li>${obra}</li>`);
+                html += `</ul>`;
+            }
+            
+            // Estruturas complexas específicas
+            if (infoData.locaisSugeridos && infoData.locaisSugeridos.length > 0) {
+                html += `<p><strong>Locais Sugeridos:</strong></p><ul>`;
+                infoData.locaisSugeridos.forEach(local => html += `<li>${local}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.atividadesOpcionais && infoData.atividadesOpcionais.length > 0) {
+                html += `<p><strong>Atividades Opcionais:</strong></p><ul>`;
+                infoData.atividadesOpcionais.forEach(atividade => html += `<li>${atividade}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.opcoes && infoData.opcoes.length > 0) {
+                html += `<p><strong>Opções:</strong></p><ul>`;
+                infoData.opcoes.forEach(opcao => html += `<li>${opcao}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.beneficios && infoData.beneficios.length > 0) {
+                html += `<p><strong>Benefícios:</strong></p><ul>`;
+                infoData.beneficios.forEach(beneficio => html += `<li>${beneficio}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.vantagens && infoData.vantagens.length > 0) {
+                html += `<p><strong>Vantagens:</strong></p><ul>`;
+                infoData.vantagens.forEach(vantagem => html += `<li>${vantagem}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.tiposRestaurante && infoData.tiposRestaurante.length > 0) {
+                html += `<p><strong>Tipos de Restaurante:</strong></p><ul>`;
+                infoData.tiposRestaurante.forEach(tipo => html += `<li>${tipo}</li>`);
+                html += `</ul>`;
+            }
+            
+            // Opções específicas para tempo livre
+            ['opcao1Compras', 'opcao2Cultura', 'opcao3Relaxar', 'opcao1RevisitarFavorito', 'opcao2PendenciaSemana', 'opcao3DescobertaNova', 'opcao4RelaxTotal'].forEach(opcaoKey => {
+                if (infoData[opcaoKey] && infoData[opcaoKey].length > 0) {
+                    const titulo = opcaoKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                    html += `<p><strong>${titulo}:</strong></p><ul>`;
+                    infoData[opcaoKey].forEach(item => html += `<li>${item}</li>`);
+                    html += `</ul>`;
+                }
+            });
+            
+            // Informações específicas de ruas
+            if (infoData.rueBuenosAires) html += `<p><strong>Rue Buenos Aires:</strong> ${infoData.rueBuenosAires}</p>`;
+            if (infoData.rueUniversite) html += `<p><strong>Rue de l'Université:</strong> ${infoData.rueUniversite}</p>`;
+            
+            // Inserir o HTML no modal e exibir
+            modalContent.innerHTML = html;
+            modal.style.display = 'block';
+        }
+
+        // Configuração do modal
+        const modal = document.getElementById('infoModal');
+        const span = document.getElementsByClassName('close')[0];
+
+        // Quando o usuário clica no X, fecha o modal
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // Quando o usuário clica fora do modal, fecha ele
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Função para inicializar elementos dinâmicos da página
+        function inicializarElementosDinamicos() {
+            // Atualizar título da página
+            document.title = ROTEIRO_BARCELONA.meta.titulo + ' - Checklist Prático';
+            
+            // Atualizar header
+            document.getElementById('roteiro-icone').className = ROTEIRO_BARCELONA.meta.icone;
+            document.getElementById('roteiro-titulo').textContent = ROTEIRO_BARCELONA.meta.titulo;
+            document.getElementById('roteiro-subtitulo').textContent = ROTEIRO_BARCELONA.meta.subtitulo;
+        }
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            inicializarElementosDinamicos();
+            renderizarEstatisticas();
+            renderizarLegenda();
+            renderizarDias();
+            renderizarOrcamento();
+            renderizarDicas();
+            inicializarCheckboxes();
+        });
+    </script>
+</body>
+</html>

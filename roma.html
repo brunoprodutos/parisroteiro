@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Roteiro Barcelona 2025 - Checklist Prático</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navegação entre roteiros -->
+        <div class="navigation">
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn">Paris</a>
+                <a href="chamonix.html" class="nav-btn">Chamonix</a>
+                <a href="florenca.html" class="nav-btn">Florença</a>
+                <a href="roma.html" class="nav-btn active">Roma</a>
+                <a href="barcelona.html" class="nav-btn ">Barcelona</a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1><i id="roteiro-icone" class="fas fa-map-marked-alt"></i> <span id="roteiro-titulo"></span></h1>
+            <p id="roteiro-subtitulo"></p>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="summary-stats" id="estatisticas-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Legenda -->
+        <div class="legend" id="legenda-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Dias do roteiro -->
+        <div id="dias-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Seção de Orçamento -->
+        <div class="budget-section" id="orcamento-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Dicas -->
+        <div id="dicas-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+    </div>
+
+    <!-- Modal para informações -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+
+    const ROTEIRO_ROMA = {
+      "meta": {
+        "titulo": "Caaaaaalmaaa não ta pronto",
+        "subtitulo": "07 a 11 de Outubro • Checklist Prática",
+        "icone": "fas fa-map-marked-alt"
+      },
+      "estatisticas": [
+        { "numero": "4", "label": "Dias em Barcelona" },
+        { "numero": "6", "label": "Agendamentos" },
+        { "numero": "€523", "label": "Orçamento Estimado (Casal)" },
+        { "numero": "20+", "label": "Atrações" }
+      ],
+      "legenda": [
+        { "icone": "fas fa-utensils", "texto": "Refeição" },
+        { "icone": "fas fa-coffee", "texto": "Café/Lanche" },
+        { "icone": "fas fa-clock", "texto": "Agendamento Necessário" },
+        { "icone": "fas fa-ticket-alt", "texto": "Ingresso Pago" },
+        { "icone": "fas fa-camera", "texto": "Foto Obrigatória" },
+        { "icone": "fas fa-subway", "texto": "Estação Metrô" }
+      ],
+      "dias": [
+        {
+          "numero": 1,
+          "titulo": "Chegada",
+          "data": "07/10/2025",
+          "diaSemana": "Terça",
+          "atividades": [
+            {
+                "horario": "16h19",
+                "icone": "✈️",
+                "texto": "Chegada trem Florença",
+                "duracao": "1h40min",
+                "info": {
+                    "titulo": "Jantar com Amigos",
+                    "horario": "18h+ (duração flexível)",
+                    "estrategia": "Deixar amigos escolherem o local",
+                    "orcamento": "€30-40 por pessoa",
+                    "tiposRestaurante": [
+                        "Bistrot tradicional: Experiência autêntica",
+                        "Brasserie moderna: Ambiente animado",
+                        "Restaurante de bairro: Descoberta local",
+                        "Wine bar: Foco em vinhos franceses"
+                    ],
+                    "vantagens": [
+                        "Conhecimento local dos amigos",
+                        "Possível desconto ou mesa reservada",
+                        "Experiência mais autêntica",
+                        "Flexibilidade total de horário"
+                    ]
+                }
+          
+    
+            }
+            
+          ]
+          
+        }
+        
+      ],
+      "orcamento": {
+        "pessoa": { "totalGeral": "€261" },
+        "casal": { "totalGeral": "€523" }
+      },
+      "dicas": [
+        "🎫 Agendamentos Obrigatórios: Casa Batlló, Park Güell, Sagrada Família",
+        "🎫 Agendamentos Recomendados: Bodega de Palma (jantar domingo)",
+        "🚇 Passe Recomendado: Hola Barcelona 72h (€26,30) - inclui aeroporto",
+        "📱 Apps Essenciais: Citymapper, Google Translate, Google Maps offline"
+      ]
+    };
+
+
+
+        // Função para renderizar estatísticas
+        function renderizarEstatisticas() {
+            const container = document.getElementById('estatisticas-container');
+            let html = '';
+            ROTEIRO_ROMA.estatisticas.forEach(stat => {
+                html += `
+                    <div class="stat-card">
+                        <div class="stat-number">${stat.numero}</div>
+                        <div class="stat-label">${stat.label}</div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar legenda
+        function renderizarLegenda() {
+            const container = document.getElementById('legenda-container');
+            let html = `
+                <h3><i class="fas fa-info-circle"></i> Legenda</h3>
+                <div class="legend-grid">
+            `;
+            ROTEIRO_ROMA.legenda.forEach(item => {
+                html += `
+                    <div class="legend-item">
+                        <i class="${item.icone}"></i> ${item.texto}
+                    </div>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar dias
+        function renderizarDias() {
+            const container = document.getElementById('dias-container');
+            let html = '';
+            
+            ROTEIRO_ROMA.dias.forEach(dia => {
+                html += `
+                    <div class="day-card">
+                        <div class="day-header">
+                            <h2>Dia ${dia.numero} - ${dia.titulo}</h2>
+                            <div class="date-info">${dia.data} • ${dia.diaSemana}</div>
+                        </div>
+                        <div class="activities">
+                `;
+                
+                dia.atividades.forEach(atividade => {
+                    let detailsHtml = '';
+                    
+                    if (atividade.duracao) {
+                        detailsHtml += `<span class="activity-duration">${atividade.duracao}</span>`;
+                    }
+                    
+                    if (atividade.preco) {
+                        detailsHtml += `<span class="price">${atividade.preco}</span>`;
+                    }
+                    
+                    if (atividade.reservado === true && atividade.reservaLink) {
+                        detailsHtml += `<a href="${atividade.reservaLink}" target="_blank" class="reserved-btn">✓ Reservado</a>`;
+                    } else if (atividade.reservado === false) {
+                        detailsHtml += `<button class="pending-btn">⚠ Reservar</button>`;
+                    }
+                    
+                    if (atividade.info) {
+                        const infoIndex = ROTEIRO_ROMA.dias.findIndex(d => d.numero === dia.numero);
+                        const atividadeIndex = dia.atividades.findIndex(a => a === atividade);
+                        detailsHtml += `<button class="info-btn" onclick="showInfoByIndex(${infoIndex}, ${atividadeIndex})">Info</button>`;
+                    } else {
+                        detailsHtml += `<button class="info-btn" disabled>Info</button>`;
+                    }
+                    
+                    html += `
+                        <div class="activity">
+                            <input type="checkbox" class="activity-checkbox">
+                            <span class="activity-time">${atividade.horario}</span>
+                            <span class="activity-icon">${atividade.icone}</span>
+                            <span class="activity-text">${atividade.texto}</span>
+                            <div class="activity-details">
+                                ${detailsHtml}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar orçamento
+        function renderizarOrcamento() {
+            const container = document.getElementById('orcamento-container');
+            container.innerHTML = `
+                <h3><i class="fas fa-calculator"></i> Orçamento Detalhado</h3>
+                
+                <div class="budget-toggle">
+                    <button class="toggle-btn active" onclick="toggleBudget('pessoa')">Por Pessoa</button>
+                    <button class="toggle-btn" onclick="toggleBudget('casal')">Para Casal</button>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #2c3e50, #34495e); color: white; border-radius: 15px;">
+                    <h4 style="margin-bottom: 10px;">
+                        <i class="fas fa-calculator"></i> 
+                        <span id="total-label">Total por Pessoa</span>
+                    </h4>
+                    <div style="font-size: 2rem; font-weight: bold;" id="total-amount">${ROTEIRO_ROMA.orcamento.pessoa.totalGeral}</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">*Valores estimados, sem hospedagem</div>
+                </div>
+            `;
+        }
+
+        // Função para renderizar dicas
+        function renderizarDicas() {
+            const container = document.getElementById('dicas-container');
+            let html = `
+                <div class="legend">
+                    <h3><i class="fas fa-lightbulb"></i> Dicas Importantes</h3>
+                    <div style="margin-top: 15px; text-align: left;">
+            `;
+            ROTEIRO_ROMA.dicas.forEach(dica => {
+                html += `<p><strong>${dica}</strong></p>`;
+            });
+            html += `</div></div>`;
+            container.innerHTML = html;
+        }
+
+        // Função para toggle do orçamento
+        function toggleBudget(type) {
+            const totalLabel = document.getElementById('total-label');
+            const totalAmount = document.getElementById('total-amount');
+            const buttons = document.querySelectorAll('.toggle-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            if (type === 'pessoa') {
+                totalLabel.textContent = 'Total por Pessoa';
+                totalAmount.textContent = ROTEIRO_ROMA.orcamento.pessoa.totalGeral;
+                buttons[0].classList.add('active');
+            } else {
+                totalLabel.textContent = 'Total para Casal';
+                totalAmount.textContent = ROTEIRO_ROMA.orcamento.casal.totalGeral;
+                buttons[1].classList.add('active');
+            }
+        }
+
+        // Função para checkboxes
+        function inicializarCheckboxes() {
+            const checkboxes = document.querySelectorAll('.activity-checkbox');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const activity = this.closest('.activity');
+                    if (this.checked) {
+                        activity.classList.add('completed');
+                    } else {
+                        activity.classList.remove('completed');
+                    }
+                    saveProgress();
+                });
+            });
+            
+            loadProgress();
+        }
+
+        function saveProgress() {
+            const checkboxes = document.querySelectorAll('.activity-checkbox');
+            const progress = Array.from(checkboxes).map(cb => cb.checked);
+            const storageKey = 'roteiro_' + ROTEIRO_ROMA.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            localStorage.setItem(storageKey, JSON.stringify(progress));
+        }
+
+        function loadProgress() {
+            const storageKey = 'roteiro_' + ROTEIRO_ROMA.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                const progress = JSON.parse(saved);
+                const checkboxes = document.querySelectorAll('.activity-checkbox');
+                checkboxes.forEach((checkbox, index) => {
+                    if (progress[index]) {
+                        checkbox.checked = true;
+                        checkbox.closest('.activity').classList.add('completed');
+                    }
+                });
+            }
+        }
+
+        // Função helper para acessar informações por índice
+        function showInfoByIndex(diaIndex, atividadeIndex) {
+            const infoData = ROTEIRO_ROMA.dias[diaIndex].atividades[atividadeIndex].info;
+            showInfo(infoData);
+        }
+
+        // Função para exibir informações no modal
+        function showInfo(infoData) {
+            const modalContent = document.getElementById('modalContent');
+            const modal = document.getElementById('infoModal');
+            
+            // Construir HTML das informações
+            let html = `<h3>${infoData.titulo}</h3>`;
+            
+            // Adicionar informações básicas se existirem
+            if (infoData.endereco) html += `<p><strong>Endereço:</strong> ${infoData.endereco}</p>`;
+            if (infoData.metro) html += `<p><strong>Metrô:</strong> ${infoData.metro}</p>`;
+            if (infoData.especialidade) html += `<p><strong>Especialidade:</strong> ${infoData.especialidade}</p>`;
+            if (infoData.precoMedio) html += `<p><strong>Preço médio:</strong> ${infoData.precoMedio}</p>`;
+            if (infoData.entrada) html += `<p><strong>Entrada:</strong> ${infoData.entrada}</p>`;
+            if (infoData.horarios) html += `<p><strong>Horários:</strong> ${infoData.horarios}</p>`;
+            if (infoData.ingresso) html += `<p><strong>Ingresso:</strong> ${infoData.ingresso}</p>`;
+            if (infoData.acesso) html += `<p><strong>Acesso:</strong> ${infoData.acesso}</p>`;
+            if (infoData.estrategia) html += `<p><strong>Estratégia:</strong> ${infoData.estrategia}</p>`;
+            if (infoData.objetivo) html += `<p><strong>Objetivo:</strong> ${infoData.objetivo}</p>`;
+            if (infoData.orcamento) html += `<p><strong>Orçamento:</strong> ${infoData.orcamento}</p>`;
+            if (infoData.terraco) html += `<p><strong>Terraço:</strong> ${infoData.terraco}</p>`;
+            if (infoData.visita) html += `<p><strong>Visita:</strong> ${infoData.visita}</p>`;
+            if (infoData.petitTrain) html += `<p><strong>Petit Train:</strong> ${infoData.petitTrain}</p>`;
+            if (infoData.dica) html += `<p><strong>Dica:</strong> ${infoData.dica}</p>`;
+            
+            // Adicionar listas se existirem
+            if (infoData.dicas && infoData.dicas.length > 0) {
+                html += `<p><strong>Dicas:</strong></p><ul>`;
+                infoData.dicas.forEach(dica => html += `<li>${dica}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.pontosFoto && infoData.pontosFoto.length > 0) {
+                html += `<p><strong>Pontos de foto:</strong></p><ul>`;
+                infoData.pontosFoto.forEach(ponto => html += `<li>${ponto}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro5h30 && infoData.roteiro5h30.length > 0) {
+                html += `<p><strong>Roteiro 5h30:</strong></p><ul>`;
+                infoData.roteiro5h30.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro6h && infoData.roteiro6h.length > 0) {
+                html += `<p><strong>Roteiro 6h com pausa:</strong></p><ul>`;
+                infoData.roteiro6h.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro3h && infoData.roteiro3h.length > 0) {
+                html += `<p><strong>Roteiro 3h:</strong></p><ul>`;
+                infoData.roteiro3h.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.estrategiaAntiCansaco && infoData.estrategiaAntiCansaco.length > 0) {
+                html += `<p><strong>Estratégia Anti-Cansaço:</strong></p><ul>`;
+                infoData.estrategiaAntiCansaco.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.obrasImperdiveis && infoData.obrasImperdiveis.length > 0) {
+                html += `<p><strong>Obras Imperdíveis:</strong></p><ul>`;
+                infoData.obrasImperdiveis.forEach(obra => html += `<li>${obra}</li>`);
+                html += `</ul>`;
+            }
+            
+            // Estruturas complexas específicas
+            if (infoData.locaisSugeridos && infoData.locaisSugeridos.length > 0) {
+                html += `<p><strong>Locais Sugeridos:</strong></p><ul>`;
+                infoData.locaisSugeridos.forEach(local => html += `<li>${local}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.atividadesOpcionais && infoData.atividadesOpcionais.length > 0) {
+                html += `<p><strong>Atividades Opcionais:</strong></p><ul>`;
+                infoData.atividadesOpcionais.forEach(atividade => html += `<li>${atividade}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.opcoes && infoData.opcoes.length > 0) {
+                html += `<p><strong>Opções:</strong></p><ul>`;
+                infoData.opcoes.forEach(opcao => html += `<li>${opcao}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.beneficios && infoData.beneficios.length > 0) {
+                html += `<p><strong>Benefícios:</strong></p><ul>`;
+                infoData.beneficios.forEach(beneficio => html += `<li>${beneficio}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.vantagens && infoData.vantagens.length > 0) {
+                html += `<p><strong>Vantagens:</strong></p><ul>`;
+                infoData.vantagens.forEach(vantagem => html += `<li>${vantagem}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.tiposRestaurante && infoData.tiposRestaurante.length > 0) {
+                html += `<p><strong>Tipos de Restaurante:</strong></p><ul>`;
+                infoData.tiposRestaurante.forEach(tipo => html += `<li>${tipo}</li>`);
+                html += `</ul>`;
+            }
+            
+            // Opções específicas para tempo livre
+            ['opcao1Compras', 'opcao2Cultura', 'opcao3Relaxar', 'opcao1RevisitarFavorito', 'opcao2PendenciaSemana', 'opcao3DescobertaNova', 'opcao4RelaxTotal'].forEach(opcaoKey => {
+                if (infoData[opcaoKey] && infoData[opcaoKey].length > 0) {
+                    const titulo = opcaoKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                    html += `<p><strong>${titulo}:</strong></p><ul>`;
+                    infoData[opcaoKey].forEach(item => html += `<li>${item}</li>`);
+                    html += `</ul>`;
+                }
+            });
+            
+            // Informações específicas de ruas
+            if (infoData.rueBuenosAires) html += `<p><strong>Rue Buenos Aires:</strong> ${infoData.rueBuenosAires}</p>`;
+            if (infoData.rueUniversite) html += `<p><strong>Rue de l'Université:</strong> ${infoData.rueUniversite}</p>`;
+            
+            // Inserir o HTML no modal e exibir
+            modalContent.innerHTML = html;
+            modal.style.display = 'block';
+        }
+
+        // Configuração do modal
+        const modal = document.getElementById('infoModal');
+        const span = document.getElementsByClassName('close')[0];
+
+        // Quando o usuário clica no X, fecha o modal
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // Quando o usuário clica fora do modal, fecha ele
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Função para inicializar elementos dinâmicos da página
+        function inicializarElementosDinamicos() {
+            // Atualizar título da página
+            document.title = ROTEIRO_ROMA.meta.titulo + ' - Checklist Prático';
+            
+            // Atualizar header
+            document.getElementById('roteiro-icone').className = ROTEIRO_ROMA.meta.icone;
+            document.getElementById('roteiro-titulo').textContent = ROTEIRO_ROMA.meta.titulo;
+            document.getElementById('roteiro-subtitulo').textContent = ROTEIRO_ROMA.meta.subtitulo;
+        }
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            inicializarElementosDinamicos();
+            renderizarEstatisticas();
+            renderizarLegenda();
+            renderizarDias();
+            renderizarOrcamento();
+            renderizarDicas();
+            inicializarCheckboxes();
+        });
+    </script>
+</body>
+</html>

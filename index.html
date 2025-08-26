@@ -3,1446 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roteiro Paris 2025 - Checklist Prático</title>
+    <title id="page-title">Roteiro Paris 2025 - Checklist Prático</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px;
-        }
-
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 30px;
-            padding: 20px;
-        }
-
-        .header h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        .header p {
-            font-size: clamp(1rem, 3vw, 1.3rem);
-            opacity: 0.9;
-            font-style: italic;
-        }
-
-        .day-card {
-            background: white;
-            border-radius: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid #e8e8e8;
-        }
-
-        .day-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-
-        .day-header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 25px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .day-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .day-header h2 {
-            font-size: clamp(1.3rem, 4vw, 2rem);
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 1;
-            font-weight: 300;
-        }
-
-        .day-header .date-info {
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-            font-style: italic;
-        }
-
-        .activities {
-            padding: 25px;
-        }
-
-        .activity {
-            display: flex;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #f5f5f5;
-            transition: all 0.3s ease;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .activity:last-child {
-            border-bottom: none;
-        }
-
-        .activity:hover {
-            background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 12px;
-            padding-left: 15px;
-            margin: 0 -10px;
-        }
-
-        .activity-checkbox {
-            margin-right: 15px;
-            width: 22px;
-            height: 22px;
-            cursor: pointer;
-            accent-color: #2c3e50;
-            flex-shrink: 0;
-        }
-
-        .activity-time {
-            font-weight: bold;
-            color: #2c3e50;
-            min-width: 70px;
-            margin-right: 15px;
-            font-size: clamp(0.85rem, 2vw, 1rem);
-            flex-shrink: 0;
-        }
-
-        .activity-icon {
-            margin-right: 10px;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-
-        .activity-text {
-            flex: 1;
-            font-size: clamp(0.9rem, 2.2vw, 1rem);
-            min-width: 200px;
-        }
-
-        .activity-details {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 5px;
-        }
-
-        .activity-duration {
-            color: #666;
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
-            font-style: italic;
-        }
-
-        .booking-required {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: clamp(0.7rem, 1.8vw, 0.8rem);
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .price {
-            color: #27ae60;
-            font-weight: bold;
-            font-size: clamp(0.85rem, 2vw, 0.95rem);
-        }
-
-        .info-btn {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .info-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-        }
-
-        .info-btn:disabled {
-            background: #bdc3c7;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .reserved-btn {
-            background: linear-gradient(135deg, #27ae60, #2ecc71);
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .reserved-btn:hover {
-            background: linear-gradient(135deg, #229954, #27ae60);
-            transform: scale(1.02);
-        }
-
-        .legend {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 1px solid #e8e8e8;
-        }
-
-        .legend h3 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            font-weight: 300;
-            text-align: center;
-        }
-
-        .legend-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            font-size: clamp(0.85rem, 2vw, 0.95rem);
-            padding: 8px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .legend-item i {
-            margin-right: 8px;
-            width: 20px;
-        }
-
-        .summary-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .stat-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            border: 1px solid #e8e8e8;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: clamp(0.85rem, 2vw, 0.95rem);
-        }
-
-        .budget-section {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 1px solid #e8e8e8;
-        }
-
-        .budget-section h3 {
-            color: #2c3e50;
-            margin-bottom: 25px;
-            font-size: clamp(1.3rem, 4vw, 1.8rem);
-            text-align: center;
-            font-weight: 300;
-        }
-
-        .budget-toggle {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 25px;
-            gap: 10px;
-        }
-
-        .toggle-btn {
-            background: #ecf0f1;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: clamp(0.9rem, 2.2vw, 1rem);
-            font-weight: bold;
-        }
-
-        .toggle-btn.active {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-        }
-
-        .budget-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .budget-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 20px;
-            border-left: 5px solid #2c3e50;
-        }
-
-        .budget-card h4 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .budget-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: clamp(0.85rem, 2vw, 0.95rem);
-        }
-
-        .budget-total {
-            border-top: 2px solid #2c3e50;
-            padding-top: 10px;
-            margin-top: 15px;
-            font-weight: bold;
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-        }
-
-        .completed {
-            opacity: 0.6;
-            text-decoration: line-through;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 30px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        .close:hover {
-            color: #2c3e50;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-
-            .activity {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .activity-time {
-                min-width: auto;
-                margin-right: 0;
-            }
-
-            .activity-details {
-                width: 100%;
-                justify-content: flex-start;
-            }
-
-            .budget-toggle {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .toggle-btn {
-                width: 200px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .summary-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .budget-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <div class="container">
+        <!-- Navegação entre roteiros -->
+        <div class="navigation">
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn active">Paris</a>
+                <a href="chamonix.html" class="nav-btn">Chamonix</a>
+                <a href="florenca.html" class="nav-btn">Florença</a>
+                <a href="roma.html" class="nav-btn">Roma</a>
+                <a href="barcelona.html" class="nav-btn">Barcelona</a>
+            </div>
+        </div>
+
+        <!-- Header -->
         <div class="header">
-            <h1><i class="fas fa-map-marked-alt"></i> Roteiro Paris 2025</h1>
-            <p>24 a 30 de Setembro • Checklist Prática</p>
+            <h1><i id="roteiro-icone" class="fas fa-map-marked-alt"></i> <span id="roteiro-titulo"></span></h1>
+            <p id="roteiro-subtitulo"></p>
         </div>
 
-        <div class="summary-stats">
-            <div class="stat-card">
-                <div class="stat-number">7</div>
-                <div class="stat-label">Dias em Paris</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">8</div>
-                <div class="stat-label">Agendamentos</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">€400</div>
-                <div class="stat-label">Orçamento Estimado</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">25+</div>
-                <div class="stat-label">Atrações</div>
-            </div>
+        <!-- Estatísticas -->
+        <div class="summary-stats" id="estatisticas-container">
+            <!-- Será preenchido dinamicamente -->
         </div>
 
-        <div class="legend">
-            <h3><i class="fas fa-info-circle"></i> Legenda</h3>
-            <div class="legend-grid">
-                <div class="legend-item">
-                    <i class="fas fa-utensils"></i> Refeição
-                </div>
-                <div class="legend-item">
-                    <i class="fas fa-coffee"></i> Café/Lanche
-                </div>
-                <div class="legend-item">
-                    <i class="fas fa-clock"></i> Agendamento Necessário
-                </div>
-                <div class="legend-item">
-                    <i class="fas fa-ticket-alt"></i> Ingresso Pago
-                </div>
-                <div class="legend-item">
-                    <i class="fas fa-camera"></i> Foto Obrigatória
-                </div>
-                <div class="legend-item">
-                    <i class="fas fa-subway"></i> Estação Metrô
-                </div>
-            </div>
+        <!-- Legenda -->
+        <div class="legend" id="legenda-container">
+            <!-- Será preenchido dinamicamente -->
         </div>
 
-        <!-- Dia 1 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Dia 1 - Chegada</h2>
-                <div class="date-info">24/09/2025 • Quarta-feira</div>
-            </div>
-            <div class="activities">
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">23h30</span>
-                    <span class="activity-icon">🏨</span>
-                    <span class="activity-text">Check-In no hotel</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">00h30</span>
-                    <span class="activity-icon">😴</span>
-                    <span class="activity-text">Descanso (preparar para dia intenso)</span>
-                    <div class="activity-details">
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dia 2 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Dia 2 - Centro e Torre Eiffel</h2>
-                <div class="date-info">25/09/2025 • Quinta-feira</div>
-            </div>
-            <div class="activities">
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">09h00</span>
-                    <span class="activity-icon">⏰</span>
-                    <span class="activity-text">Acordar e preparar</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">09h30</span>
-                    <span class="activity-icon">☕</span>
-                    <span class="activity-text">Café Carette (Trocadéro)</span>
-                    <div class="activity-details">
-                        <span class="price">€15</span>
-                        <span class="activity-duration">45min</span>
-                        <button class="info-btn" onclick="showInfo('carette')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">10h15</span>
-                    <span class="activity-icon">📸</span>
-                    <span class="activity-text">Trocadéro (vista Torre Eiffel) + Av. de Camões</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" onclick="showInfo('trocadero')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">10h45</span>
-                    <span class="activity-icon">🗼</span>
-                    <span class="activity-text">Torre Eiffel (explorar arredores)</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" onclick="showInfo('torre-eiffel-arredores')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">11h45</span>
-                    <span class="activity-icon">📸</span>
-                    <span class="activity-text">Rue Buenos Aires + Rue de l'Université (fotos)</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" onclick="showInfo('ruas-fotos')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">12h15</span>
-                    <span class="activity-icon">🌉</span>
-                    <span class="activity-text">Ponte Alexandre III</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">20min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">12h35</span>
-                    <span class="activity-icon">🏛️</span>
-                    <span class="activity-text">Place de la Concorde</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">15min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">12h50</span>
-                    <span class="activity-icon">🏛️</span>
-                    <span class="activity-text">Petit Palais</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" onclick="showInfo('petit-palais')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">13h20</span>
-                    <span class="activity-icon">🏛️</span>
-                    <span class="activity-text">Grand Palais (exterior)</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">15min</span>
-                        <button class="info-btn" onclick="showInfo('grand-palais')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">13h35</span>
-                    <span class="activity-icon">🍽️</span>
-                    <span class="activity-text">Almoço (sugestão: próximo às Tulherias)</span>
-                    <div class="activity-details">
-                        <span class="price">€20-25</span>
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">14h35</span>
-                    <span class="activity-icon">🌳</span>
-                    <span class="activity-text">Jardim das Tulherias</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">45min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">15h20</span>
-                    <span class="activity-icon">🛍️</span>
-                    <span class="activity-text">Champs-Élysées</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">1h30</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">16h50</span>
-                    <span class="activity-icon">🏛️</span>
-                    <span class="activity-text">Arco do Triunfo (subir para pôr do sol)</span>
-                    <div class="activity-details">
-                        <a href="https://drive.google.com/file/d/1MJTDIDxm8mX4AHGCTBoHYIepEGK67K5Z" target="_blank" class="reserved-btn">✓ Reservado</a>
-                        <span class="price">€13</span>
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">19h30</span>
-                    <span class="activity-icon">🍽️</span>
-                    <span class="activity-text">Jantar Chez André</span>
-                    <div class="activity-details">
-                        <span class="price">€21</span>
-                        <span class="activity-duration">1h30</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dia 3 - VERSAILLES (trocado com domingo) -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Dia 3 - Versailles</h2>
-                <div class="date-info">26/09/2025 • Sexta-feira</div>
-            </div>
-            <div class="activities">
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">07h00</span>
-                    <span class="activity-icon">⏰</span>
-                    <span class="activity-text">Acordar CEDO</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">08h00</span>
-                    <span class="activity-icon">🚂</span>
-                    <span class="activity-text">Deslocamento para Versailles (RER C)</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">09h00</span>
-                    <span class="activity-icon">👑</span>
-                    <span class="activity-text">Palácio de Versailles (roteiro completo)</span>
-                    <div class="activity-details">
-                        <a href="https://drive.google.com/file/d/1Npk5RiAgjPjpTnC11aF3c-4N1sLsGPYg" target="_blank" class="reserved-btn">✓ Reservado</a>
-                        <span class="price">€32</span>
-                        <span class="activity-duration">5h30</span>
-                        <button class="info-btn" onclick="showInfo('versailles-completo')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">14h30</span>
-                    <span class="activity-icon">🚂</span>
-                    <span class="activity-text">Retorno para Paris</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">16h00</span>
-                    <span class="activity-icon">🍽️</span>
-                    <span class="activity-text">Almoço tardio Chez Jantou</span>
-                    <div class="activity-details">
-                        <span class="price">€19</span>
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">18h30</span>
-                    <span class="activity-icon">🚢</span>
-                    <span class="activity-text">Cruzeiro Noturno Rio Sena - Flexível</span>
-                    <div class="activity-details">
-                        <a href="https://drive.google.com/file/d/1ArYihq434bXL8_nhb4ACVRTRwCgpJUis" target="_blank" class="reserved-btn">✓ Reservado</a>
-                        <span class="price">€15</span>
-                        <span class="activity-duration">1h15</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">19h45</span>
-                    <span class="activity-icon">🗼</span>
-                    <span class="activity-text">Torre Eiffel iluminada</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">20h15</span>
-                    <span class="activity-icon">🍽️</span>
-                    <span class="activity-text">Jantar L'As du Fallafel</span>
-                    <div class="activity-details">
-                        <span class="price">€10</span>
-                        <span class="activity-duration">45min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dia 4 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Dia 4 - Montmartre</h2>
-                <div class="date-info">27/09/2025 • Sábado</div>
-            </div>
-            <div class="activities">
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">08h00</span>
-                    <span class="activity-icon">⏰</span>
-                    <span class="activity-text">Acordar</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">09h00</span>
-                    <span class="activity-icon">⛪</span>
-                    <span class="activity-text">Basílica Sacré-Cœur</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" onclick="showInfo('sacre-coeur')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">10h00</span>
-                    <span class="activity-icon">🎨</span>
-                    <span class="activity-text">Place du Tertre (artistas)</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">45min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">10h45</span>
-                    <span class="activity-icon">🏠</span>
-                    <span class="activity-text">Rue de l'Abreuvoir + Maison Rose</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">11h15</span>
-                    <span class="activity-icon">💕</span>
-                    <span class="activity-text">Muro do Eu Te Amo</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">20min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">11h35</span>
-                    <span class="activity-icon">🎭</span>
-                    <span class="activity-text">Moulin Rouge (exterior)</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">15min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">12h30</span>
-                    <span class="activity-icon">🍽️</span>
-                    <span class="activity-text">Almoço Bouillon Pigalle OU Pink Mamma</span>
-                    <div class="activity-details">
-                        <span class="booking-required">⏰ Reservar</span>
-                        <span class="price">€25-30</span>
-                        <span class="activity-duration">1h30</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">14h00</span>
-                    <span class="activity-icon">🍷</span>
-                    <span class="activity-text">Encontro com Amigos Parisienses</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">2h</span>
-                        <button class="info-btn" onclick="showInfo('encontro-amigos')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">16h00</span>
-                    <span class="activity-icon">🚶‍♀️</span>
-                    <span class="activity-text">Tempo Livre (opções flexíveis)</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">2h</span>
-                        <button class="info-btn" onclick="showInfo('tempo-livre-sabado')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">17h00</span>
-                    <span class="activity-icon">🌅</span>
-                    <span class="activity-text">Galeria Lafayette para pôr do sol</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" onclick="showInfo('galeria-lafayette')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">18h00</span>
-                    <span class="activity-icon">🍽️</span>
-                    <span class="activity-text">Jantar com Amigos (local à escolha deles)</span>
-                    <div class="activity-details">
-                        <span class="price">€30-40</span>
-                        <span class="activity-duration">2h+</span>
-                        <button class="info-btn" onclick="showInfo('jantar-amigos')">Info</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dia 5 - QUARTIER LATIN (trocado com sexta, acordar mais tarde) -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Dia 5 - Quartier Latin</h2>
-                <div class="date-info">28/09/2025 • Domingo</div>
-            </div>
-            <div class="activities">
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">08h30</span>
-                    <span class="activity-icon">⏰</span>
-                    <span class="activity-text">Acordar (horário mais relaxado)</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">09h00</span>
-                    <span class="activity-icon">☕</span>
-                    <span class="activity-text">Café Les Deux Magots</span>
-                    <div class="activity-details">
-                        <span class="price">€13</span>
-                        <span class="activity-duration">45min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">09h45</span>
-                    <span class="activity-icon">🌳</span>
-                    <span class="activity-text">Jardim de Luxemburgo</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">1h15</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">11h00</span>
-                    <span class="activity-icon">🏛️</span>
-                    <span class="activity-text">Panteão</span>
-                    <div class="activity-details">
-                        <a href="https://drive.google.com/file/d/1by3ezpwZE6WDh-8NXQ9ARldkIEfBoIOc" target="_blank" class="reserved-btn">✓ Reservado</a>
-                        <span class="price">€11,50</span>
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">12h00</span>
-                    <span class="activity-icon">🥐</span>
-                    <span class="activity-text">Lanche Boulangerie Moderne (pão de chocolate Emily)</span>
-                    <div class="activity-details">
-                        <span class="price">€5</span>
-                        <span class="activity-duration">15min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">12h15</span>
-                    <span class="activity-icon">📸</span>
-                    <span class="activity-text">Casa da Emily (foto rápida)</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">10min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">12h30</span>
-                    <span class="activity-icon">⛪</span>
-                    <span class="activity-text">Catedral Notre-Dame (exterior) - Reservar interior 2 dias antes</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">13h00</span>
-                    <span class="activity-icon">⛪</span>
-                    <span class="activity-text">Sainte-Chapelle</span>
-                    <div class="activity-details">
-                        <span class="booking-required">⏰ Reservar</span>
-                        <span class="price">€11,50</span>
-                        <span class="activity-duration">45min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">13h45</span>
-                    <span class="activity-icon">🏝️</span>
-                    <span class="activity-text">Île Saint-Louis</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">45min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">14h30</span>
-                    <span class="activity-icon">🍽️</span>
-                    <span class="activity-text">Refeição Au P'tit Grec</span>
-                    <div class="activity-details">
-                        <span class="price">€9-15</span>
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dia 6 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Dia 6 - Louvre e Ópera</h2>
-                <div class="date-info">29/09/2025 • Segunda-feira</div>
-            </div>
-            <div class="activities">
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">08h00</span>
-                    <span class="activity-icon">⏰</span>
-                    <span class="activity-text">Acordar</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">08h30</span>
-                    <span class="activity-icon">☕</span>
-                    <span class="activity-text">Café Paul (Louvre) OU Café Lucy</span>
-                    <div class="activity-details">
-                        <span class="price">€12</span>
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">09h00</span>
-                    <span class="activity-icon">🎨</span>
-                    <span class="activity-text">Museu do Louvre (roteiro estratégico com pausas)</span>
-                    <div class="activity-details">
-                        <a href="https://drive.google.com/file/d/1z-F45CxWtR0xPrckcKOe8RU4NM-8IcrF" target="_blank" class="reserved-btn">✓ Reservado</a>
-                        <span class="price">€22</span>
-                        <span class="activity-duration">6h</span>
-                        <button class="info-btn" onclick="showInfo('louvre-completo')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">15h00</span>
-                    <span class="activity-icon">🍽️</span>
-                    <span class="activity-text">Almoço Bo&Mie</span>
-                    <div class="activity-details">
-                        <span class="price">€15</span>
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">16h00</span>
-                    <span class="activity-icon">🎭</span>
-                    <span class="activity-text">Ópera Garnier (fecha 17h) - Reservar com 1 mês de antecedência</span>
-                    <div class="activity-details">
-                        <span class="booking-required">⏰ Reservar</span>
-                        <span class="price">€14</span>
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">18h00</span>
-                    <span class="activity-icon">🍽️</span>
-                    <span class="activity-text">Jantar no Restaurante Comme un Bouillon</span>
-                    <div class="activity-details">
-                        <span class="price">€25</span>
-                        <span class="activity-duration">2h</span>
-                        <button class="info-btn" onclick="showInfo('comme-bouillon')">Info</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dia 7 -->
-        <div class="day-card">
-            <div class="day-header">
-                <h2>Dia 7 - Marais e Partida</h2>
-                <div class="date-info">30/09/2025 • Terça-feira</div>
-            </div>
-            <div class="activities">
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">08h00</span>
-                    <span class="activity-icon">⏰</span>
-                    <span class="activity-text">Acordar</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">09h00</span>
-                    <span class="activity-icon">🏛️</span>
-                    <span class="activity-text">Bairro Le Marais (Rua das Roseiras)</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">1h</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">10h00</span>
-                    <span class="activity-icon">🏛️</span>
-                    <span class="activity-text">Place des Vosges</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">30min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">10h30</span>
-                    <span class="activity-icon">🎨</span>
-                    <span class="activity-text">Museu D'Orsay (roteiro impressionistas)</span>
-                    <div class="activity-details">
-                        <a href="https://drive.google.com/file/d/14zTpXsrO_IslJtSDuYcJ9rU1nWUtOvU4" target="_blank" class="reserved-btn">✓ Reservado</a>
-                        <span class="price">€16</span>
-                        <span class="activity-duration">3h</span>
-                        <button class="info-btn" onclick="showInfo('dorsay-completo')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">13h30</span>
-                    <span class="activity-icon">🥞</span>
-                    <span class="activity-text">Lanche Gallete Cafe</span>
-                    <div class="activity-details">
-                        <span class="price">€16</span>
-                        <span class="activity-duration">45min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">14h30</span>
-                    <span class="activity-icon">⏸️</span>
-                    <span class="activity-text">Pausa Estratégica</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">1h30</span>
-                        <button class="info-btn" onclick="showInfo('pausa-estrategica')">Info</button>
-                    </div>
-                </div>
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">16h00</span>
-                    <span class="activity-icon">🔄</span>
-                    <span class="activity-text">Revisita ou Pendência</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">2h</span>
-                        <button class="info-btn" onclick="showInfo('opcoes-domingo')">Info</button>
-                    </div>
-                </div>
-
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">18h00</span>
-                    <span class="activity-icon">🧳</span>
-                    <span class="activity-text">Preparar bagagens</span>
-                    <div class="activity-details">
-                        <span class="activity-duration">15min</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-
-                <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">18h17</span>
-                    <span class="activity-icon">🚂</span>
-                    <span class="activity-text">Trem para Chamonix</span>
-                    <div class="activity-details">
-                        <span class="booking-required">⚠️ NÃO ATRASAR</span>
-                        <button class="info-btn" disabled>Info</button>
-                    </div>
-                </div>
-            </div>
+        <!-- Dias do roteiro -->
+        <div id="dias-container">
+            <!-- Será preenchido dinamicamente -->
         </div>
 
         <!-- Seção de Orçamento -->
-        <div class="budget-section">
-            <h3><i class="fas fa-calculator"></i> Orçamento Detalhado</h3>
-            
-            <div class="budget-toggle">
-                <button class="toggle-btn active" onclick="toggleBudget('pessoa')">Por Pessoa</button>
-                <button class="toggle-btn" onclick="toggleBudget('casal')">Para Casal</button>
-            </div>
-
-            <div id="budget-pessoa" class="budget-grid">
-                <div class="budget-card">
-                    <h4><i class="fas fa-utensils"></i> Alimentação</h4>
-                    <div class="budget-item">
-                        <span>Café da manhã (6x)</span>
-                        <span>€78</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Almoços (6x)</span>
-                        <span>€120</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Jantares (5x)</span>
-                        <span>€105</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Lanches/bebidas</span>
-                        <span>€40</span>
-                    </div>
-                    <div class="budget-total">
-                        <span>Total Alimentação</span>
-                        <span>€343</span>
-                    </div>
-                </div>
-
-                <div class="budget-card">
-                    <h4><i class="fas fa-ticket-alt"></i> Atrações</h4>
-                    <div class="budget-item">
-                        <span>Arco do Triunfo</span>
-                        <span>€13</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Louvre</span>
-                        <span>€22</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Versailles (Passport)</span>
-                        <span>€32</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Petit Train Versailles</span>
-                        <span>€9</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>D'Orsay</span>
-                        <span>€16</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Panteão</span>
-                        <span>€11,50</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Sainte-Chapelle</span>
-                        <span>€11,50</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Ópera Garnier</span>
-                        <span>€14</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Cruzeiro Sena</span>
-                        <span>€15</span>
-                    </div>
-                    <div class="budget-total">
-                        <span>Total Atrações</span>
-                        <span>€144</span>
-                    </div>
-                </div>
-
-                <div class="budget-card">
-                    <h4><i class="fas fa-subway"></i> Transporte</h4>
-                    <div class="budget-item">
-                        <span>Passe Navigo Semanal</span>
-                        <span>€30</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Táxis/Uber (estimativa)</span>
-                        <span>€25</span>
-                    </div>
-                    <div class="budget-total">
-                        <span>Total Transporte</span>
-                        <span>€55</span>
-                    </div>
-                </div>
-
-                <div class="budget-card">
-                    <h4><i class="fas fa-shopping-bag"></i> Extras</h4>
-                    <div class="budget-item">
-                        <span>Souvenirs</span>
-                        <span>€50</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Emergências</span>
-                        <span>€30</span>
-                    </div>
-                    <div class="budget-total">
-                        <span>Total Extras</span>
-                        <span>€80</span>
-                    </div>
-                </div>
-            </div>
-
-            <div id="budget-casal" class="budget-grid" style="display: none;">
-                <div class="budget-card">
-                    <h4><i class="fas fa-utensils"></i> Alimentação</h4>
-                    <div class="budget-item">
-                        <span>Café da manhã (6x)</span>
-                        <span>€156</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Almoços (6x)</span>
-                        <span>€240</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Jantares (5x)</span>
-                        <span>€210</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Lanches/bebidas</span>
-                        <span>€80</span>
-                    </div>
-                    <div class="budget-total">
-                        <span>Total Alimentação</span>
-                        <span>€686</span>
-                    </div>
-                </div>
-
-                <div class="budget-card">
-                    <h4><i class="fas fa-ticket-alt"></i> Atrações</h4>
-                    <div class="budget-item">
-                        <span>Arco do Triunfo (2x)</span>
-                        <span>€26</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Louvre (2x)</span>
-                        <span>€44</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Versailles Passport (2x)</span>
-                        <span>€64</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Petit Train (2x)</span>
-                        <span>€18</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>D'Orsay (2x)</span>
-                        <span>€32</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Panteão (2x)</span>
-                        <span>€23</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Sainte-Chapelle (2x)</span>
-                        <span>€23</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Ópera Garnier (2x)</span>
-                        <span>€28</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Cruzeiro Sena (2x)</span>
-                        <span>€30</span>
-                    </div>
-                    <div class="budget-total">
-                        <span>Total Atrações</span>
-                        <span>€288</span>
-                    </div>
-                </div>
-
-                <div class="budget-card">
-                    <h4><i class="fas fa-subway"></i> Transporte</h4>
-                    <div class="budget-item">
-                        <span>Passe Navigo Semanal (2x)</span>
-                        <span>€60</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Táxis/Uber (estimativa)</span>
-                        <span>€40</span>
-                    </div>
-                    <div class="budget-total">
-                        <span>Total Transporte</span>
-                        <span>€100</span>
-                    </div>
-                </div>
-
-                <div class="budget-card">
-                    <h4><i class="fas fa-shopping-bag"></i> Extras</h4>
-                    <div class="budget-item">
-                        <span>Souvenirs</span>
-                        <span>€80</span>
-                    </div>
-                    <div class="budget-item">
-                        <span>Emergências</span>
-                        <span>€50</span>
-                    </div>
-                    <div class="budget-total">
-                        <span>Total Extras</span>
-                        <span>€130</span>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #2c3e50, #34495e); color: white; border-radius: 15px;">
-                <h4 style="margin-bottom: 10px;">
-                    <i class="fas fa-calculator"></i> 
-                    <span id="total-label">Total por Pessoa</span>
-                </h4>
-                <div style="font-size: 2rem; font-weight: bold;" id="total-amount">€601</div>
-                <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">*Valores estimados, sem hospedagem</div>
-            </div>
+        <div class="budget-section" id="orcamento-container">
+            <!-- Será preenchido dinamicamente -->
         </div>
 
-        <div class="legend">
-            <h3><i class="fas fa-lightbulb"></i> Dicas Importantes</h3>
-            <div style="margin-top: 15px; text-align: left;">
-                <p><strong>🎫 Agendamentos Obrigatórios:</strong> Louvre, Versailles</p>
-                <p><strong>🎫 Agendamentos Recomendados:</strong> Torre Eiffel, Arco do Triunfo, Panteão, Sainte-Chapelle, D'Orsay, Ópera Garnier</p>
-                <p><strong>🚇 Passe Recomendado:</strong> Navigo Semanal (€30) - inclui todos os transportes</p>
-                <p><strong>📱 Apps Essenciais:</strong> Citymapper, Louvre (mapas offline), Google Translate</p>
-                <p><strong>💡 Economia:</strong> Almoce em boulangeries, café no balcão é mais barato, água da torneira é gratuita</p>
-            </div>
+        <!-- Dicas -->
+        <div id="dicas-container">
+            <!-- Será preenchido dinamicamente -->
         </div>
     </div>
 
@@ -1455,8 +61,915 @@
     </div>
 
     <script>
-        // Funcionalidade para marcar itens como concluídos
-        document.addEventListener('DOMContentLoaded', function() {
+        // Dados do roteiro Paris como variável JavaScript
+        const ROTEIRO_PARIS = {
+          "meta": {
+            "titulo": "Roteiro Paris 2025",
+            "subtitulo": "24 a 30 de Setembro • Checklist Prática",
+            "icone": "fas fa-map-marked-alt"
+          },
+          "estatisticas": [
+            { "numero": "7", "label": "Dias em Paris" },
+            { "numero": "8", "label": "Agendamentos" },
+            { "numero": "€400", "label": "Orçamento Estimado" },
+            { "numero": "25+", "label": "Atrações" }
+          ],
+          "legenda": [
+            { "icone": "fas fa-utensils", "texto": "Refeição" },
+            { "icone": "fas fa-coffee", "texto": "Café/Lanche" },
+            { "icone": "fas fa-clock", "texto": "Agendamento Necessário" },
+            { "icone": "fas fa-ticket-alt", "texto": "Ingresso Pago" },
+            { "icone": "fas fa-camera", "texto": "Foto Obrigatória" },
+            { "icone": "fas fa-subway", "texto": "Estação Metrô" }
+          ],
+          "dias": [
+            {
+              "numero": 1,
+              "titulo": "Chegada",
+              "data": "24/09/2025",
+              "diaSemana": "Quarta-feira",
+              "atividades": [
+                {
+                  "horario": "23h30",
+                  "icone": "🏨",
+                  "texto": "Check-In no hotel",
+                  "duracao": "30min"
+                },
+                {
+                  "horario": "00h30",
+                  "icone": "😴",
+                  "texto": "Descanso (preparar para dia intenso)"
+                }
+              ]
+            },
+            {
+              "numero": 2,
+              "titulo": "Centro e Torre Eiffel",
+              "data": "25/09/2025",
+              "diaSemana": "Quinta-feira",
+              "atividades": [
+                {
+                  "horario": "09h00",
+                  "icone": "⏰",
+                  "texto": "Acordar e preparar",
+                  "duracao": "30min"
+                },
+                {
+                  "horario": "09h30",
+                  "icone": "☕",
+                  "texto": "Café Carette (Trocadéro)",
+                  "duracao": "45min",
+                  "preco": "€15",
+                  "info": {
+                    "titulo": "Café Carette",
+                    "endereco": "4 Place du Trocadéro, 75016 Paris",
+                    "especialidade": "Café da manhã parisiense tradicional",
+                    "precoMedio": "€15 (combo completo)",
+                    "dicas": [
+                      "Ambiente autenticamente parisiense",
+                      "Vista para a Torre Eiffel",
+                      "Experimente os croissants frescos",
+                      "Pode ter fila nos fins de semana"
+                    ]
+                  }
+                },
+                {
+                  "horario": "10h15",
+                  "icone": "📸",
+                  "texto": "Trocadéro (vista Torre Eiffel) + Av. de Camões",
+                  "duracao": "30min",
+                  "info": {
+                    "titulo": "Trocadéro + Av. de Camões",
+                    "endereco": "Place du Trocadéro, 75016 Paris",
+                    "metro": "Trocadéro (Linhas 6, 9)",
+                    "pontosFoto": [
+                      "Esplanada do Trocadéro: Vista clássica frontal",
+                      "Av. de Camões: Perspectiva lateral única"
+                    ],
+                    "dicas": [
+                      "Melhor horário: manhã (luz suave)",
+                      "Evite multidões chegando cedo",
+                      "Jardins em terraços para diferentes ângulos"
+                    ]
+                  }
+                },
+                {
+                  "horario": "10h45",
+                  "icone": "🗼",
+                  "texto": "Torre Eiffel (explorar arredores)",
+                  "duracao": "1h",
+                  "info": {
+                    "titulo": "Torre Eiffel - Arredores",
+                    "endereco": "Champ de Mars, 5 Avenue Anatole France, 75007 Paris",
+                    "metro": "Bir-Hakeim (Linha 6), Trocadéro (Linhas 6, 9)",
+                    "estrategia": "Explorar sem subir - mais tempo para fotos",
+                    "dicas": [
+                      "Caminhe ao redor da base da torre",
+                      "Jardins do Champ de Mars são gratuitos",
+                      "Várias perspectivas para fotos únicas",
+                      "Economia de €29 por pessoa"
+                    ]
+                  }
+                },
+                {
+                  "horario": "11h45",
+                  "icone": "📸",
+                  "texto": "Rue Buenos Aires + Rue de l'Université (fotos)",
+                  "duracao": "30min",
+                  "info": {
+                    "titulo": "Ruas para Fotos",
+                    "rueBuenosAires": "Vista lateral da Torre Eiffel",
+                    "rueUniversite": "Perspectiva clássica parisiense",
+                    "dicas": [
+                      "Rue Buenos Aires: melhor ângulo da torre entre prédios",
+                      "Rue de l'Université: arquitetura típica parisiense",
+                      "Horário ideal: manhã (luz suave)",
+                      "Cuidado com trânsito ao fotografar"
+                    ]
+                  }
+                },
+                {
+                  "horario": "12h15",
+                  "icone": "🌉",
+                  "texto": "Ponte Alexandre III",
+                  "duracao": "20min"
+                },
+                {
+                  "horario": "12h35",
+                  "icone": "🏛️",
+                  "texto": "Place de la Concorde",
+                  "duracao": "15min"
+                },
+                {
+                  "horario": "12h50",
+                  "icone": "🏛️",
+                  "texto": "Petit Palais",
+                  "duracao": "30min",
+                  "info": {
+                    "titulo": "Petit Palais",
+                    "endereco": "Avenue Winston Churchill, 75008 Paris",
+                    "metro": "Champs-Élysées-Clemenceau (Linhas 1, 13)",
+                    "entrada": "Gratuita para coleção permanente",
+                    "dicas": [
+                      "Bela arquitetura Belle Époque",
+                      "Jardim interno com café",
+                      "Coleção de arte francesa",
+                      "Perfeito para pausa rápida"
+                    ]
+                  }
+                },
+                {
+                  "horario": "13h20",
+                  "icone": "🏛️",
+                  "texto": "Grand Palais (exterior)",
+                  "duracao": "15min",
+                  "info": {
+                    "titulo": "Grand Palais",
+                    "endereco": "3 Avenue du Général Eisenhower, 75008 Paris",
+                    "metro": "Champs-Élysées-Clemenceau (Linhas 1, 13)",
+                    "visita": "Apenas exterior (em renovação até 2025)",
+                    "dicas": [
+                      "Arquitetura impressionante com cúpula de vidro",
+                      "Ótimo para fotos externas",
+                      "Símbolo da Belle Époque",
+                      "Próximo ao Petit Palais"
+                    ]
+                  }
+                },
+                {
+                  "horario": "13h35",
+                  "icone": "🍽️",
+                  "texto": "Almoço (sugestão: próximo às Tulherias)",
+                  "duracao": "1h",
+                  "preco": "€20-25"
+                },
+                {
+                  "horario": "14h35",
+                  "icone": "🌳",
+                  "texto": "Jardim das Tulherias",
+                  "duracao": "45min"
+                },
+                {
+                  "horario": "15h20",
+                  "icone": "🛍️",
+                  "texto": "Champs-Élysées",
+                  "duracao": "1h30"
+                },
+                {
+                  "horario": "16h50",
+                  "icone": "🏛️",
+                  "texto": "Arco do Triunfo (subir para pôr do sol)",
+                  "duracao": "1h",
+                  "preco": "€13",
+                  "reservado": true,
+                  "reservaLink": "https://drive.google.com/file/d/1MJTDIDxm8mX4AHGCTBoHYIepEGK67K5Z"
+                },
+                {
+                  "horario": "19h30",
+                  "icone": "🍽️",
+                  "texto": "Jantar Chez André",
+                  "duracao": "1h30",
+                  "preco": "€21"
+                }
+              ]
+            },
+            {
+              "numero": 3,
+              "titulo": "Versailles",
+              "data": "26/09/2025",
+              "diaSemana": "Sexta-feira",
+              "atividades": [
+                {
+                  "horario": "07h00",
+                  "icone": "⏰",
+                  "texto": "Acordar CEDO",
+                  "duracao": "30min"
+                },
+                {
+                  "horario": "08h00",
+                  "icone": "🚂",
+                  "texto": "Deslocamento para Versailles (RER C)",
+                  "duracao": "1h"
+                },
+                {
+                  "horario": "09h00",
+                  "icone": "👑",
+                  "texto": "Palácio de Versailles (roteiro completo)",
+                  "duracao": "5h30",
+                  "preco": "€32",
+                  "reservado": true,
+                  "reservaLink": "https://drive.google.com/file/d/1Npk5RiAgjPjpTnC11aF3c-4N1sLsGPYg",
+                  "info": {
+                    "titulo": "Palácio de Versailles - Roteiro Completo",
+                    "endereco": "Place d'Armes, 78000 Versailles",
+                    "acesso": "RER C até Versailles Château Rive Gauche",
+                    "ingresso": "Passport €32 (Jardins Musicais inclusos)",
+                    "petitTrain": "€9 (circuito completo)",
+                    "roteiro5h30": [
+                      "09h00-11h30: Palácio (Galeria dos Espelhos, Aposentos Reais)",
+                      "11h30-12h00: Jardins principais (a pé)",
+                      "12h00-13h00: Petit Train (Trianons + Canal)",
+                      "13h00-14h00: Almoço no local",
+                      "14h00-14h30: Jardins Musicais (fontes funcionando)"
+                    ],
+                    "dicas": [
+                      "Reserve online obrigatório",
+                      "Chegue 15min antes do horário",
+                      "Petit Train evita 2h de caminhada",
+                      "Jardins Musicais: música clássica + fontes"
+                    ]
+                  }
+                },
+                {
+                  "horario": "14h30",
+                  "icone": "🚂",
+                  "texto": "Retorno para Paris",
+                  "duracao": "1h"
+                },
+                {
+                  "horario": "16h00",
+                  "icone": "🍽️",
+                  "texto": "Almoço tardio Chez Jantou",
+                  "duracao": "1h",
+                  "preco": "€19"
+                },
+                {
+                  "horario": "18h30",
+                  "icone": "🚢",
+                  "texto": "Cruzeiro Noturno Rio Sena - Flexível",
+                  "duracao": "1h15",
+                  "preco": "€15",
+                  "reservado": true,
+                  "reservaLink": "https://drive.google.com/file/d/1ArYihq434bXL8_nhb4ACVRTRwCgpJUis"
+                },
+                {
+                  "horario": "19h45",
+                  "icone": "🗼",
+                  "texto": "Torre Eiffel iluminada",
+                  "duracao": "30min"
+                },
+                {
+                  "horario": "20h15",
+                  "icone": "🍽️",
+                  "texto": "Jantar L'As du Fallafel",
+                  "duracao": "45min",
+                  "preco": "€10"
+                }
+              ]
+            },
+            {
+              "numero": 4,
+              "titulo": "Montmartre",
+              "data": "27/09/2025",
+              "diaSemana": "Sábado",
+              "atividades": [
+                {
+                  "horario": "08h00",
+                  "icone": "⏰",
+                  "texto": "Acordar",
+                  "duracao": "30min"
+                },
+                {
+                  "horario": "09h00",
+                  "icone": "⛪",
+                  "texto": "Basílica Sacré-Cœur",
+                  "duracao": "1h",
+                  "info": {
+                    "titulo": "Basílica Sacré-Cœur",
+                    "endereco": "35 Rue du Chevalier de la Barre, 75018 Paris",
+                    "metro": "Abbesses (Linha 12) + funicular OU Anvers (Linha 2)",
+                    "horarios": "6h-22h30 (basílica), 9h-19h (cúpula)",
+                    "dicas": [
+                      "Vista panorâmica de Paris",
+                      "Entrada gratuita na basílica",
+                      "Cúpula: €7 (300 degraus)",
+                      "Cuidado com batedores de carteira",
+                      "Melhor horário: manhã cedo"
+                    ]
+                  }
+                },
+                {
+                  "horario": "10h00",
+                  "icone": "🎨",
+                  "texto": "Place du Tertre (artistas)",
+                  "duracao": "45min"
+                },
+                {
+                  "horario": "10h45",
+                  "icone": "🏠",
+                  "texto": "Rue de l'Abreuvoir + Maison Rose",
+                  "duracao": "30min"
+                },
+                {
+                  "horario": "11h15",
+                  "icone": "💕",
+                  "texto": "Muro do Eu Te Amo",
+                  "duracao": "20min"
+                },
+                {
+                  "horario": "11h35",
+                  "icone": "🎭",
+                  "texto": "Moulin Rouge (exterior)",
+                  "duracao": "15min"
+                },
+                {
+                  "horario": "12h30",
+                  "icone": "🍽️",
+                  "texto": "Almoço Bouillon Pigalle OU Pink Mamma",
+                  "duracao": "1h30",
+                  "reservado": false,
+                  "preco": "€25-30"
+                },
+                {
+                  "horario": "14h00",
+                  "icone": "🍷",
+                  "texto": "Encontro com Amigos Parisienses",
+                  "duracao": "2h",
+                  "info": {
+                    "titulo": "Encontro com Amigos Parisienses",
+                    "horario": "14h-16h (2 horas)",
+                    "locaisSugeridos": [
+                      "Café de la Paix: Clássico parisiense próximo à Ópera",
+                      "Place des Vosges: Charme histórico no Marais",
+                      "Café de Flore: Icônico em Saint-Germain",
+                      "Jardim das Tulherias: Ao ar livre, relaxante"
+                    ],
+                    "atividadesOpcionais": [
+                      "Passeio pelo Sena",
+                      "Visita a galeria de arte local",
+                      "Descoberta de café secreto",
+                      "Compras no Marais"
+                    ]
+                  }
+                },
+                {
+                  "horario": "16h00",
+                  "icone": "🚶‍♀️",
+                  "texto": "Tempo Livre (opções flexíveis)",
+                  "duracao": "2h",
+                  "info": {
+                    "titulo": "Tempo Livre - Opções Flexíveis",
+                    "horario": "16h-18h (2 horas)",
+                    "opcao1Compras": [
+                      "Rue de Steinkerque (souvenirs)",
+                      "Galeria Lafayette (terraço gratuito)",
+                      "Le Marais (boutiques únicas)"
+                    ],
+                    "opcao2Cultura": [
+                      "Museu Picasso (se aberto)",
+                      "Cemitério Père Lachaise",
+                      "Passeio arquitetônico"
+                    ],
+                    "opcao3Relaxar": [
+                      "Café em Montmartre",
+                      "Jardim de Luxemburgo",
+                      "Passeio pelo Sena"
+                    ]
+                  }
+                },
+                {
+                  "horario": "17h00",
+                  "icone": "🌅",
+                  "texto": "Galeria Lafayette para pôr do sol",
+                  "duracao": "1h",
+                  "info": {
+                    "titulo": "Galeria Lafayette - Pôr do Sol",
+                    "endereco": "40 Boulevard Haussmann, 75009 Paris",
+                    "metro": "Chaussée d'Antin (Linhas 7, 9) ou Opéra (Linhas 3, 7, 8)",
+                    "terraco": "Acesso gratuito no 7º andar",
+                    "dicas": [
+                      "Vista 360° de Paris",
+                      "Melhor horário: 1h antes do pôr do sol",
+                      "Acesso gratuito ao terraço",
+                      "Ótimo para fotos da Ópera Garnier",
+                      "Combine com compras na galeria"
+                    ]
+                  }
+                },
+                {
+                  "horario": "18h00",
+                  "icone": "🍽️",
+                  "texto": "Jantar com Amigos (local à escolha deles)",
+                  "duracao": "2h+",
+                  "preco": "€30-40",
+                  "info": {
+                    "titulo": "Jantar com Amigos",
+                    "horario": "18h+ (duração flexível)",
+                    "estrategia": "Deixar amigos escolherem o local",
+                    "orcamento": "€30-40 por pessoa",
+                    "tiposRestaurante": [
+                      "Bistrot tradicional: Experiência autêntica",
+                      "Brasserie moderna: Ambiente animado",
+                      "Restaurante de bairro: Descoberta local",
+                      "Wine bar: Foco em vinhos franceses"
+                    ],
+                    "vantagens": [
+                      "Conhecimento local dos amigos",
+                      "Possível desconto ou mesa reservada",
+                      "Experiência mais autêntica",
+                      "Flexibilidade total de horário"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "numero": 5,
+              "titulo": "Quartier Latin",
+              "data": "28/09/2025",
+              "diaSemana": "Domingo",
+              "atividades": [
+                {
+                  "horario": "08h30",
+                  "icone": "⏰",
+                  "texto": "Acordar (horário mais relaxado)",
+                  "duracao": "30min"
+                },
+                {
+                  "horario": "09h00",
+                  "icone": "☕",
+                  "texto": "Café Les Deux Magots",
+                  "duracao": "45min",
+                  "preco": "€13"
+                },
+                {
+                  "horario": "09h45",
+                  "icone": "🌳",
+                  "texto": "Jardim de Luxemburgo",
+                  "duracao": "1h15"
+                },
+                {
+                  "horario": "11h00",
+                  "icone": "🏛️",
+                  "texto": "Panteão",
+                  "duracao": "1h",
+                  "preco": "€11,50",
+                  "reservado": true,
+                  "reservaLink": "https://drive.google.com/file/d/1by3ezpwZE6WDh-8NXQ9ARldkIEfBoIOc"
+                },
+                {
+                  "horario": "12h00",
+                  "icone": "🥐",
+                  "texto": "Lanche Boulangerie Moderne (pão de chocolate Emily)",
+                  "duracao": "15min",
+                  "preco": "€5"
+                },
+                {
+                  "horario": "12h15",
+                  "icone": "📸",
+                  "texto": "Casa da Emily (foto rápida)",
+                  "duracao": "10min"
+                },
+                {
+                  "horario": "12h30",
+                  "icone": "⛪",
+                  "texto": "Catedral Notre-Damey (exterior) - Reservar interior 2 dias antes",
+                  "duracao": "30min"
+                },
+                {
+                  "horario": "13h00",
+                  "icone": "⛪",
+                  "texto": "Sainte-Chapelle",
+                  "duracao": "45min",
+                  "reservado": false,
+                  "preco": "€11,50"
+                },
+                {
+                  "horario": "13h45",
+                  "icone": "🏝️",
+                  "texto": "Île Saint-Louis",
+                  "duracao": "45min"
+                },
+                {
+                  "horario": "14h30",
+                  "icone": "🍽️",
+                  "texto": "Refeição Au P'tit Grec",
+                  "duracao": "1h",
+                  "preco": "€9-15"
+                }
+              ]
+            },
+            {
+              "numero": 6,
+              "titulo": "Louvre e Ópera",
+              "data": "29/09/2025",
+              "diaSemana": "Segunda-feira",
+              "atividades": [
+                {
+                  "horario": "08h00",
+                  "icone": "⏰",
+                  "texto": "Acordar",
+                  "duracao": "30min"
+                },
+                {
+                  "horario": "08h30",
+                  "icone": "☕",
+                  "texto": "Café Paul (Louvre) OU Café Lucy",
+                  "duracao": "30min",
+                  "preco": "€12"
+                },
+                {
+                  "horario": "09h00",
+                  "icone": "🎨",
+                  "texto": "Museu do Louvre (roteiro estratégico com pausas)",
+                  "duracao": "6h",
+                  "preco": "€22",
+                  "reservado": true,
+                  "reservaLink": "https://drive.google.com/file/d/1z-F45CxWtR0xPrckcKOe8RU4NM-8IcrF",
+                  "info": {
+                    "titulo": "Museu do Louvre - Roteiro Estratégico",
+                    "endereco": "Rue de Rivoli, 75001 Paris",
+                    "entrada": "Carrossel (Metrô Palais Royal, saída 6)",
+                    "ingresso": "€22 (reserva obrigatória)",
+                    "roteiro6h": [
+                      "09h00-11h00: Ala Denon (Mona Lisa, Vênus de Milo)",
+                      "11h00-11h30: PAUSA - Café interno",
+                      "11h30-13h00: Ala Sully (Antiguidades Egípcias)",
+                      "13h00-14h00: ALMOÇO - Restaurante interno",
+                      "14h00-15h30: Ala Richelieu (Esculturas, Arte Francesa)"
+                    ],
+                    "estrategiaAntiCansaco": [
+                      "Máximo 1h30 seguidas caminhando",
+                      "Use mapas offline do app Louvre",
+                      "Foque em 3 seções principais",
+                      "Pausas obrigatórias para hidratação",
+                      "Evite tentar ver tudo - impossível!"
+                    ]
+                  }
+                },
+                {
+                  "horario": "15h00",
+                  "icone": "🍽️",
+                  "texto": "Almoço Bo&Mie",
+                  "duracao": "1h",
+                  "preco": "€15"
+                },
+                {
+                  "horario": "16h00",
+                  "icone": "🎭",
+                  "texto": "Ópera Garnier (fecha 17h) - Reservar com 1 mês de antecedência",
+                  "duracao": "1h",
+                  "reservado": false,
+                  "preco": "€14"
+                },
+                {
+                  "horario": "18h00",
+                  "icone": "🍽️",
+                  "texto": "Jantar no Restaurante Comme un Bouillon",
+                  "duracao": "2h",
+                  "preco": "€25",
+                  "info": {
+                    "titulo": "Restaurante Comme un Bouillon",
+                    "endereco": "10 Rue Racine, 75006 Paris",
+                    "metro": "Odéon (Linhas 4, 10) ou Saint-Michel (Linha 4)",
+                    "especialidade": "Cozinha francesa tradicional",
+                    "precoMedio": "€25 por pessoa",
+                    "dicas": [
+                      "Ambiente autêntico de bouillon parisiense",
+                      "Pratos tradicionais franceses",
+                      "Boa seleção de vinhos",
+                      "Reserva recomendada",
+                      "Horário ideal: 18h-20h"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "numero": 7,
+              "titulo": "Marais e Partida",
+              "data": "30/09/2025",
+              "diaSemana": "Terça-feira",
+              "atividades": [
+                {
+                  "horario": "08h00",
+                  "icone": "⏰",
+                  "texto": "Acordar",
+                  "duracao": "30min"
+                },
+                {
+                  "horario": "09h00",
+                  "icone": "🏛️",
+                  "texto": "Bairro Le Marais (Rua das Roseiras)",
+                  "duracao": "1h"
+                },
+                {
+                  "horario": "10h00",
+                  "icone": "🏛️",
+                  "texto": "Place des Vosges",
+                  "duracao": "30min"
+                },
+                {
+                  "horario": "10h30",
+                  "icone": "🎨",
+                  "texto": "Museu D'Orsay (roteiro impressionistas)",
+                  "duracao": "3h",
+                  "preco": "€16",
+                  "reservado": true,
+                  "reservaLink": "https://drive.google.com/file/d/14zTpXsrO_IslJtSDuYcJ9rU1nWUtOvU4",
+                  "info": {
+                    "titulo": "Museu D'Orsay - Roteiro Impressionistas",
+                    "endereco": "1 Rue de la Légion d'Honneur, 75007 Paris",
+                    "metro": "Solférino (Linha 12)",
+                    "ingresso": "€16 (€8,50 quintas após 18h)",
+                    "roteiro3h": [
+                      "10h30-11h30: Térreo (Realismo, Escola de Barbizon)",
+                      "11h30-12h30: 5º Andar (IMPRESSIONISTAS - essencial)",
+                      "12h30-13h30: 2º Andar (Pós-Impressionistas, Rodin)"
+                    ],
+                    "obrasImperdiveis": [
+                      "Manet: 'Olympia', 'Almoço na Relva'",
+                      "Monet: Série 'Catedrais de Rouen'",
+                      "Renoir: 'Baile no Moulin de la Galette'",
+                      "Van Gogh: 'Noite Estrelada sobre o Ródano'",
+                      "Cézanne: 'Montanha Sainte-Victoire'"
+                    ],
+                    "dica": "Se cansado, vá direto ao 5º andar!"
+                  }
+                },
+                {
+                  "horario": "13h30",
+                  "icone": "🥞",
+                  "texto": "Lanche Gallete Cafe",
+                  "duracao": "45min",
+                  "preco": "€16"
+                },
+                {
+                  "horario": "14h30",
+                  "icone": "⏸️",
+                  "texto": "Pausa Estratégica",
+                  "duracao": "1h30",
+                  "info": {
+                    "titulo": "Pausa Estratégica",
+                    "horario": "14h30-16h (1h30)",
+                    "objetivo": "Recarregar energias para tarde",
+                    "opcoes": [
+                      "Volta ao hotel: Descanso completo",
+                      "Café relaxante: Saint-Germain-des-Prés",
+                      "Jardim público: Luxemburgo ou Tulherias",
+                      "Spa express: Massagem de 30min"
+                    ],
+                    "beneficios": [
+                      "Evita cansaço acumulado",
+                      "Prepara para atividade final",
+                      "Flexibilidade para mudanças",
+                      "Momento de reflexão da viagem"
+                    ]
+                  }
+                },
+                {
+                  "horario": "16h00",
+                  "icone": "🔄",
+                  "texto": "Revisita ou Pendência",
+                  "duracao": "2h",
+                  "info": {
+                    "titulo": "Opções para Domingo Tarde",
+                    "horario": "16h-18h (2 horas)",
+                    "opcao1RevisitarFavorito": [
+                      "Torre Eiffel ao pôr do sol",
+                      "Montmartre com luz dourada",
+                      "Jardins das Tulherias relaxante",
+                      "Passeio pelo Sena"
+                    ],
+                    "opcao2PendenciaSemana": [
+                      "Atividade que foi cortada por cansaço",
+                      "Museu que ficou para trás",
+                      "Bairro não explorado",
+                      "Compra específica"
+                    ],
+                    "opcao3DescobertaNova": [
+                      "Île Saint-Louis + sorvete Berthillon",
+                      "Cemitério Père Lachaise",
+                      "Museu Rodin (jardins)",
+                      "Mercado de pulgas (se domingo)"
+                    ],
+                    "opcao4RelaxTotal": [
+                      "Café longo em Saint-Germain",
+                      "Leitura no Jardim de Luxemburgo",
+                      "Spa ou massagem",
+                      "Preparação mental para Chamonix"
+                    ]
+                  }
+                },
+                {
+                  "horario": "18h00",
+                  "icone": "🧳",
+                  "texto": "Preparar bagagens",
+                  "duracao": "15min"
+                },
+                {
+                  "horario": "18h17",
+                  "icone": "🚂",
+                  "texto": "Trem para Chamonix"
+                }
+              ]
+            }
+          ],
+          "orcamento": {
+            "pessoa": { "totalGeral": "€622" },
+            "casal": { "totalGeral": "€1.204" }
+          },
+          "dicas": [
+            "🎫 Agendamentos Obrigatórios: Louvre, Versailles",
+            "🎫 Agendamentos Recomendados: Torre Eiffel, Arco do Triunfo, Panteão",
+            "🚇 Passe Recomendado: Navigo Semanal (€30)",
+            "📱 Apps Essenciais: Citymapper, Louvre, Google Translate"
+          ]
+        };
+
+        // Função para renderizar estatísticas
+        function renderizarEstatisticas() {
+            const container = document.getElementById('estatisticas-container');
+            let html = '';
+            ROTEIRO_PARIS.estatisticas.forEach(stat => {
+                html += `
+                    <div class="stat-card">
+                        <div class="stat-number">${stat.numero}</div>
+                        <div class="stat-label">${stat.label}</div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar legenda
+        function renderizarLegenda() {
+            const container = document.getElementById('legenda-container');
+            let html = `
+                <h3><i class="fas fa-info-circle"></i> Legenda</h3>
+                <div class="legend-grid">
+            `;
+            ROTEIRO_PARIS.legenda.forEach(item => {
+                html += `
+                    <div class="legend-item">
+                        <i class="${item.icone}"></i> ${item.texto}
+                    </div>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar dias
+        function renderizarDias() {
+            const container = document.getElementById('dias-container');
+            let html = '';
+            
+            ROTEIRO_PARIS.dias.forEach(dia => {
+                html += `
+                    <div class="day-card">
+                        <div class="day-header">
+                            <h2>Dia ${dia.numero} - ${dia.titulo}</h2>
+                            <div class="date-info">${dia.data} • ${dia.diaSemana}</div>
+                        </div>
+                        <div class="activities">
+                `;
+                
+                dia.atividades.forEach(atividade => {
+                    let detailsHtml = '';
+                    
+                    if (atividade.duracao) {
+                        detailsHtml += `<span class="activity-duration">${atividade.duracao}</span>`;
+                    }
+                    
+                    if (atividade.preco) {
+                        detailsHtml += `<span class="price">${atividade.preco}</span>`;
+                    }
+                    
+                    if (atividade.reservado === true && atividade.reservaLink) {
+                        detailsHtml += `<a href="${atividade.reservaLink}" target="_blank" class="reserved-btn">✓ Reservado</a>`;
+                    } else if (atividade.reservado === false) {
+                        detailsHtml += `<button class="pending-btn">⚠ Reservar</button>`;
+                    }
+                    
+                    if (atividade.info) {
+                        const infoIndex = ROTEIRO_PARIS.dias.findIndex(d => d.numero === dia.numero);
+                        const atividadeIndex = dia.atividades.findIndex(a => a === atividade);
+                        detailsHtml += `<button class="info-btn" onclick="showInfoByIndex(${infoIndex}, ${atividadeIndex})">Info</button>`;
+                    } else {
+                        detailsHtml += `<button class="info-btn" disabled>Info</button>`;
+                    }
+                    
+                    html += `
+                        <div class="activity">
+                            <input type="checkbox" class="activity-checkbox">
+                            <span class="activity-time">${atividade.horario}</span>
+                            <span class="activity-icon">${atividade.icone}</span>
+                            <span class="activity-text">${atividade.texto}</span>
+                            <div class="activity-details">
+                                ${detailsHtml}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar orçamento
+        function renderizarOrcamento() {
+            const container = document.getElementById('orcamento-container');
+            container.innerHTML = `
+                <h3><i class="fas fa-calculator"></i> Orçamento Detalhado</h3>
+                
+                <div class="budget-toggle">
+                    <button class="toggle-btn active" onclick="toggleBudget('pessoa')">Por Pessoa</button>
+                    <button class="toggle-btn" onclick="toggleBudget('casal')">Para Casal</button>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #2c3e50, #34495e); color: white; border-radius: 15px;">
+                    <h4 style="margin-bottom: 10px;">
+                        <i class="fas fa-calculator"></i> 
+                        <span id="total-label">Total por Pessoa</span>
+                    </h4>
+                    <div style="font-size: 2rem; font-weight: bold;" id="total-amount">${ROTEIRO_PARIS.orcamento.pessoa.totalGeral}</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">*Valores estimados, sem hospedagem</div>
+                </div>
+            `;
+        }
+
+        // Função para renderizar dicas
+        function renderizarDicas() {
+            const container = document.getElementById('dicas-container');
+            let html = `
+                <div class="legend">
+                    <h3><i class="fas fa-lightbulb"></i> Dicas Importantes</h3>
+                    <div style="margin-top: 15px; text-align: left;">
+            `;
+            ROTEIRO_PARIS.dicas.forEach(dica => {
+                html += `<p><strong>${dica}</strong></p>`;
+            });
+            html += `</div></div>`;
+            container.innerHTML = html;
+        }
+
+        // Função para toggle do orçamento
+        function toggleBudget(type) {
+            const totalLabel = document.getElementById('total-label');
+            const totalAmount = document.getElementById('total-amount');
+            const buttons = document.querySelectorAll('.toggle-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            if (type === 'pessoa') {
+                totalLabel.textContent = 'Total por Pessoa';
+                totalAmount.textContent = ROTEIRO_PARIS.orcamento.pessoa.totalGeral;
+                buttons[0].classList.add('active');
+            } else {
+                totalLabel.textContent = 'Total para Casal';
+                totalAmount.textContent = ROTEIRO_PARIS.orcamento.casal.totalGeral;
+                buttons[1].classList.add('active');
+            }
+        }
+
+        // Função para checkboxes
+        function inicializarCheckboxes() {
             const checkboxes = document.querySelectorAll('.activity-checkbox');
             
             checkboxes.forEach(checkbox => {
@@ -1467,33 +980,26 @@
                     } else {
                         activity.classList.remove('completed');
                     }
-                    
-                    // Salvar estado no localStorage
                     saveProgress();
                 });
             });
             
-            // Carregar progresso salvo
             loadProgress();
-        });
-        
+        }
+
         function saveProgress() {
             const checkboxes = document.querySelectorAll('.activity-checkbox');
-            const progress = [];
-            
-            checkboxes.forEach((checkbox, index) => {
-                progress[index] = checkbox.checked;
-            });
-            
-            localStorage.setItem('parisRoteiro2025', JSON.stringify(progress));
+            const progress = Array.from(checkboxes).map(cb => cb.checked);
+            const storageKey = 'roteiro_' + ROTEIRO_PARIS.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            localStorage.setItem(storageKey, JSON.stringify(progress));
         }
-        
+
         function loadProgress() {
-            const saved = localStorage.getItem('parisRoteiro2025');
+            const storageKey = 'roteiro_' + ROTEIRO_PARIS.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            const saved = localStorage.getItem(storageKey);
             if (saved) {
                 const progress = JSON.parse(saved);
                 const checkboxes = document.querySelectorAll('.activity-checkbox');
-                
                 checkboxes.forEach((checkbox, index) => {
                     if (progress[index]) {
                         checkbox.checked = true;
@@ -1503,356 +1009,173 @@
             }
         }
 
-        // Funcionalidade do orçamento
-        function toggleBudget(type) {
-            const pessoaDiv = document.getElementById('budget-pessoa');
-            const casalDiv = document.getElementById('budget-casal');
-            const totalLabel = document.getElementById('total-label');
-            const totalAmount = document.getElementById('total-amount');
-            const buttons = document.querySelectorAll('.toggle-btn');
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            if (type === 'pessoa') {
-                pessoaDiv.style.display = 'grid';
-                casalDiv.style.display = 'none';
-                totalLabel.textContent = 'Total por Pessoa';
-                totalAmount.textContent = '€622';
-                buttons[0].classList.add('active');
-            } else {
-                pessoaDiv.style.display = 'none';
-                casalDiv.style.display = 'grid';
-                totalLabel.textContent = 'Total para Casal';
-                totalAmount.textContent = '€1.204';
-                buttons[1].classList.add('active');
-            }
+        // Função helper para acessar informações por índice
+        function showInfoByIndex(diaIndex, atividadeIndex) {
+            const infoData = ROTEIRO_PARIS.dias[diaIndex].atividades[atividadeIndex].info;
+            showInfo(infoData);
         }
 
-        // Modal de informações
-        const modal = document.getElementById('infoModal');
-        const span = document.getElementsByClassName('close')[0];
-
-        function showInfo(location) {
-            const info = getLocationInfo(location);
-            document.getElementById('modalContent').innerHTML = info;
+        // Função para exibir informações no modal
+        function showInfo(infoData) {
+            const modalContent = document.getElementById('modalContent');
+            const modal = document.getElementById('infoModal');
+            
+            // Construir HTML das informações
+            let html = `<h3>${infoData.titulo}</h3>`;
+            
+            // Adicionar informações básicas se existirem
+            if (infoData.endereco) html += `<p><strong>Endereço:</strong> ${infoData.endereco}</p>`;
+            if (infoData.metro) html += `<p><strong>Metrô:</strong> ${infoData.metro}</p>`;
+            if (infoData.especialidade) html += `<p><strong>Especialidade:</strong> ${infoData.especialidade}</p>`;
+            if (infoData.precoMedio) html += `<p><strong>Preço médio:</strong> ${infoData.precoMedio}</p>`;
+            if (infoData.entrada) html += `<p><strong>Entrada:</strong> ${infoData.entrada}</p>`;
+            if (infoData.horarios) html += `<p><strong>Horários:</strong> ${infoData.horarios}</p>`;
+            if (infoData.ingresso) html += `<p><strong>Ingresso:</strong> ${infoData.ingresso}</p>`;
+            if (infoData.acesso) html += `<p><strong>Acesso:</strong> ${infoData.acesso}</p>`;
+            if (infoData.estrategia) html += `<p><strong>Estratégia:</strong> ${infoData.estrategia}</p>`;
+            if (infoData.objetivo) html += `<p><strong>Objetivo:</strong> ${infoData.objetivo}</p>`;
+            if (infoData.orcamento) html += `<p><strong>Orçamento:</strong> ${infoData.orcamento}</p>`;
+            if (infoData.terraco) html += `<p><strong>Terraço:</strong> ${infoData.terraco}</p>`;
+            if (infoData.visita) html += `<p><strong>Visita:</strong> ${infoData.visita}</p>`;
+            if (infoData.petitTrain) html += `<p><strong>Petit Train:</strong> ${infoData.petitTrain}</p>`;
+            if (infoData.dica) html += `<p><strong>Dica:</strong> ${infoData.dica}</p>`;
+            
+            // Adicionar listas se existirem
+            if (infoData.dicas && infoData.dicas.length > 0) {
+                html += `<p><strong>Dicas:</strong></p><ul>`;
+                infoData.dicas.forEach(dica => html += `<li>${dica}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.pontosFoto && infoData.pontosFoto.length > 0) {
+                html += `<p><strong>Pontos de foto:</strong></p><ul>`;
+                infoData.pontosFoto.forEach(ponto => html += `<li>${ponto}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro5h30 && infoData.roteiro5h30.length > 0) {
+                html += `<p><strong>Roteiro 5h30:</strong></p><ul>`;
+                infoData.roteiro5h30.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro6h && infoData.roteiro6h.length > 0) {
+                html += `<p><strong>Roteiro 6h com pausa:</strong></p><ul>`;
+                infoData.roteiro6h.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro3h && infoData.roteiro3h.length > 0) {
+                html += `<p><strong>Roteiro 3h:</strong></p><ul>`;
+                infoData.roteiro3h.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.estrategiaAntiCansaco && infoData.estrategiaAntiCansaco.length > 0) {
+                html += `<p><strong>Estratégia Anti-Cansaço:</strong></p><ul>`;
+                infoData.estrategiaAntiCansaco.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.obrasImperdiveis && infoData.obrasImperdiveis.length > 0) {
+                html += `<p><strong>Obras Imperdíveis:</strong></p><ul>`;
+                infoData.obrasImperdiveis.forEach(obra => html += `<li>${obra}</li>`);
+                html += `</ul>`;
+            }
+            
+            // Estruturas complexas específicas
+            if (infoData.locaisSugeridos && infoData.locaisSugeridos.length > 0) {
+                html += `<p><strong>Locais Sugeridos:</strong></p><ul>`;
+                infoData.locaisSugeridos.forEach(local => html += `<li>${local}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.atividadesOpcionais && infoData.atividadesOpcionais.length > 0) {
+                html += `<p><strong>Atividades Opcionais:</strong></p><ul>`;
+                infoData.atividadesOpcionais.forEach(atividade => html += `<li>${atividade}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.opcoes && infoData.opcoes.length > 0) {
+                html += `<p><strong>Opções:</strong></p><ul>`;
+                infoData.opcoes.forEach(opcao => html += `<li>${opcao}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.beneficios && infoData.beneficios.length > 0) {
+                html += `<p><strong>Benefícios:</strong></p><ul>`;
+                infoData.beneficios.forEach(beneficio => html += `<li>${beneficio}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.vantagens && infoData.vantagens.length > 0) {
+                html += `<p><strong>Vantagens:</strong></p><ul>`;
+                infoData.vantagens.forEach(vantagem => html += `<li>${vantagem}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.tiposRestaurante && infoData.tiposRestaurante.length > 0) {
+                html += `<p><strong>Tipos de Restaurante:</strong></p><ul>`;
+                infoData.tiposRestaurante.forEach(tipo => html += `<li>${tipo}</li>`);
+                html += `</ul>`;
+            }
+            
+            // Opções específicas para tempo livre
+            ['opcao1Compras', 'opcao2Cultura', 'opcao3Relaxar', 'opcao1RevisitarFavorito', 'opcao2PendenciaSemana', 'opcao3DescobertaNova', 'opcao4RelaxTotal'].forEach(opcaoKey => {
+                if (infoData[opcaoKey] && infoData[opcaoKey].length > 0) {
+                    const titulo = opcaoKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                    html += `<p><strong>${titulo}:</strong></p><ul>`;
+                    infoData[opcaoKey].forEach(item => html += `<li>${item}</li>`);
+                    html += `</ul>`;
+                }
+            });
+            
+            // Informações específicas de ruas
+            if (infoData.rueBuenosAires) html += `<p><strong>Rue Buenos Aires:</strong> ${infoData.rueBuenosAires}</p>`;
+            if (infoData.rueUniversite) html += `<p><strong>Rue de l'Université:</strong> ${infoData.rueUniversite}</p>`;
+            
+            // Inserir o HTML no modal e exibir
+            modalContent.innerHTML = html;
             modal.style.display = 'block';
         }
 
+        // Configuração do modal
+        const modal = document.getElementById('infoModal');
+        const span = document.getElementsByClassName('close')[0];
+
+        // Quando o usuário clica no X, fecha o modal
         span.onclick = function() {
             modal.style.display = 'none';
         }
 
+        // Quando o usuário clica fora do modal, fecha ele
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = 'none';
             }
         }
 
-        function getLocationInfo(location) {
-            const infos = {
-                'torre-eiffel-arredores': `
-                    <h3><i class="fas fa-tower-broadcast"></i> Torre Eiffel - Arredores</h3>
-                    <p><strong>Endereço:</strong> Champ de Mars, 5 Avenue Anatole France, 75007 Paris</p>
-                    <p><strong>Metrô:</strong> Bir-Hakeim (Linha 6), Trocadéro (Linhas 6, 9)</p>
-                    <p><strong>Estratégia:</strong> Explorar sem subir - mais tempo para fotos</p>
-                    <p><strong>Dicas:</strong></p>
-                    <ul>
-                        <li>Caminhe ao redor da base da torre</li>
-                        <li>Jardins do Champ de Mars são gratuitos</li>
-                        <li>Várias perspectivas para fotos únicas</li>
-                        <li>Economia de €29 por pessoa</li>
-                    </ul>
-                `,
-                'ruas-fotos': `
-                    <h3><i class="fas fa-camera"></i> Ruas para Fotos</h3>
-                    <p><strong>Rue Buenos Aires:</strong> Vista lateral da Torre Eiffel</p>
-                    <p><strong>Rue de l'Université:</strong> Perspectiva clássica parisiense</p>
-                    <p><strong>Dicas:</strong></p>
-                    <ul>
-                        <li>Rue Buenos Aires: melhor ângulo da torre entre prédios</li>
-                        <li>Rue de l'Université: arquitetura típica parisiense</li>
-                        <li>Horário ideal: manhã (luz suave)</li>
-                        <li>Cuidado com trânsito ao fotografar</li>
-                    </ul>
-                `,
-                'petit-palais': `
-                    <h3><i class="fas fa-building-columns"></i> Petit Palais</h3>
-                    <p><strong>Endereço:</strong> Avenue Winston Churchill, 75008 Paris</p>
-                    <p><strong>Metrô:</strong> Champs-Élysées-Clemenceau (Linhas 1, 13)</p>
-                    <p><strong>Entrada:</strong> Gratuita para coleção permanente</p>
-                    <p><strong>Dicas:</strong></p>
-                    <ul>
-                        <li>Bela arquitetura Belle Époque</li>
-                        <li>Jardim interno com café</li>
-                        <li>Coleção de arte francesa</li>
-                        <li>Perfeito para pausa rápida</li>
-                    </ul>
-                `,
-                'grand-palais': `
-                    <h3><i class="fas fa-building-columns"></i> Grand Palais</h3>
-                    <p><strong>Endereço:</strong> 3 Avenue du Général Eisenhower, 75008 Paris</p>
-                    <p><strong>Metrô:</strong> Champs-Élysées-Clemenceau (Linhas 1, 13)</p>
-                    <p><strong>Visita:</strong> Apenas exterior (em renovação até 2025)</p>
-                    <p><strong>Dicas:</strong></p>
-                    <ul>
-                        <li>Arquitetura impressionante com cúpula de vidro</li>
-                        <li>Ótimo para fotos externas</li>
-                        <li>Símbolo da Belle Époque</li>
-                        <li>Próximo ao Petit Palais</li>
-                    </ul>
-                `,
-                'trocadero': `
-                    <h3><i class="fas fa-camera"></i> Trocadéro + Av. de Camões</h3>
-                    <p><strong>Endereço:</strong> Place du Trocadéro, 75016 Paris</p>
-                    <p><strong>Metrô:</strong> Trocadéro (Linhas 6, 9)</p>
-                    <p><strong>Pontos de foto:</strong></p>
-                    <ul>
-                        <li><strong>Esplanada do Trocadéro:</strong> Vista clássica frontal</li>
-                        <li><strong>Av. de Camões:</strong> Perspectiva lateral única</li>
-                        <li>Melhor horário: manhã (luz suave)</li>
-                        <li>Evite multidões chegando cedo</li>
-                        <li>Jardins em terraços para diferentes ângulos</li>
-                    </ul>
-                `,
-                'carette': `
-                    <h3><i class="fas fa-coffee"></i> Café Carette</h3>
-                    <p><strong>Endereço:</strong> 4 Place du Trocadéro, 75016 Paris</p>
-                    <p><strong>Especialidade:</strong> Café da manhã parisiense tradicional</p>
-                    <p><strong>Preço médio:</strong> €15 (combo completo)</p>
-                    <p><strong>Dicas:</strong></p>
-                    <ul>
-                        <li>Ambiente autenticamente parisiense</li>
-                        <li>Vista para a Torre Eiffel</li>
-                        <li>Experimente os croissants frescos</li>
-                        <li>Pode ter fila nos fins de semana</li>
-                    </ul>
-                `,
-                'versailles-completo': `
-                    <h3><i class="fas fa-crown"></i> Palácio de Versailles - Roteiro Completo</h3>
-                    <p><strong>Endereço:</strong> Place d'Armes, 78000 Versailles</p>
-                    <p><strong>Acesso:</strong> RER C até Versailles Château Rive Gauche</p>
-                    <p><strong>Ingresso:</strong> Passport €32 (Jardins Musicais inclusos)</p>
-                    <p><strong>Petit Train:</strong> €9 (circuito completo)</p>
-                    <p><strong>Roteiro 5h30:</strong></p>
-                    <ul>
-                        <li><strong>09h00-11h30:</strong> Palácio (Galeria dos Espelhos, Aposentos Reais)</li>
-                        <li><strong>11h30-12h00:</strong> Jardins principais (a pé)</li>
-                        <li><strong>12h00-13h00:</strong> Petit Train (Trianons + Canal)</li>
-                        <li><strong>13h00-14h00:</strong> Almoço no local</li>
-                        <li><strong>14h00-14h30:</strong> Jardins Musicais (fontes funcionando)</li>
-                    </ul>
-                    <p><strong>Dicas:</strong></p>
-                    <ul>
-                        <li>Reserve online obrigatório</li>
-                        <li>Chegue 15min antes do horário</li>
-                        <li>Petit Train evita 2h de caminhada</li>
-                        <li>Jardins Musicais: música clássica + fontes</li>
-                    </ul>
-                `,
-                'louvre-completo': `
-                    <h3><i class="fas fa-palette"></i> Museu do Louvre - Roteiro Estratégico</h3>
-                    <p><strong>Endereço:</strong> Rue de Rivoli, 75001 Paris</p>
-                    <p><strong>Entrada:</strong> Carrossel (Metrô Palais Royal, saída 6)</p>
-                    <p><strong>Ingresso:</strong> €22 (reserva obrigatória)</p>
-                    <p><strong>Roteiro 6h com pausa:</strong></p>
-                    <ul>
-                        <li><strong>09h00-11h00:</strong> Ala Denon (Mona Lisa, Vênus de Milo)</li>
-                        <li><strong>11h00-11h30:</strong> PAUSA - Café interno</li>
-                        <li><strong>11h30-13h00:</strong> Ala Sully (Antiguidades Egípcias)</li>
-                        <li><strong>13h00-14h00:</strong> ALMOÇO - Restaurante interno</li>
-                        <li><strong>14h00-15h30:</strong> Ala Richelieu (Esculturas, Arte Francesa)</li>
-                    </ul>
-                    <p><strong>Estratégia Anti-Cansaço:</strong></p>
-                    <ul>
-                        <li>Máximo 1h30 seguidas caminhando</li>
-                        <li>Use mapas offline do app Louvre</li>
-                        <li>Foque em 3 seções principais</li>
-                        <li>Pausas obrigatórias para hidratação</li>
-                        <li>Evite tentar ver tudo - impossível!</li>
-                    </ul>
-                `,
-                'dorsay-completo': `
-                    <h3><i class="fas fa-palette"></i> Museu D'Orsay - Roteiro Impressionistas</h3>
-                    <p><strong>Endereço:</strong> 1 Rue de la Légion d'Honneur, 75007 Paris</p>
-                    <p><strong>Metrô:</strong> Solférino (Linha 12)</p>
-                    <p><strong>Ingresso:</strong> €16 (€8,50 quintas após 18h)</p>
-                    <p><strong>Roteiro 3h:</strong></p>
-                    <ul>
-                        <li><strong>10h30-11h30:</strong> Térreo (Realismo, Escola de Barbizon)</li>
-                        <li><strong>11h30-12h30:</strong> 5º Andar (IMPRESSIONISTAS - essencial)</li>
-                        <li><strong>12h30-13h30:</strong> 2º Andar (Pós-Impressionistas, Rodin)</li>
-                    </ul>
-                    <p><strong>Obras Imperdíveis:</strong></p>
-                    <ul>
-                        <li><strong>Manet:</strong> "Olympia", "Almoço na Relva"</li>
-                        <li><strong>Monet:</strong> Série "Catedrais de Rouen"</li>
-                        <li><strong>Renoir:</strong> "Baile no Moulin de la Galette"</li>
-                        <li><strong>Van Gogh:</strong> "Noite Estrelada sobre o Ródano"</li>
-                        <li><strong>Cézanne:</strong> "Montanha Sainte-Victoire"</li>
-                    </ul>
-                    <p><strong>Dica:</strong> Se cansado, vá direto ao 5º andar!</p>
-                `,
-                'encontro-amigos': `
-                    <h3><i class="fas fa-users"></i> Encontro com Amigos Parisienses</h3>
-                    <p><strong>Horário:</strong> 14h-16h (2 horas)</p>
-                    <p><strong>Locais Sugeridos:</strong></p>
-                    <ul>
-                        <li><strong>Café de la Paix:</strong> Clássico parisiense próximo à Ópera</li>
-                        <li><strong>Place des Vosges:</strong> Charme histórico no Marais</li>
-                        <li><strong>Café de Flore:</strong> Icônico em Saint-Germain</li>
-                        <li><strong>Jardim das Tulherias:</strong> Ao ar livre, relaxante</li>
-                    </ul>
-                    <p><strong>Atividades Opcionais:</strong></p>
-                    <ul>
-                        <li>Passeio pelo Sena</li>
-                        <li>Visita a galeria de arte local</li>
-                        <li>Descoberta de café secreto</li>
-                        <li>Compras no Marais</li>
-                    </ul>
-                `,
-                'tempo-livre-sabado': `
-                    <h3><i class="fas fa-clock"></i> Tempo Livre - Opções Flexíveis</h3>
-                    <p><strong>Horário:</strong> 16h-18h (2 horas)</p>
-                    <p><strong>Opção 1 - Compras:</strong></p>
-                    <ul>
-                        <li>Rue de Steinkerque (souvenirs)</li>
-                        <li>Galeria Lafayette (terraço gratuito)</li>
-                        <li>Le Marais (boutiques únicas)</li>
-                    </ul>
-                    <p><strong>Opção 2 - Cultura:</strong></p>
-                    <ul>
-                        <li>Museu Picasso (se aberto)</li>
-                        <li>Cemitério Père Lachaise</li>
-                        <li>Passeio arquitetônico</li>
-                    </ul>
-                    <p><strong>Opção 3 - Relaxar:</strong></p>
-                    <ul>
-                        <li>Café em Montmartre</li>
-                        <li>Jardim de Luxemburgo</li>
-                        <li>Passeio pelo Sena</li>
-                    </ul>
-                `,
-                'jantar-amigos': `
-                    <h3><i class="fas fa-wine-glass"></i> Jantar com Amigos</h3>
-                    <p><strong>Horário:</strong> 18h+ (duração flexível)</p>
-                    <p><strong>Estratégia:</strong> Deixar amigos escolherem o local</p>
-                    <p><strong>Orçamento:</strong> €30-40 por pessoa</p>
-                    <p><strong>Tipos de Restaurante:</strong></p>
-                    <ul>
-                        <li><strong>Bistrot tradicional:</strong> Experiência autêntica</li>
-                        <li><strong>Brasserie moderna:</strong> Ambiente animado</li>
-                        <li><strong>Restaurante de bairro:</strong> Descoberta local</li>
-                        <li><strong>Wine bar:</strong> Foco em vinhos franceses</li>
-                    </ul>
-                    <p><strong>Vantagens:</strong></p>
-                    <ul>
-                        <li>Conhecimento local dos amigos</li>
-                        <li>Possível desconto ou mesa reservada</li>
-                        <li>Experiência mais autêntica</li>
-                        <li>Flexibilidade total de horário</li>
-                    </ul>
-                `,
-                'opcoes-domingo': `
-                    <h3><i class="fas fa-redo"></i> Opções para Domingo Tarde</h3>
-                    <p><strong>Horário:</strong> 16h-18h (2 horas)</p>
-                    <p><strong>Opção 1 - Revisitar Favorito:</strong></p>
-                    <ul>
-                        <li>Torre Eiffel ao pôr do sol</li>
-                        <li>Montmartre com luz dourada</li>
-                        <li>Jardins das Tulherias relaxante</li>
-                        <li>Passeio pelo Sena</li>
-                    </ul>
-                    <p><strong>Opção 2 - Pendência da Semana:</strong></p>
-                    <ul>
-                        <li>Atividade que foi cortada por cansaço</li>
-                        <li>Museu que ficou para trás</li>
-                        <li>Bairro não explorado</li>
-                        <li>Compra específica</li>
-                    </ul>
-                    <p><strong>Opção 3 - Descoberta Nova:</strong></p>
-                    <ul>
-                        <li>Île Saint-Louis + sorvete Berthillon</li>
-                        <li>Cemitério Père Lachaise</li>
-                        <li>Museu Rodin (jardins)</li>
-                        <li>Mercado de pulgas (se domingo)</li>
-                    </ul>
-                    <p><strong>Opção 4 - Relax Total:</strong></p>
-                    <ul>
-                        <li>Café longo em Saint-Germain</li>
-                        <li>Leitura no Jardim de Luxemburgo</li>
-                        <li>Spa ou massagem</li>
-                        <li>Preparação mental para Chamonix</li>
-                    </ul>
-                `,
-                'pausa-estrategica': `
-                    <h3><i class="fas fa-pause"></i> Pausa Estratégica</h3>
-                    <p><strong>Horário:</strong> 14h30-16h (1h30)</p>
-                    <p><strong>Objetivo:</strong> Recarregar energias para tarde</p>
-                    <p><strong>Opções:</strong></p>
-                    <ul>
-                        <li><strong>Volta ao hotel:</strong> Descanso completo</li>
-                        <li><strong>Café relaxante:</strong> Saint-Germain-des-Prés</li>
-                        <li><strong>Jardim público:</strong> Luxemburgo ou Tulherias</li>
-                        <li><strong>Spa express:</strong> Massagem de 30min</li>
-                    </ul>
-                    <p><strong>Benefícios:</strong></p>
-                    <ul>
-                        <li>Evita cansaço acumulado</li>
-                        <li>Prepara para atividade final</li>
-                        <li>Flexibilidade para mudanças</li>
-                        <li>Momento de reflexão da viagem</li>
-                    </ul>
-                `,
-                'sacre-coeur': `
-                    <h3><i class="fas fa-church"></i> Basílica Sacré-Cœur</h3>
-                    <p><strong>Endereço:</strong> 35 Rue du Chevalier de la Barre, 75018 Paris</p>
-                    <p><strong>Metrô:</strong> Abbesses (Linha 12) + funicular OU Anvers (Linha 2)</p>
-                    <p><strong>Horários:</strong> 6h-22h30 (basílica), 9h-19h (cúpula)</p>
-                    <p><strong>Dicas:</strong></p>
-                    <ul>
-                        <li>Vista panorâmica de Paris</li>
-                        <li>Entrada gratuita na basílica</li>
-                        <li>Cúpula: €7 (300 degraus)</li>
-                        <li>Cuidado com batedores de carteira</li>
-                        <li>Melhor horário: manhã cedo</li>
-                    </ul>
-                `,
-                'galeria-lafayette': `
-                    <h3><i class="fas fa-building"></i> Galeria Lafayette - Pôr do Sol</h3>
-                    <p><strong>Endereço:</strong> 40 Boulevard Haussmann, 75009 Paris</p>
-                    <p><strong>Metrô:</strong> Chaussée d'Antin (Linhas 7, 9) ou Opéra (Linhas 3, 7, 8)</p>
-                    <p><strong>Terraço:</strong> Acesso gratuito no 7º andar</p>
-                    <p><strong>Dicas:</strong></p>
-                    <ul>
-                        <li>Vista 360° de Paris</li>
-                        <li>Melhor horário: 1h antes do pôr do sol</li>
-                        <li>Acesso gratuito ao terraço</li>
-                        <li>Ótimo para fotos da Ópera Garnier</li>
-                        <li>Combine com compras na galeria</li>
-                    </ul>
-                `,
-                'comme-bouillon': `
-                    <h3><i class="fas fa-utensils"></i> Restaurante Comme un Bouillon</h3>
-                    <p><strong>Endereço:</strong> 10 Rue Racine, 75006 Paris</p>
-                    <p><strong>Metrô:</strong> Odéon (Linhas 4, 10) ou Saint-Michel (Linha 4)</p>
-                    <p><strong>Especialidade:</strong> Cozinha francesa tradicional</p>
-                    <p><strong>Preço médio:</strong> €25 por pessoa</p>
-                    <p><strong>Dicas:</strong></p>
-                    <ul>
-                        <li>Ambiente autêntico de bouillon parisiense</li>
-                        <li>Pratos tradicionais franceses</li>
-                        <li>Boa seleção de vinhos</li>
-                        <li>Reserva recomendada</li>
-                        <li>Horário ideal: 18h-20h</li>
-                    </ul>
-                `
-            };
+        // Função para inicializar elementos dinâmicos da página
+        function inicializarElementosDinamicos() {
+            // Atualizar título da página
+            document.title = ROTEIRO_PARIS.meta.titulo + ' - Checklist Prático';
             
-            return infos[location] || `
-                <h3>Informação não disponível</h3>
-                <p>Desculpe, as informações detalhadas para este local ainda não estão disponíveis.</p>
-            `;
+            // Atualizar header
+            document.getElementById('roteiro-icone').className = ROTEIRO_PARIS.meta.icone;
+            document.getElementById('roteiro-titulo').textContent = ROTEIRO_PARIS.meta.titulo;
+            document.getElementById('roteiro-subtitulo').textContent = ROTEIRO_PARIS.meta.subtitulo;
         }
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            inicializarElementosDinamicos();
+            renderizarEstatisticas();
+            renderizarLegenda();
+            renderizarDias();
+            renderizarOrcamento();
+            renderizarDicas();
+            inicializarCheckboxes();
+        });
     </script>
 </body>
 </html>
