@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roteiro Florença - Checklist Prático</title>
+    <title id="page-title">Roteiro Barcelona 2025 - Checklist Prático</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -11,36 +11,43 @@
     <div class="container">
         <!-- Navegação entre roteiros -->
         <div class="navigation">
-            <!-- Será preenchido dinamicamente -->
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn">Paris</a>
+                <a href="chamonix.html" class="nav-btn">Chamonix</a>
+                <a href="florenca.html" class="nav-btn active">Florença</a>
+                <a href="roma.html" class="nav-btn ">Roma</a>
+                <a href="barcelona.html" class="nav-btn ">Barcelona</a>
+            </div>
         </div>
 
         <!-- Header -->
         <div class="header">
-            <!-- Será preenchido dinamicamente -->
+            <h1><i id="roteiro-icone" class="fas fa-map-marked-alt"></i> <span id="roteiro-titulo"></span></h1>
+            <p id="roteiro-subtitulo"></p>
         </div>
 
         <!-- Estatísticas -->
-        <div class="summary-stats">
+        <div class="summary-stats" id="estatisticas-container">
             <!-- Será preenchido dinamicamente -->
         </div>
 
         <!-- Legenda -->
-        <div class="legend">
+        <div class="legend" id="legenda-container">
             <!-- Será preenchido dinamicamente -->
         </div>
 
         <!-- Dias do roteiro -->
-        <div class="dias-container">
+        <div id="dias-container">
             <!-- Será preenchido dinamicamente -->
         </div>
 
         <!-- Seção de Orçamento -->
-        <div class="budget-section">
+        <div class="budget-section" id="orcamento-container">
             <!-- Será preenchido dinamicamente -->
         </div>
 
         <!-- Dicas -->
-        <div class="dicas-container">
+        <div id="dicas-container">
             <!-- Será preenchido dinamicamente -->
         </div>
     </div>
@@ -53,6 +60,878 @@
         </div>
     </div>
 
-    <script src="assets/script.js"></script>
+    <script>
+
+        const ROTEIRO_FLORENCA = {
+        "meta": {
+            "titulo": "Roteiro Florença 2025",
+            "subtitulo": "05 a 07 de Outubro • Checklist Prática",
+            "icone": "fas fa-paint-brush"
+        },
+        "estatisticas": [
+            { "numero": "3", "label": "Dias em Florença" },
+            { "numero": "1", "label": "Agendamento" },
+            { "numero": "€200", "label": "Orçamento Estimado" },
+            { "numero": "15+", "label": "Atrações" }
+        ],
+        "legenda": [
+            { "icone": "fas fa-utensils", "texto": "Refeição" },
+            { "icone": "fas fa-coffee", "texto": "Café/Lanche" },
+            { "icone": "fas fa-clock", "texto": "Agendamento Necessário" },
+            { "icone": "fas fa-ticket-alt", "texto": "Ingresso Pago" },
+            { "icone": "fas fa-camera", "texto": "Foto Obrigatória" },
+            { "icone": "fas fa-train", "texto": "Estação Trem" }
+        ],
+        "dias": [
+            {
+            "numero": 1,
+            "titulo": "Chegada e Palazzo Pitti",
+            "data": "05/10/2025",
+            "diaSemana": "Domingo",
+            "atividades": [
+                {
+                "horario": "08h30",
+                "icone": "🚌",
+                "texto": "Chegada em Scaccondi - Flixbus",
+                "duracao": "30min",
+                "info": {
+                    "titulo": "Chegada em Florença por Scaccond - Vila Constanza",
+                    "dicas": [
+                    "Pegar Tram Até Florença",
+                    "Estação Porta Al Prato, a primeira após o rio Arno"
+                    ]
+                }
+                },
+                {
+                "horario": "09h30",
+                "icone": "🧳",
+                "texto": "Airbnb - Deixar malas",
+                "duracao": "15min",
+                "info": {
+                    "titulo": "Check-in Airbnb",
+                    "dicas": [
+                    "Deixar malas no Airbnb",
+                    "Se não puder fazer check-in, guardar volumes na estação principal de Florença €6/dia"
+                    ]
+                }
+                },
+                {
+                "horario": "09h45",
+                "icone": "☕",
+                "texto": "Café da manhã próximo ao Palazzo Pitti",
+                "duracao": "15min",
+                "preco": "€8",
+                "info": {
+                    "titulo": "Opções de Café da Manhã",
+                    "opcoes": [
+                    "Supermercado Conad: próximo a Ponte Veccchio, abre as 9h30", 
+                    "Shake Café: smoothies e opções saudáveis",
+                    "Melaleuca: café australiano, brunch"
+                    ],
+                    "precoMedio": "€8-12",
+                    "dicas": [
+                    "Melaleuca tem opções veganas",
+                    "Shake Café próximo ao centro",
+                    "Ambos abrem cedo"
+                    ]
+                }
+                },
+                {
+                "horario": "10h30",
+                "icone": "🏛️",
+                "texto": "Palazzo Pitti e Jardins Boboli",
+                "duracao": "3h",
+                "preco": "Gratuito",
+                "info": {
+                    "titulo": "Palazzo Pitti e Jardins Boboli",
+                    "endereco": "Piazza de' Pitti, 1, 50125 Firenze",
+                    "entrada": "GRATUITO aos domingos (primeiro domingo do mês)",
+                    "horarios": "8h15-18h50",
+                    "dicas": [
+                    "Domingo gratuito = fila provável",
+                    "Chegue cedo para evitar multidões",
+                    "Jardins Boboli: vista panorâmica de Florença",
+                    "Leve água e lanche",
+                    "3h mínimo para ver tudo com calma"
+                    ]
+                }
+                },
+                {
+                "horario": "14h00",
+                "icone": "🥖",
+                "texto": "Almoço All'Antico Vinaio",
+                "duracao": "1h30",
+                "preco": "€8",
+                "info": {
+                    "titulo": "All'Antico Vinaio",
+                    "endereco": "Via de' Neri, 65, 50122 Firenze",
+                    "especialidade": "Schiacciata (sanduíche toscano)",
+                    "precoMedio": "€6-8",
+                    "dicas": [
+                    "Fila sempre, mas anda rápido",
+                    "Peça 'La Favolosa' - mais popular",
+                    "Porção enorme, dá pra dividir",
+                    "Tem filial na estação também"
+                    ]
+                }
+                },
+                {
+                "horario": "15h30",
+                "icone": "🌉",
+                "texto": "Ponte Vecchio",
+                "duracao": "30min",
+                "info": {
+                    "titulo": "Ponte Vecchio",
+                    "endereco": "Ponte Vecchio, 50125 Firenze",
+                    "dicas": [
+                    "Ponte medieval com joalherias",
+                    "Melhor foto das margens do Arno",
+                    "Corredor Vasariano passa por cima",
+                    "Pôr do sol especialmente bonito"
+                    ]
+                }
+                },
+                {
+                "horario": "16h00",
+                "icone": "🏛️",
+                "texto": "Piazza della Signoria",
+                "duracao": "45min",
+                "info": {
+                    "titulo": "Piazza della Signoria",
+                    "endereco": "Piazza della Signoria, 50122 Firenze",
+                    "dicas": [
+                    "Museu a céu aberto",
+                    "Cópia do David de Michelangelo",
+                    "Palazzo Vecchio",
+                    "Loggia dei Lanzi com esculturas",
+                    "Fonte de Netuno"
+                    ]
+                }
+                },
+                {
+                "horario": "16h45",
+                "icone": "🏛️",
+                "texto": "Piazza della Repubblica + Javali",
+                "duracao": "30min",
+                "info": {
+                    "titulo": "Piazza della Repubblica e Il Porcellino",
+                    "endereco": "Piazza della Repubblica, 50123 Firenze",
+                    "dicas": [
+                    "Carrossel histórico na praça",
+                    "Cafés históricos (Gilli, Paszkowski)",
+                    "Porcellino: esfregar focinho dá sorte",
+                    "Mercado Nuovo próximo ao javali"
+                    ]
+                }
+                },
+                {
+                "horario": "17h15",
+                "icone": "🍦",
+                "texto": "Gelateria Grom ou La Carraia",
+                "duracao": "20min",
+                "preco": "€3",
+                "info": {
+                    "titulo": "Gelaterias",
+                    "opcoes": [
+                    "Grom: cadeia premium, sabores naturais",
+                    "La Carraia: favorita dos locais, mais barata"
+                    ],
+                    "precoMedio": "€3-4",
+                    "dicas": [
+                    "La Carraia fica perto da Ponte Vecchio",
+                    "Grom tem várias lojas pelo centro",
+                    "Evite gelaterias com montanhas coloridas"
+                    ]
+                }
+                },
+                {
+                "horario": "19h00",
+                "icone": "🍝",
+                "texto": "Jantar Trattoria Zaza",
+                "duracao": "1h30",
+                "preco": "€18",
+                "reservado": false,
+                "info": {
+                    "titulo": "Trattoria Zaza",
+                    "endereco": "Piazza del Mercato Centrale, 26/R, 50123 Firenze",
+                    "especialidade": "Gnocchi trufado com gorgonzola",
+                    "precoMedio": "€18 (gnocchi trufado)",
+                    "dicas": [
+                    "Comer o gnocchi trufado com gorgonzola €18",
+                    "Reserva essencial",
+                    "Ambiente romântico no pátio interno",
+                    "Pratos toscanos tradicionais",
+                    "Porções generosas"
+                    ]
+                }
+                }
+            ]
+            },
+            {
+            "numero": 2,
+            "titulo": "Duomo e Piazzale Michelangelo",
+            "data": "06/10/2025",
+            "diaSemana": "Segunda-feira",
+            "atividades": [
+                {
+                "horario": "08h00",
+                "icone": "⏰",
+                "texto": "Acordar",
+                "duracao": "30min"
+                },
+                {
+                "horario": "08h30",
+                "icone": "☕",
+                "texto": "Café Gilli, Shake Cafe, Rinascente, Toscanino ou Melaleuca",
+                "duracao": "45min",
+                "preco": "€10",
+                "info": {
+                    "titulo": "Opções de Café da Manhã",
+                    "opcoes": [
+                    "Café Gilli: histórico desde 1733",
+                    "Rinascente: terraço com vista para o Duomo",
+                    "Toscanino: café local autêntico",
+                    "Melaleuca: brunch australiano"
+                    ],
+                    "dicas": [
+                    "Rinascente: 4º andar, vista espetacular",
+                    "Gilli: caro mas histórico",
+                    "Shake Cafe: opções saudáveis"
+                    ]
+                }
+                },
+                {
+                "horario": "09h15",
+                "icone": "⛪",
+                "texto": "Duomo (Catedral de Santa Maria del Fiore)",
+                "duracao": "2h",
+                "info": {
+                    "titulo": "Duomo di Firenze - sem subir",
+                    "endereco": "Piazza del Duomo, 50122 Firenze",
+                    "ingresso": "€20 (bilhete único: cúpula, campanário, batistério)",
+                    "dicas": [
+                    "Pegamos somente entrada gratuita",
+                    "Afrescos de Vasari na cúpula"
+                    ]
+                }
+                },
+                {
+                "horario": "11h15",
+                "icone": "🏛️",
+                "texto": "Farmácia Santa Maria Novella",
+                "duracao": "30min",
+                "info": {
+                    "titulo": "Farmácia Santa Maria Novella",
+                    "endereco": "Via della Scala, 16, 50123 Firenze",
+                    "dicas": [
+                    "Uma das farmácias mais antigas do mundo (1221)",
+                    "Perfumes e cosméticos artesanais",
+                    "Arquitetura preservada",
+                    "Preços elevados mas experiência única",
+                    "Ótimo para presentes especiais"
+                    ]
+                }
+                },
+                {
+                "horario": "12h00",
+                "icone": "🍝",
+                "texto": "Almoço Mercado Central (1º andar)",
+                "duracao": "2h",
+                "preco": "€12",
+                "info": {
+                    "titulo": "Mercado Central",
+                    "endereco": "Piazza del Mercato Centrale, 50123 Firenze",
+                    "horarios": "10h-00h",
+                    "dicas": [
+                    "Pasta Fresca no 1º andar",
+                    "Várias opções gastronômicas",
+                    "Ambiente vibrante",
+                    "Prove o lampredotto (tradicional)",
+                    "Vinhos toscanos por taça",
+                    "Aproveite para relaxar e explorar com calma"
+                    ]
+                }
+                },
+                {
+                "horario": "14h00",
+                "icone": "📸",
+                "texto": "Ponte Santa Trinita (foto da Ponte Vecchio)",
+                "duracao": "20min",
+                "info": {
+                    "titulo": "Ponte Santa Trinita",
+                    "dicas": [
+                    "Melhor vista da Ponte Vecchio",
+                    "Ângulo perfeito para fotos",
+                    "Menos turística que Ponte Vecchio",
+                    "Reconstruída após 2ª Guerra"
+                    ]
+                }
+                },
+                {
+                "horario": "14h20",
+                "icone": "🍎",
+                "texto": "OPCIONAL: Mercado de Sant'Ambrogio",
+                "duracao": "45min",
+                "info": {
+                    "titulo": "Mercado de Sant'Ambrogio",
+                    "endereco": "Piazza Sant'Ambrogio, 50121 Firenze",
+                    "horarios": "Segunda a Sábado: 7h-14h (fechado domingos)",
+                    "precos": "Quase ridiculamente razoáveis",
+                    "dicas": [
+                    "Experiência autêntica: onde os florentinos realmente fazem compras",
+                    "Da Rocco: tavola calda tradicional com pratos toscanos desde os anos 80",
+                    "Displays artísticos de frutas e verduras frescas",
+                    "Ambiente local, poucos turistas",
+                    "Ótimo para lanches e produtos típicos"
+                    ]
+                }
+                },
+                {
+                "horario": "15h05",
+                "icone": "⛪",
+                "texto": "OPCIONAL: Basílica de Santa Croce",
+                "duracao": "45min",
+                "preco": "€8",
+                "info": {
+                    "titulo": "Basílica de Santa Croce",
+                    "endereco": "Piazza di Santa Croce, 16, 50122 Firenze",
+                    "horarios": "9h30-17h (segunda a sábado), 14h-17h (domingo)",
+                    "ingresso": "€8",
+                    "dicas": [
+                    "Uma das maiores igrejas franciscanas do mundo",
+                    "Túmulos de Michelangelo, Galileu e Maquiavel",
+                    "Afrescos de Giotto na Capela Bardi e Peruzzi",
+                    "Crucifixo de Donatello",
+                    "Próximo às gelaterias Vivoli e Dei Neri"
+                    ]
+                }
+                },
+                {
+                "horario": "17h00",
+                "icone": "🌅",
+                "texto": "Piazzale Michelangelo para pôr do sol (18h47)",
+                "duracao": "2h",
+                "info": {
+                    "titulo": "Piazzale Michelangelo",
+                    "endereco": "Piazzale Michelangelo, 50125 Firenze",
+                    "acesso": "Ônibus 12 ou 13, ou caminhada (20min subida)",
+                    "horarioSunset": "Pôr do sol às 18h47",
+                    "dicas": [
+                    "Vista panorâmica mais famosa de Florença",
+                    "Chegamos 1h47 antes do pôr do sol",
+                    "Tempo perfeito para fotos e relaxar",
+                    "Leve bebida para brindar",
+                    "Réplica em bronze do David",
+                    "Vendedores ambulantes de souvenirs"
+                    ]
+                }
+                },
+                {
+                "horario": "19h00",
+                "icone": "🍝",
+                "texto": "Jantar Osteria Santo Spirito",
+                "duracao": "1h30",
+                "preco": "€20",
+                "info": {
+                    "titulo": "Osteria Santo Spirito",
+                    "endereco": "Piazza Santo Spirito, 16/R, 50125 Firenze",
+                    "horarios": "Abre 19h30",
+                    "especialidade": "Nhoque trufado gratinado",
+                    "dicas": [
+                    "Chegar pelo menos 15min antes da abertura",
+                    "Pedir o nhoque trufado gratinado",
+                    "Não aceita reservas",
+                    "Fila comum mas vale a pena",
+                    "Ambiente autêntico florentino"
+                    ]
+                }
+                },
+                {
+                "horario": "20h45",
+                "icone": "🍦",
+                "texto": "Vivoli Gelato ou Dei Neri",
+                "duracao": "20min",
+                "preco": "€3",
+                "info": {
+                    "titulo": "Gelaterias Noturnas",
+                    "opcoes": [
+                    "Vivoli: histórica desde 1930",
+                    "Gelateria dei Neri: sabores criativos"
+                    ],
+                    "dicas": [
+                    "Vivoli: prove o crema",
+                    "Dei Neri: ricotta com figo",
+                    "Ambas próximas a Santa Croce"
+                    ]
+                }
+                }
+            ]
+            },
+            {
+            "numero": 3,
+            "titulo": "Uffizi e Partida",
+            "data": "07/10/2025",
+            "diaSemana": "Terça-feira",
+            "atividades": [
+                {
+                "horario": "07h30",
+                "icone": "⏰",
+                "texto": "Acordar",
+                "duracao": "30min"
+                },
+                {
+                "horario": "08h15",
+                "icone": "🎨",
+                "texto": "Galeria Uffizi",
+                "duracao": "3h",
+                "preco": "€25",
+                "reservado": true,
+                "reservaLink": "https://drive.google.com/file/d/1r53aGAJGbYY-YSoZMjMbuKJvzxdA6pmR/view?usp=drive_link",
+                "info": {
+                    "titulo": "Galeria Uffizi",
+                    "endereco": "Piazzale degli Uffizi, 6, 50122 Firenze",
+                    "horarios": "8h15-18h50 (terça a domingo)",
+                    "ingresso": "€25 (reserva obrigatória)",
+                    "obrasImperdiveis": [
+                    "Nascimento de Vênus - Botticelli",
+                    "Primavera - Botticelli",
+                    "Anunciação - Leonardo da Vinci",
+                    "Vênus de Urbino - Ticiano",
+                    "Medusa - Caravaggio"
+                    ],
+                    "dicas": [
+                    "Reservado para 08h15",
+                    "2º museu mais visitado da Itália",
+                    "Vista para Ponte Vecchio do corredor",
+                    "Cafeteria com terraço panorâmico",
+                    "Audioguia recomendado"
+                    ]
+                }
+                },
+                {
+                "horario": "11h15",
+                "icone": "🧳",
+                "texto": "Pegar malas e ir para estação",
+                "duracao": "30min"
+                },
+                {
+                "horario": "11h45",
+                "icone": "🍝",
+                "texto": "Almoço próximo à estação",
+                "duracao": "1h",
+                "preco": "€10",
+                "info": {
+                    "titulo": "Almoço antes do trem",
+                    "opcoes": [
+                    "All'Antico Vinaio na estação",
+                    "Mercado Central (próximo)",
+                    "Grab&Go na estação"
+                    ],
+                    "dicas": [
+                    "All'Antico Vinaio tem filial na estação",
+                    "Coma antes do trem para economizar",
+                    "Compre água para viagem"
+                    ]
+                }
+                },
+                {
+                "horario": "14h43",
+                "icone": "🚂",
+                "texto": "Trem para Roma",
+                "duracao": "1h30",
+                "preco": "€45",
+                "reservado": true,
+                "reservaLink": "https://drive.google.com/file/d/1f3Go0WxIhNzQTI2p7X5jtl2queoQnR9b/view?usp=drive_link",
+                "info": {
+                    "titulo": "Trem Florença-Roma",
+                    "partida": "14h43",
+                    "chegada": "16h15 (Roma Termini)",
+                    "dicas": [
+                    "Frecciarossa (alta velocidade)",
+                    "Reserve com antecedência para melhor preço",
+                    "Validar bilhete antes de embarcar",
+                    "Chegar 15min antes"
+                    ]
+                }
+                }
+            ]
+            }
+        ],
+        "orcamento": {
+            "pessoa": { "totalGeral": "€200" },
+            "casal": { "totalGeral": "€400" }
+        },
+        "dicas": [
+            "🎫 Agendamento Obrigatório: Galeria Uffizi",
+            "🎫 Agendamentos Recomendados: Cúpula do Duomo, Galleria Accademia (David)",
+            "🚶 Florença é compacta - tudo a pé no centro",
+            "📱 Apps Essenciais: Firenzecard app, Google Maps offline",
+            "🍝 Evite restaurantes com fotos no menu e 'menu turístico'",
+            "💡 Domingos: muitos museus estatais gratuitos (filas maiores)"
+        ]
+        };        
+
+
+
+        // Função para renderizar estatísticas
+        function renderizarEstatisticas() {
+            const container = document.getElementById('estatisticas-container');
+            let html = '';
+            ROTEIRO_FLORENCA.estatisticas.forEach(stat => {
+                html += `
+                    <div class="stat-card">
+                        <div class="stat-number">${stat.numero}</div>
+                        <div class="stat-label">${stat.label}</div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar legenda
+        function renderizarLegenda() {
+            const container = document.getElementById('legenda-container');
+            let html = `
+                <h3><i class="fas fa-info-circle"></i> Legenda</h3>
+                <div class="legend-grid">
+            `;
+            ROTEIRO_FLORENCA.legenda.forEach(item => {
+                html += `
+                    <div class="legend-item">
+                        <i class="${item.icone}"></i> ${item.texto}
+                    </div>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar dias
+        function renderizarDias() {
+            const container = document.getElementById('dias-container');
+            let html = '';
+            
+            ROTEIRO_FLORENCA.dias.forEach(dia => {
+                html += `
+                    <div class="day-card">
+                        <div class="day-header">
+                            <h2>Dia ${dia.numero} - ${dia.titulo}</h2>
+                            <div class="date-info">${dia.data} • ${dia.diaSemana}</div>
+                        </div>
+                        <div class="activities">
+                `;
+                
+                dia.atividades.forEach(atividade => {
+                    let detailsHtml = '';
+                    
+                    if (atividade.duracao) {
+                        detailsHtml += `<span class="activity-duration">${atividade.duracao}</span>`;
+                    }
+                    
+                    if (atividade.preco) {
+                        detailsHtml += `<span class="price">${atividade.preco}</span>`;
+                    }
+                    
+                    if (atividade.reservado === true && atividade.reservaLink) {
+                        detailsHtml += `<a href="${atividade.reservaLink}" target="_blank" class="reserved-btn">✓ Reservado</a>`;
+                    } else if (atividade.reservado === false) {
+                        detailsHtml += `<button class="pending-btn">⚠ Reservar</button>`;
+                    }
+                    
+                    if (atividade.info) {
+                        const infoIndex = ROTEIRO_FLORENCA.dias.findIndex(d => d.numero === dia.numero);
+                        const atividadeIndex = dia.atividades.findIndex(a => a === atividade);
+                        detailsHtml += `<button class="info-btn" onclick="showInfoByIndex(${infoIndex}, ${atividadeIndex})">Info</button>`;
+                    } else {
+                        detailsHtml += `<button class="info-btn" disabled>Info</button>`;
+                    }
+                    
+                    html += `
+                        <div class="activity">
+                            <input type="checkbox" class="activity-checkbox">
+                            <span class="activity-time">${atividade.horario}</span>
+                            <span class="activity-icon">${atividade.icone}</span>
+                            <span class="activity-text">${atividade.texto}</span>
+                            <div class="activity-details">
+                                ${detailsHtml}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Função para renderizar orçamento
+        function renderizarOrcamento() {
+            const container = document.getElementById('orcamento-container');
+            container.innerHTML = `
+                <h3><i class="fas fa-calculator"></i> Orçamento Detalhado</h3>
+                
+                <div class="budget-toggle">
+                    <button class="toggle-btn active" onclick="toggleBudget('pessoa')">Por Pessoa</button>
+                    <button class="toggle-btn" onclick="toggleBudget('casal')">Para Casal</button>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #2c3e50, #34495e); color: white; border-radius: 15px;">
+                    <h4 style="margin-bottom: 10px;">
+                        <i class="fas fa-calculator"></i> 
+                        <span id="total-label">Total por Pessoa</span>
+                    </h4>
+                    <div style="font-size: 2rem; font-weight: bold;" id="total-amount">${ROTEIRO_FLORENCA.orcamento.pessoa.totalGeral}</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">*Valores estimados, sem hospedagem</div>
+                </div>
+            `;
+        }
+
+        // Função para renderizar dicas
+        function renderizarDicas() {
+            const container = document.getElementById('dicas-container');
+            let html = `
+                <div class="legend">
+                    <h3><i class="fas fa-lightbulb"></i> Dicas Importantes</h3>
+                    <div style="margin-top: 15px; text-align: left;">
+            `;
+            ROTEIRO_FLORENCA.dicas.forEach(dica => {
+                html += `<p><strong>${dica}</strong></p>`;
+            });
+            html += `</div></div>`;
+            container.innerHTML = html;
+        }
+
+        // Função para toggle do orçamento
+        function toggleBudget(type) {
+            const totalLabel = document.getElementById('total-label');
+            const totalAmount = document.getElementById('total-amount');
+            const buttons = document.querySelectorAll('.toggle-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            if (type === 'pessoa') {
+                totalLabel.textContent = 'Total por Pessoa';
+                totalAmount.textContent = ROTEIRO_FLORENCA.orcamento.pessoa.totalGeral;
+                buttons[0].classList.add('active');
+            } else {
+                totalLabel.textContent = 'Total para Casal';
+                totalAmount.textContent = ROTEIRO_FLORENCA.orcamento.casal.totalGeral;
+                buttons[1].classList.add('active');
+            }
+        }
+
+        // Função para checkboxes
+        function inicializarCheckboxes() {
+            const checkboxes = document.querySelectorAll('.activity-checkbox');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const activity = this.closest('.activity');
+                    if (this.checked) {
+                        activity.classList.add('completed');
+                    } else {
+                        activity.classList.remove('completed');
+                    }
+                    saveProgress();
+                });
+            });
+            
+            loadProgress();
+        }
+
+        function saveProgress() {
+            const checkboxes = document.querySelectorAll('.activity-checkbox');
+            const progress = Array.from(checkboxes).map(cb => cb.checked);
+            const storageKey = 'roteiro_' + ROTEIRO_FLORENCA.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            localStorage.setItem(storageKey, JSON.stringify(progress));
+        }
+
+        function loadProgress() {
+            const storageKey = 'roteiro_' + ROTEIRO_FLORENCA.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                const progress = JSON.parse(saved);
+                const checkboxes = document.querySelectorAll('.activity-checkbox');
+                checkboxes.forEach((checkbox, index) => {
+                    if (progress[index]) {
+                        checkbox.checked = true;
+                        checkbox.closest('.activity').classList.add('completed');
+                    }
+                });
+            }
+        }
+
+        // Função helper para acessar informações por índice
+        function showInfoByIndex(diaIndex, atividadeIndex) {
+            const infoData = ROTEIRO_FLORENCA.dias[diaIndex].atividades[atividadeIndex].info;
+            showInfo(infoData);
+        }
+
+        // Função para exibir informações no modal
+        function showInfo(infoData) {
+            const modalContent = document.getElementById('modalContent');
+            const modal = document.getElementById('infoModal');
+            
+            // Construir HTML das informações
+            let html = `<h3>${infoData.titulo}</h3>`;
+            
+            // Adicionar informações básicas se existirem
+            if (infoData.endereco) html += `<p><strong>Endereço:</strong> ${infoData.endereco}</p>`;
+            if (infoData.metro) html += `<p><strong>Metrô:</strong> ${infoData.metro}</p>`;
+            if (infoData.especialidade) html += `<p><strong>Especialidade:</strong> ${infoData.especialidade}</p>`;
+            if (infoData.precoMedio) html += `<p><strong>Preço médio:</strong> ${infoData.precoMedio}</p>`;
+            if (infoData.entrada) html += `<p><strong>Entrada:</strong> ${infoData.entrada}</p>`;
+            if (infoData.horarios) html += `<p><strong>Horários:</strong> ${infoData.horarios}</p>`;
+            if (infoData.ingresso) html += `<p><strong>Ingresso:</strong> ${infoData.ingresso}</p>`;
+            if (infoData.acesso) html += `<p><strong>Acesso:</strong> ${infoData.acesso}</p>`;
+            if (infoData.estrategia) html += `<p><strong>Estratégia:</strong> ${infoData.estrategia}</p>`;
+            if (infoData.objetivo) html += `<p><strong>Objetivo:</strong> ${infoData.objetivo}</p>`;
+            if (infoData.orcamento) html += `<p><strong>Orçamento:</strong> ${infoData.orcamento}</p>`;
+            if (infoData.terraco) html += `<p><strong>Terraço:</strong> ${infoData.terraco}</p>`;
+            if (infoData.visita) html += `<p><strong>Visita:</strong> ${infoData.visita}</p>`;
+            if (infoData.petitTrain) html += `<p><strong>Petit Train:</strong> ${infoData.petitTrain}</p>`;
+            if (infoData.dica) html += `<p><strong>Dica:</strong> ${infoData.dica}</p>`;
+            
+            // Adicionar listas se existirem
+            if (infoData.dicas && infoData.dicas.length > 0) {
+                html += `<p><strong>Dicas:</strong></p><ul>`;
+                infoData.dicas.forEach(dica => html += `<li>${dica}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.pontosFoto && infoData.pontosFoto.length > 0) {
+                html += `<p><strong>Pontos de foto:</strong></p><ul>`;
+                infoData.pontosFoto.forEach(ponto => html += `<li>${ponto}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro5h30 && infoData.roteiro5h30.length > 0) {
+                html += `<p><strong>Roteiro 5h30:</strong></p><ul>`;
+                infoData.roteiro5h30.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro6h && infoData.roteiro6h.length > 0) {
+                html += `<p><strong>Roteiro 6h com pausa:</strong></p><ul>`;
+                infoData.roteiro6h.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.roteiro3h && infoData.roteiro3h.length > 0) {
+                html += `<p><strong>Roteiro 3h:</strong></p><ul>`;
+                infoData.roteiro3h.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.estrategiaAntiCansaco && infoData.estrategiaAntiCansaco.length > 0) {
+                html += `<p><strong>Estratégia Anti-Cansaço:</strong></p><ul>`;
+                infoData.estrategiaAntiCansaco.forEach(item => html += `<li>${item}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.obrasImperdiveis && infoData.obrasImperdiveis.length > 0) {
+                html += `<p><strong>Obras Imperdíveis:</strong></p><ul>`;
+                infoData.obrasImperdiveis.forEach(obra => html += `<li>${obra}</li>`);
+                html += `</ul>`;
+            }
+            
+            // Estruturas complexas específicas
+            if (infoData.locaisSugeridos && infoData.locaisSugeridos.length > 0) {
+                html += `<p><strong>Locais Sugeridos:</strong></p><ul>`;
+                infoData.locaisSugeridos.forEach(local => html += `<li>${local}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.atividadesOpcionais && infoData.atividadesOpcionais.length > 0) {
+                html += `<p><strong>Atividades Opcionais:</strong></p><ul>`;
+                infoData.atividadesOpcionais.forEach(atividade => html += `<li>${atividade}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.opcoes && infoData.opcoes.length > 0) {
+                html += `<p><strong>Opções:</strong></p><ul>`;
+                infoData.opcoes.forEach(opcao => html += `<li>${opcao}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.beneficios && infoData.beneficios.length > 0) {
+                html += `<p><strong>Benefícios:</strong></p><ul>`;
+                infoData.beneficios.forEach(beneficio => html += `<li>${beneficio}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.vantagens && infoData.vantagens.length > 0) {
+                html += `<p><strong>Vantagens:</strong></p><ul>`;
+                infoData.vantagens.forEach(vantagem => html += `<li>${vantagem}</li>`);
+                html += `</ul>`;
+            }
+            
+            if (infoData.tiposRestaurante && infoData.tiposRestaurante.length > 0) {
+                html += `<p><strong>Tipos de Restaurante:</strong></p><ul>`;
+                infoData.tiposRestaurante.forEach(tipo => html += `<li>${tipo}</li>`);
+                html += `</ul>`;
+            }
+            
+            // Opções específicas para tempo livre
+            ['opcao1Compras', 'opcao2Cultura', 'opcao3Relaxar', 'opcao1RevisitarFavorito', 'opcao2PendenciaSemana', 'opcao3DescobertaNova', 'opcao4RelaxTotal'].forEach(opcaoKey => {
+                if (infoData[opcaoKey] && infoData[opcaoKey].length > 0) {
+                    const titulo = opcaoKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                    html += `<p><strong>${titulo}:</strong></p><ul>`;
+                    infoData[opcaoKey].forEach(item => html += `<li>${item}</li>`);
+                    html += `</ul>`;
+                }
+            });
+            
+            // Informações específicas de ruas
+            if (infoData.rueBuenosAires) html += `<p><strong>Rue Buenos Aires:</strong> ${infoData.rueBuenosAires}</p>`;
+            if (infoData.rueUniversite) html += `<p><strong>Rue de l'Université:</strong> ${infoData.rueUniversite}</p>`;
+            
+            // Inserir o HTML no modal e exibir
+            modalContent.innerHTML = html;
+            modal.style.display = 'block';
+        }
+
+        // Configuração do modal
+        const modal = document.getElementById('infoModal');
+        const span = document.getElementsByClassName('close')[0];
+
+        // Quando o usuário clica no X, fecha o modal
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // Quando o usuário clica fora do modal, fecha ele
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Função para inicializar elementos dinâmicos da página
+        function inicializarElementosDinamicos() {
+            // Atualizar título da página
+            document.title = ROTEIRO_FLORENCA.meta.titulo + ' - Checklist Prático';
+            
+            // Atualizar header
+            document.getElementById('roteiro-icone').className = ROTEIRO_FLORENCA.meta.icone;
+            document.getElementById('roteiro-titulo').textContent = ROTEIRO_FLORENCA.meta.titulo;
+            document.getElementById('roteiro-subtitulo').textContent = ROTEIRO_FLORENCA.meta.subtitulo;
+        }
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            inicializarElementosDinamicos();
+            renderizarEstatisticas();
+            renderizarLegenda();
+            renderizarDias();
+            renderizarOrcamento();
+            renderizarDicas();
+            inicializarCheckboxes();
+        });
+    </script>
 </body>
 </html>
