@@ -13,17 +13,17 @@
         <div class="navigation">
             <div class="nav-links">
                 <a href="index.html" class="nav-btn">Paris</a>
-                <a href="chamonix.html" class="nav-btn active">Chamonix</a>
+                <a href="chamonix-novo.html" class="nav-btn active">Chamonix</a>
                 <a href="florenca.html" class="nav-btn">Florença</a>
-                <a href="roma.html" class="nav-btn ">Roma</a>
-                <a href="barcelona.html" class="nav-btn ">Barcelona</a>
+                <a href="roma.html" class="nav-btn">Roma</a>
+                <a href="barcelona.html" class="nav-btn">Barcelona</a>
             </div>
         </div>
 
         <!-- Header -->
         <div class="header">
-            <h1><i id="roteiro-icone" class="fas fa-map-marked-alt"></i> <span id="roteiro-titulo"></span></h1>
-            <p id="roteiro-subtitulo"></p>
+            <h1><i id="roteiro-icone" class="fas fa-mountain"></i> <span id="roteiro-titulo">Carregando...</span></h1>
+            <p id="roteiro-subtitulo">Carregando dados...</p>
         </div>
 
         <!-- Estatísticas -->
@@ -60,915 +60,555 @@
         </div>
     </div>
 
+    <!-- Scripts -->
+    <script src="assets/roteiro-engine.js"></script>
     <script>
-
-    const ROTEIRO_CHAMONIX = {
-      "meta": {
-        "titulo": "Roteiro Chamonix 2025",
-        "subtitulo": "30 de Setembro a 04 de Outubro • Aventura nos Alpes",
-        "icone": "fas fa-mountain"
-      },
-      "estatisticas": [
-        { "numero": "5", "label": "Dias nos Alpes" },
-        { "numero": "2", "label": "Cidades" },
-        { "numero": "€200", "label": "Orçamento Estimado" },
-        { "numero": "10+", "label": "Atividades" }
-      ],
-      "legenda": [
-        { "icone": "fas fa-utensils", "texto": "Refeição" },
-        { "icone": "fas fa-coffee", "texto": "Café/Lanche" },
-        { "icone": "fas fa-mountain", "texto": "Atividade de Montanha" },
-        { "icone": "fas fa-hiking", "texto": "Trilha/Caminhada" },
-        { "icone": "fas fa-camera", "texto": "Foto Obrigatória" },
-        { "icone": "fas fa-bus", "texto": "Transporte" }
-      ],
-      "dias": [
+        // Dados do roteiro embutidos no HTML
+        window.ROTEIRO_DATA = {
+  "meta": {
+    "titulo": "Roteiro Chamonix 2025",
+    "subtitulo": "30 de Setembro a 04 de Outubro • Aventura nos Alpes",
+    "icone": "fas fa-mountain"
+  },
+  "estatisticas": [
+    { "numero": "5", "label": "Dias nos Alpes" },
+    { "numero": "2", "label": "Cidades" },
+    { "numero": "€200", "label": "Orçamento Estimado" },
+    { "numero": "10+", "label": "Atividades" }
+  ],
+  "legenda": [
+    { "icone": "fas fa-utensils", "texto": "Refeição" },
+    { "icone": "fas fa-coffee", "texto": "Café/Lanche" },
+    { "icone": "fas fa-mountain", "texto": "Atividade de Montanha" },
+    { "icone": "fas fa-hiking", "texto": "Trilha/Caminhada" },
+    { "icone": "fas fa-camera", "texto": "Foto Obrigatória" },
+    { "icone": "fas fa-bus", "texto": "Transporte" }
+  ],
+  "dias": [
+    {
+      "numero": 1,
+      "titulo": "Chegada - Viagem para Chamonix",
+      "data": "30/09/2025",
+      "diaSemana": "Terça-feira",
+      "atividades": [
         {
-          "numero": 1,
-          "titulo": "Chegada - Viagem para Chamonix",
-          "data": "30/09/2025",
-          "diaSemana": "Terça-feira",
-          "atividades": [
-            {
-              "horario": "18h17",
-              "icone": "🚂",
-              "texto": "Saída do trem de Paris",
-              "duracao": "2h43min"
-            },
-            {
-              "horario": "21h00",
-              "icone": "🚂",
-              "texto": "Chegada em Bellegarde-sur-Valserine",
-              "duracao": "15min"
-            },
-            {
-              "horario": "21h15",
-              "icone": "🚌",
-              "texto": "Saída do ônibus para Chamonix",
-              "duracao": "3h05min",
-              "info": {
-                "titulo": "Transporte Bellegarde → Chamonix",
-                "empresa": "Ônibus regional",
-                "observacao": "ATENÇÃO: Possível atraso devido à obra na estrada",
-                "duracaoNormal": "1h30",
-                "duracaoComObra": "2h30-3h",
-                "dicas": [
-                  "Leve entretenimento para viagem longa",
-                  "Confirme horários na estação",
-                  "Tenha paciência com possíveis atrasos",
-                  "Chegada prevista: 00h20 (pode ser mais tarde)"
-                ]
-              }
-            },
-            {
-              "horario": "00h20+",
-              "icone": "🏨",
-              "texto": "Chegada em Chamonix (possível atraso)",
-              "duracao": "30min"
-            },
-            {
-              "horario": "01h00",
-              "icone": "😴",
-              "texto": "Descanso no hotel",
-              "duracao": "8h"
-            }
-          ]
+          "horario": "18h17",
+          "icone": "🚂",
+          "texto": "Saída do trem de Paris",
+          "duracao": "2h43min"
         },
         {
-          "numero": 2,
-          "titulo": "Exploração de Chamonix",
-          "data": "01/10/2025",
-          "diaSemana": "Quarta-feira",
-          "atividades": [
-            {
-              "horario": "09h00",
-              "icone": "⏰",
-              "texto": "Acordar",
-              "duracao": "30min"
-            },
-            {
-              "horario": "10h00",
-              "icone": "🏔️",
-              "texto": "Exploração do Centro de Chamonix",
-              "duracao": "2h30",
-              "info": {
-                "titulo": "Centro de Chamonix - Pontos de Interesse",
-                "endereco": "Centre-ville, 74400 Chamonix-Mont-Blanc",
-                "pontosVisita": [
-                  "Office de Tourisme (Place du Triangle de l'Amitié)",
-                  "Église Saint-Michel (Igreja principal)",
-                  "Musée des Cristaux et de la Faune des Alpes",
-                  "Place Balmat (estátua de Jacques Balmat)",
-                  "Rue du Docteur Paccard (rua principal)",
-                  "Marché de Chamonix (mercado local)"
-                ],
-                "dicas": [
-                  "Pegue mapa e informações no Office de Tourisme",
-                  "Arquitetura alpina tradicional preservada",
-                  "Vista do Mont Blanc entre as montanhas",
-                  "Lojas de equipamentos de montanha",
-                  "Cafés típicos para pausa"
-                ]
-              }
-            },
-            {
-              "horario": "13h00",
-              "icone": "🚡",
-              "texto": "Aiguille du Midi",
-              "duracao": "3h",
-              "preco": "€65",
-              "info": {
-                "titulo": "Aiguille du Midi",
-                "endereco": "35 Place de la Mer de Glace, 74400 Chamonix",
-                "altitude": "3.842m",
-                "dicas": [
-                  "Vista panorâmica dos Alpes",
-                  "Teleférico mais alto da Europa",
-                  "Leve roupas quentes (temperatura negativa)",
-                  "Passo Vallée Blanche (se disponível)",
-                  "Reserve online antecipadamente"
-                ]
-              }
-            },
-            {
-              "horario": "16h30",
-              "icone": "🍫",
-              "texto": "Aux Petit Gourmands (chocolates e macarrons)",
-              "duracao": "45min",
-              "preco": "€15",
-              "info": {
-                "titulo": "Aux Petit Gourmands",
-                "endereco": "Centre-ville Chamonix",
-                "especialidade": "Chocolates artesanais e macarrons",
-                "dicas": [
-                  "Especialidade em chocolates alpinos",
-                  "Macarrons com sabores únicos",
-                  "Perfeito para presente ou degustação",
-                  "Produtos locais de alta qualidade"
-                ]
-              }
-            }
-          ]
+          "horario": "21h00",
+          "icone": "🚂",
+          "texto": "Chegada em Bellegarde-sur-Valserine",
+          "duracao": "15min"
         },
         {
-          "numero": 3,
-          "titulo": "Aventura no Lac des Gaillands",
-          "data": "02/10/2025",
-          "diaSemana": "Quinta-feira",
-          "atividades": [
-            {
-              "horario": "06h30",
-              "icone": "⏰",
-              "texto": "Acordar",
-              "duracao": "30min"
-            },
-            {
-              "horario": "08h00",
-              "icone": "🏞️",
-              "texto": "Visita ao Lac des Gaillands",
-              "duracao": "2h",
-              "info": {
-                "titulo": "Lac des Gaillands",
-                "endereco": "Route des Gaillands, 74400 Chamonix",
-                "atividades": [
-                  "Lagos alpinos cristalinos",
-                  "Vista do Mont Blanc",
-                  "Área de escalada natural",
-                  "Trilhas para caminhada"
-                ],
-                "dicas": [
-                  "Leve câmera para paisagens",
-                  "Água potável e lanches",
-                  "Calçado adequado para trilha",
-                  "Horário ideal: manhã cedo"
-                ]
-              }
-            },
-            {
-              "horario": "10h30",
-              "icone": "🧗‍♂️",
-              "texto": "Parc Aventure + Ruines du Lac Sinclair",
-              "duracao": "2h30",
-              "preco": "€25",
-              "info": {
-                "titulo": "Parc Aventure Les Gaillands",
-                "endereco": "Route des Gaillands, 74400 Chamonix",
-                "atividades": [
-                  "Escalada em rocha natural",
-                  "Parque aventura",
-                  "Exploração das ruínas históricas",
-                  "Via ferrata (se disponível)"
-                ],
-                "dicas": [
-                  "Equipamentos de segurança inclusos",
-                  "Instrutores disponíveis",
-                  "Adequado para iniciantes",
-                  "Reserva recomendada"
-                ]
-              }
-            },
-            {
-              "horario": "13h30",
-              "icone": "🥾",
-              "texto": "Trilha Petit Balcon Sud (mirante)",
-              "duracao": "2h30",
-              "info": {
-                "titulo": "Trilha Petit Balcon Sud",
-                "endereco": "Sentido Refuge Bellachat / Parc de Merlet",
-                "dificuldade": "Moderada",
-                "distancia": "3-4 km",
-                "dicas": [
-                  "Vista panorâmica do Vale de Chamonix",
-                  "Caminho bem sinalizado",
-                  "Paradas estratégicas para fotos",
-                  "Leve água e lanche energético",
-                  "Calçado de trilha obrigatório"
-                ]
-              }
-            },
-            {
-              "horario": "16h30",
-              "icone": "🥪",
-              "texto": "Piquenique e curtir o parque Les Gaillands",
-              "duracao": "1h30",
-              "preco": "€10"
-            },
-            {
-              "horario": "19h30",
-              "icone": "🍽️",
-              "texto": "Jantar no La Tablée",
-              "duracao": "2h",
-              "preco": "€60",
-              "info": {
-                "titulo": "La Tablée",
-                "endereco": "Chamonix Centre-ville",
-                "especialidade": "Fondue savoyarde para 2 pessoas",
-                "incluso": "Bebida sem álcool + crème brúlée",
-                "precoTotal": "€60 (casal completo)",
-                "dicas": [
-                  "Ambiente típico alpino",
-                  "Fondue tradicional da região",
-                  "Reserva altamente recomendada",
-                  "Experiência gastronômica autêntica"
-                ]
-              }
-            }
-          ]
+          "horario": "21h15",
+          "icone": "🚌",
+          "texto": "Saída do ônibus para Chamonix",
+          "duracao": "3h05min",
+          "info": {
+            "titulo": "Transporte Bellegarde → Chamonix",
+            "empresa": "Ônibus regional",
+            "observacao": "ATENÇÃO: Possível atraso devido à obra na estrada",
+            "duracaoNormal": "1h30",
+            "duracaoComObra": "2h30-3h",
+            "dicas": [
+              "Leve entretenimento para viagem longa",
+              "Confirme horários na estação",
+              "Tenha paciência com possíveis atrasos",
+              "Chegada prevista: 00h20 (pode ser mais tarde)"
+            ]
+          }
         },
         {
-          "numero": 4,
-          "titulo": "Dia em Annecy",
-          "data": "03/10/2025",
-          "diaSemana": "Sexta-feira",
-          "atividades": [
-            {
-              "horario": "06h30",
-              "icone": "⏰",
-              "texto": "Acordar",
-              "duracao": "45min"
-            },
-            {
-              "horario": "07h15",
-              "icone": "🚌",
-              "texto": "Ônibus para Annecy",
-              "duracao": "1h35",
-              "preco": "€12",
-              "reservado": true,
-              "reservaLink": "https://drive.google.com/file/d/1X06Vmp2B43xHFLeCks3EU0R-7J93NOHa/view?usp=drive_link",
-              "info": {
-                "titulo": "Transporte Chamonix → Annecy",
-                "saida": "07h15 de Chamonix",
-                "chegada": "08h50 em Annecy",
-                "empresa": "Ônibus regional",
-                "duracao": "1h35",
-                "dicas": [
-                  "Reserva confirmada - ver link",
-                  "Paisagem alpina durante o trajeto",
-                  "Chegada no centro de Annecy"
-                ]
-              }
-            },
-            {
-              "horario": "09h00",
-              "icone": "🏛️",
-              "texto": "Passeio pela cidade antiga",
-              "duracao": "2h30",
-              "info": {
-                "titulo": "Vieille Ville d'Annecy",
-                "pontosPrincipais": [
-                  "Château d'Annecy",
-                  "Palais de l'Île",
-                  "Canais medievais",
-                  "Rue Sainte-Claire"
-                ],
-                "dicas": [
-                  "Chamada de 'Veneza dos Alpes'",
-                  "Arquitetura medieval preservada",
-                  "Canais cristalinos",
-                  "Lojas e cafés charmosos"
-                ]
-              }
-            },
-            {
-              "horario": "11h30",
-              "icone": "🍨",
-              "texto": "Sorvete na Le Glacier des Alpes",
-              "duracao": "30min",
-              "preco": "€8",
-              "info": {
-                "titulo": "Le Glacier des Alpes",
-                "endereco": "Centre d'Annecy",
-                "especialidade": "Gelatos artesanais alpinos",
-                "saboresUnicos": [
-                  "Génépi (licor alpino)",
-                  "Myrtille des Alpes",
-                  "Miel de montagne"
-                ]
-              }
-            },
-            {
-              "horario": "12h00",
-              "icone": "🛒",
-              "texto": "Mercado Local",
-              "duracao": "1h30",
-              "info": {
-                "titulo": "Marché d'Annecy",
-                "localizacao": "Centre-ville (sextas-feira)",
-                "produtos": [
-                  "Queijos regionais",
-                  "Produtos alpinos",
-                  "Artesanato local",
-                  "Especialidades savoyardes"
-                ]
-              }
-            },
-            {
-              "horario": "13h30",
-              "icone": "🥪",
-              "texto": "Piquenique no Lago",
-              "duracao": "1h30",
-              "preco": "€5,50",
-              "info": {
-                "titulo": "Piquenique Lac d'Annecy",
-                "local": "Les Caprices d'Emilie",
-                "produto": "Baguete recheada com raclette",
-                "preco": "€5,50",
-                "localizacao": "Margens do Lac d'Annecy",
-                "dicas": [
-                  "Uma das mais belas vistas lacustres da Europa",
-                  "Águas cristalinas cercadas pelos Alpes",
-                  "Gramados perfeitos para piquenique",
-                  "Cisnes e patos no lago"
-                ]
-              }
-            },
-            {
-              "horario": "15h00",
-              "icone": "💕",
-              "texto": "Ponte dos Amores / Jardim Europa",
-              "duracao": "45min",
-              "info": {
-                "titulo": "Pont des Amours + Jardins de l'Europe",
-                "endereco": "Jardins de l'Europe, 74000 Annecy",
-                "atracao": [
-                  "Ponte romântica sobre o canal",
-                  "Jardins paisagísticos",
-                  "Vista panorâmica do lago",
-                  "Local icônico para fotos"
-                ],
-                "dicas": [
-                  "Vista dos Alpes ao fundo",
-                  "Tradição: cadeados do amor",
-                  "Caminhada relaxante nos jardins",
-                  "Ótimo para fotos de despedida"
-                ]
-              }
-            },
-            {
-              "horario": "15h50",
-              "icone": "🚌",
-              "texto": "Ônibus retorno Chamonix",
-              "duracao": "1h35",
-              "preco": "€12",
-              "reservado": true,
-              "reservaLink": "https://drive.google.com/file/d/1X06Vmp2B43xHFLeCks3EU0R-7J93NOHa/view?usp=drive_link",
-              "info": {
-                "titulo": "Transporte Annecy → Chamonix",
-                "saida": "15h50 de Annecy",
-                "chegada": "17h25 em Chamonix",
-                "empresa": "Ônibus regional",
-                "duracao": "1h35",
-                "dicas": [
-                  "Reserva confirmada - ver link",
-                  "Última paisagem alpina do dia",
-                  "Chegada a tempo para jantar em Chamonix"
-                ]
-              }
-            }
-          ]
+          "horario": "00h20+",
+          "icone": "🏨",
+          "texto": "Chegada em Chamonix (possível atraso)",
+          "duracao": "30min"
         },
         {
-          "numero": 5,
-          "titulo": "Mer de Glace e Partida",
-          "data": "04/10/2025",
-          "diaSemana": "Sábado",
-          "atividades": [
-            {
-              "horario": "06h30",
-              "icone": "⏰",
-              "texto": "Acordar",
-              "duracao": "30min"
-            },
-            {
-              "horario": "08h30",
-              "icone": "🚂",
-              "texto": "Trem Montenvers até Mer de Glace",
-              "duracao": "2h30",
-              "preco": "€37",
-              "info": {
-                "titulo": "Trem Montenvers - Mer de Glace",
-                "endereco": "35 Place de la Mer de Glace, 74400 Chamonix",
-                "altitude": "1.913m",
-                "trajeto": "Trem de cremalheira histórico (1908)",
-                "dicas": [
-                  "Segunda maior geleira da França",
-                  "Trem histórico a vapor",
-                  "Vista espetacular durante a subida",
-                  "Temperatura baixa no destino",
-                  "Leve roupas quentes"
-                ]
-              }
-            },
-            {
-              "horario": "11h30",
-              "icone": "🧊",
-              "texto": "Grotte de Glace (Caverna de Gelo)",
-              "duracao": "1h",
-              "preco": "incluído",
-              "info": {
-                "titulo": "Grotte de Glace",
-                "localizacao": "Interior da geleira Mer de Glace",
-                "experiencia": "Caverna esculpida no gelo",
-                "temperatura": "-2°C a -5°C",
-                "atracao": [
-                  "Esculturas de gelo renovadas anualmente",
-                  "Experiência única dentro da geleira",
-                  "Túneis e salas de gelo azul",
-                  "História da glaciologia"
-                ],
-                "dicas": [
-                  "Roupas muito quentes obrigatórias",
-                  "Calçado antiderrapante",
-                  "Experiência inesquecível",
-                  "Fotos permitidas"
-                ]
-              }
-            },
-            {
-              "horario": "13h30",
-              "icone": "🛷",
-              "texto": "Passeio de trenó (Planards)",
-              "duracao": "2h",
-              "preco": "€9",
-              "reservado": false,
-              "info": {
-                "titulo": "Luge d'été - Les Planards",
-                "endereco": "Les Planards, 74400 Chamonix",
-                "funcionamento": "Sábados: 11h às 17h30",
-                "status": "Aguardando confirmação de tickets",
-                "atividade": "Trenó alpino de verão",
-                "dicas": [
-                  "Atividade exclusiva aos sábados",
-                  "Pista de 1,2km através da floresta",
-                  "Controle próprio da velocidade",
-                  "Vista panorâmica durante o trajeto",
-                  "Adequado para todas as idades"
-                ]
-              }
-            },
-            {
-              "horario": "16h00",
-              "icone": "😴",
-              "texto": "Descansar",
-              "duracao": "2h",
-              "info": {
-                "titulo": "Descanso Estratégico",
-                "objetivo": "Preparação para viagem noturna",
-                "atividades": [
-                  "Volta ao hotel para higiene",
-                  "Organização das bagagens",
-                  "Lanche leve",
-                  "Relaxamento antes da partida"
-                ]
-              }
-            },
-            {
-              "horario": "23h30",
-              "icone": "🚌",
-              "texto": "Deslocamento para Florença (ônibus)",
-              "duracao": "8h",
-              "info": {
-                "titulo": "Ônibus Noturno Chamonix → Florença",
-                "empresa": "FlixBus ou similar",
-                "duracao": "≈8 horas",
-                "chegada": "≈07h30 em Florença",
-                "dicas": [
-                  "Viagem noturna - economiza hospedagem",
-                  "Leve travesseiro e cobertor",
-                  "Baixe entretenimento offline",
-                  "Chegada matinal em Florença"
-                ]
-              }
-            }
-          ]
+          "horario": "01h00",
+          "icone": "😴",
+          "texto": "Descanso no hotel",
+          "duracao": "8h"
         }
-      ],
-      "orcamento": {
-        "pessoa": { 
-          "transporte": "€134",
-          "atrações": "€140", 
-          "alimentação": "€75",
-          "totalGeral": "€349" 
-        },
-        "casal": { 
-          "transporte": "€268",
-          "atrações": "€280", 
-          "alimentação": "€150",
-          "totalGeral": "€698" 
-        }
-      },
-      "dicas": [
-        "🏔️ Leve roupas quentes - temperatura pode ser negativa nas atrações de altitude",
-        "🎫 Reserve Aiguille du Midi com antecedência - alta demanda",
-        "🥾 Calçado de trilha é essencial para as caminhadas",
-        "📱 Apps Úteis: Chamonix Mont-Blanc, Maps.me offline",
-        "🚡 Verifique condições meteorológicas - teleféricos podem fechar",
-        "🧊 Leve luvas e gorro para Grotte de Glace",
-        "💰 Muitos locais aceitam apenas dinheiro - tenha euros em mãos"
       ]
-    };
-
-
-
-        // Função para renderizar estatísticas
-        function renderizarEstatisticas() {
-            const container = document.getElementById('estatisticas-container');
-            let html = '';
-            ROTEIRO_CHAMONIX.estatisticas.forEach(stat => {
-                html += `
-                    <div class="stat-card">
-                        <div class="stat-number">${stat.numero}</div>
-                        <div class="stat-label">${stat.label}</div>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
+    },
+    {
+      "numero": 2,
+      "titulo": "Exploração de Chamonix",
+      "data": "01/10/2025",
+      "diaSemana": "Quarta-feira",
+      "atividades": [
+        {
+          "horario": "09h00",
+          "icone": "⏰",
+          "texto": "Acordar",
+          "duracao": "30min"
+        },
+        {
+          "horario": "10h00",
+          "icone": "🏔️",
+          "texto": "Exploração do Centro de Chamonix",
+          "duracao": "2h30",
+          "info": {
+            "titulo": "Centro de Chamonix - Pontos de Interesse",
+            "endereco": "Centre-ville, 74400 Chamonix-Mont-Blanc",
+            "pontosVisita": [
+              "Office de Tourisme (Place du Triangle de l'Amitié)",
+              "Église Saint-Michel (Igreja principal)",
+              "Musée des Cristaux et de la Faune des Alpes",
+              "Place Balmat (estátua de Jacques Balmat)",
+              "Rue du Docteur Paccard (rua principal)",
+              "Marché de Chamonix (mercado local)"
+            ],
+            "dicas": [
+              "Pegue mapa e informações no Office de Tourisme",
+              "Arquitetura alpina tradicional preservada",
+              "Vista do Mont Blanc entre as montanhas",
+              "Lojas de equipamentos de montanha",
+              "Cafés típicos para pausa"
+            ]
+          }
+        },
+        {
+          "horario": "13h00",
+          "icone": "🚡",
+          "texto": "Aiguille du Midi",
+          "duracao": "3h",
+          "preco": "€65",
+          "info": {
+            "titulo": "Aiguille du Midi",
+            "endereco": "35 Place de la Mer de Glace, 74400 Chamonix",
+            "altitude": "3.842m",
+            "dicas": [
+              "Vista panorâmica dos Alpes",
+              "Teleférico mais alto da Europa",
+              "Leve roupas quentes (temperatura negativa)",
+              "Passo Vallée Blanche (se disponível)",
+              "Reserve online antecipadamente"
+            ]
+          }
+        },
+        {
+          "horario": "16h30",
+          "icone": "🍫",
+          "texto": "Aux Petit Gourmands (chocolates e macarrons)",
+          "duracao": "45min",
+          "preco": "€15",
+          "info": {
+            "titulo": "Aux Petit Gourmands",
+            "endereco": "Centre-ville Chamonix",
+            "especialidade": "Chocolates artesanais e macarrons",
+            "dicas": [
+              "Especialidade em chocolates alpinos",
+              "Macarrons com sabores únicos",
+              "Perfeito para presente ou degustação",
+              "Produtos locais de alta qualidade"
+            ]
+          }
         }
-
-        // Função para renderizar legenda
-        function renderizarLegenda() {
-            const container = document.getElementById('legenda-container');
-            let html = `
-                <h3><i class="fas fa-info-circle"></i> Legenda</h3>
-                <div class="legend-grid">
-            `;
-            ROTEIRO_CHAMONIX.legenda.forEach(item => {
-                html += `
-                    <div class="legend-item">
-                        <i class="${item.icone}"></i> ${item.texto}
-                    </div>
-                `;
-            });
-            html += '</div>';
-            container.innerHTML = html;
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Aventura no Lac des Gaillands",
+      "data": "02/10/2025",
+      "diaSemana": "Quinta-feira",
+      "atividades": [
+        {
+          "horario": "06h30",
+          "icone": "⏰",
+          "texto": "Acordar",
+          "duracao": "30min"
+        },
+        {
+          "horario": "08h00",
+          "icone": "🏞️",
+          "texto": "Visita ao Lac des Gaillands",
+          "duracao": "2h",
+          "info": {
+            "titulo": "Lac des Gaillands",
+            "endereco": "Route des Gaillands, 74400 Chamonix",
+            "atividades": [
+              "Lagos alpinos cristalinos",
+              "Vista do Mont Blanc",
+              "Área de escalada natural",
+              "Trilhas para caminhada"
+            ],
+            "dicas": [
+              "Leve câmera para paisagens",
+              "Água potável e lanches",
+              "Calçado adequado para trilha",
+              "Horário ideal: manhã cedo"
+            ]
+          }
+        },
+        {
+          "horario": "10h30",
+          "icone": "🧗‍♂️",
+          "texto": "Parc Aventure + Ruines du Lac Sinclair",
+          "duracao": "2h30",
+          "preco": "€25",
+          "info": {
+            "titulo": "Parc Aventure Les Gaillands",
+            "endereco": "Route des Gaillands, 74400 Chamonix",
+            "atividades": [
+              "Escalada em rocha natural",
+              "Parque aventura",
+              "Exploração das ruínas históricas",
+              "Via ferrata (se disponível)"
+            ],
+            "dicas": [
+              "Equipamentos de segurança inclusos",
+              "Instrutores disponíveis",
+              "Adequado para iniciantes",
+              "Reserva recomendada"
+            ]
+          }
+        },
+        {
+          "horario": "13h30",
+          "icone": "🥾",
+          "texto": "Trilha Petit Balcon Sud (mirante)",
+          "duracao": "2h30",
+          "info": {
+            "titulo": "Trilha Petit Balcon Sud",
+            "endereco": "Sentido Refuge Bellachat / Parc de Merlet",
+            "dificuldade": "Moderada",
+            "distancia": "3-4 km",
+            "dicas": [
+              "Vista panorâmica do Vale de Chamonix",
+              "Caminho bem sinalizado",
+              "Paradas estratégicas para fotos",
+              "Leve água e lanche energético",
+              "Calçado de trilha obrigatório"
+            ]
+          }
+        },
+        {
+          "horario": "16h30",
+          "icone": "🥪",
+          "texto": "Piquenique e curtir o parque Les Gaillands",
+          "duracao": "1h30",
+          "preco": "€10"
+        },
+        {
+          "horario": "19h30",
+          "icone": "🍽️",
+          "texto": "Jantar no La Tablée",
+          "duracao": "2h",
+          "preco": "€60",
+          "info": {
+            "titulo": "La Tablée",
+            "endereco": "Chamonix Centre-ville",
+            "especialidade": "Fondue savoyarde para 2 pessoas",
+            "incluso": "Bebida sem álcool + crème brúlée",
+            "precoTotal": "€60 (casal completo)",
+            "dicas": [
+              "Ambiente típico alpino",
+              "Fondue tradicional da região",
+              "Reserva altamente recomendada",
+              "Experiência gastronômica autêntica"
+            ]
+          }
         }
-
-        // Função para renderizar dias
-        function renderizarDias() {
-            const container = document.getElementById('dias-container');
-            let html = '';
-            
-            ROTEIRO_CHAMONIX.dias.forEach(dia => {
-                html += `
-                    <div class="day-card">
-                        <div class="day-header">
-                            <h2>Dia ${dia.numero} - ${dia.titulo}</h2>
-                            <div class="date-info">${dia.data} • ${dia.diaSemana}</div>
-                        </div>
-                        <div class="activities">
-                `;
-                
-                dia.atividades.forEach(atividade => {
-                    let detailsHtml = '';
-                    
-                    if (atividade.duracao) {
-                        detailsHtml += `<span class="activity-duration">${atividade.duracao}</span>`;
-                    }
-                    
-                    if (atividade.preco) {
-                        detailsHtml += `<span class="price">${atividade.preco}</span>`;
-                    }
-                    
-                    if (atividade.reservado === true && atividade.reservaLink) {
-                        detailsHtml += `<a href="${atividade.reservaLink}" target="_blank" class="reserved-btn">✓ Reservado</a>`;
-                    } else if (atividade.reservado === false) {
-                        detailsHtml += `<button class="pending-btn">⚠ Reservar</button>`;
-                    }
-                    
-                    if (atividade.info) {
-                        const infoIndex = ROTEIRO_CHAMONIX.dias.findIndex(d => d.numero === dia.numero);
-                        const atividadeIndex = dia.atividades.findIndex(a => a === atividade);
-                        detailsHtml += `<button class="info-btn" onclick="showInfoByIndex(${infoIndex}, ${atividadeIndex})">Info</button>`;
-                    } else {
-                        detailsHtml += `<button class="info-btn" disabled>Info</button>`;
-                    }
-                    
-                    html += `
-                        <div class="activity">
-                            <input type="checkbox" class="activity-checkbox">
-                            <span class="activity-time">${atividade.horario}</span>
-                            <span class="activity-icon">${atividade.icone}</span>
-                            <span class="activity-text">${atividade.texto}</span>
-                            <div class="activity-details">
-                                ${detailsHtml}
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                html += `
-                        </div>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = html;
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Dia em Annecy",
+      "data": "03/10/2025",
+      "diaSemana": "Sexta-feira",
+      "atividades": [
+        {
+          "horario": "06h30",
+          "icone": "⏰",
+          "texto": "Acordar",
+          "duracao": "45min"
+        },
+        {
+          "horario": "07h15",
+          "icone": "🚌",
+          "texto": "Ônibus para Annecy",
+          "duracao": "1h35",
+          "preco": "€12",
+          "reservado": true,
+          "reservaLink": "https://drive.google.com/file/d/1X06Vmp2B43xHFLeCks3EU0R-7J93NOHa/view?usp=drive_link",
+          "info": {
+            "titulo": "Transporte Chamonix → Annecy",
+            "saida": "07h15 de Chamonix",
+            "chegada": "08h50 em Annecy",
+            "empresa": "Ônibus regional",
+            "duracao": "1h35",
+            "dicas": [
+              "Reserva confirmada - ver link",
+              "Paisagem alpina durante o trajeto",
+              "Chegada no centro de Annecy"
+            ]
+          }
+        },
+        {
+          "horario": "09h00",
+          "icone": "🏛️",
+          "texto": "Passeio pela cidade antiga",
+          "duracao": "2h30",
+          "info": {
+            "titulo": "Vieille Ville d'Annecy",
+            "pontosPrincipais": [
+              "Château d'Annecy",
+              "Palais de l'Île",
+              "Canais medievais",
+              "Rue Sainte-Claire"
+            ],
+            "dicas": [
+              "Chamada de 'Veneza dos Alpes'",
+              "Arquitetura medieval preservada",
+              "Canais cristalinos",
+              "Lojas e cafés charmosos"
+            ]
+          }
+        },
+        {
+          "horario": "11h30",
+          "icone": "🍨",
+          "texto": "Sorvete na Le Glacier des Alpes",
+          "duracao": "30min",
+          "preco": "€8",
+          "info": {
+            "titulo": "Le Glacier des Alpes",
+            "endereco": "Centre d'Annecy",
+            "especialidade": "Gelatos artesanais alpinos",
+            "saboresUnicos": [
+              "Génépi (licor alpino)",
+              "Myrtille des Alpes",
+              "Miel de montagne"
+            ]
+          }
+        },
+        {
+          "horario": "12h00",
+          "icone": "🛒",
+          "texto": "Mercado Local",
+          "duracao": "1h30",
+          "info": {
+            "titulo": "Marché d'Annecy",
+            "localizacao": "Centre-ville (sextas-feira)",
+            "produtos": [
+              "Queijos regionais",
+              "Produtos alpinos",
+              "Artesanato local",
+              "Especialidades savoyardes"
+            ]
+          }
+        },
+        {
+          "horario": "13h30",
+          "icone": "🥪",
+          "texto": "Piquenique no Lago",
+          "duracao": "1h30",
+          "preco": "€5,50",
+          "info": {
+            "titulo": "Piquenique Lac d'Annecy",
+            "local": "Les Caprices d'Emilie",
+            "produto": "Baguete recheada com raclette",
+            "preco": "€5,50",
+            "localizacao": "Margens do Lac d'Annecy",
+            "dicas": [
+              "Uma das mais belas vistas lacustres da Europa",
+              "Águas cristalinas cercadas pelos Alpes",
+              "Gramados perfeitos para piquenique",
+              "Cisnes e patos no lago"
+            ]
+          }
+        },
+        {
+          "horario": "15h00",
+          "icone": "💕",
+          "texto": "Ponte dos Amores / Jardim Europa",
+          "duracao": "45min",
+          "info": {
+            "titulo": "Pont des Amours + Jardins de l'Europe",
+            "endereco": "Jardins de l'Europe, 74000 Annecy",
+            "atracao": [
+              "Ponte romântica sobre o canal",
+              "Jardins paisagísticos",
+              "Vista panorâmica do lago",
+              "Local icônico para fotos"
+            ],
+            "dicas": [
+              "Vista dos Alpes ao fundo",
+              "Tradição: cadeados do amor",
+              "Caminhada relaxante nos jardins",
+              "Ótimo para fotos de despedida"
+            ]
+          }
+        },
+        {
+          "horario": "15h50",
+          "icone": "🚌",
+          "texto": "Ônibus retorno Chamonix",
+          "duracao": "1h35",
+          "preco": "€12",
+          "reservado": true,
+          "reservaLink": "https://drive.google.com/file/d/1X06Vmp2B43xHFLeCks3EU0R-7J93NOHa/view?usp=drive_link",
+          "info": {
+            "titulo": "Transporte Annecy → Chamonix",
+            "saida": "15h50 de Annecy",
+            "chegada": "17h25 em Chamonix",
+            "empresa": "Ônibus regional",
+            "duracao": "1h35",
+            "dicas": [
+              "Reserva confirmada - ver link",
+              "Última paisagem alpina do dia",
+              "Chegada a tempo para jantar em Chamonix"
+            ]
+          }
         }
-
-        // Função para renderizar orçamento
-        function renderizarOrcamento() {
-            const container = document.getElementById('orcamento-container');
-            container.innerHTML = `
-                <h3><i class="fas fa-calculator"></i> Orçamento Detalhado</h3>
-                
-                <div class="budget-toggle">
-                    <button class="toggle-btn active" onclick="toggleBudget('pessoa')">Por Pessoa</button>
-                    <button class="toggle-btn" onclick="toggleBudget('casal')">Para Casal</button>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #2c3e50, #34495e); color: white; border-radius: 15px;">
-                    <h4 style="margin-bottom: 10px;">
-                        <i class="fas fa-calculator"></i> 
-                        <span id="total-label">Total por Pessoa</span>
-                    </h4>
-                    <div style="font-size: 2rem; font-weight: bold;" id="total-amount">${ROTEIRO_CHAMONIX.orcamento.pessoa.totalGeral}</div>
-                    <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">*Valores estimados, sem hospedagem</div>
-                </div>
-            `;
+      ]
+    },
+    {
+      "numero": 5,
+      "titulo": "Mer de Glace e Partida",
+      "data": "04/10/2025",
+      "diaSemana": "Sábado",
+      "atividades": [
+        {
+          "horario": "06h30",
+          "icone": "⏰",
+          "texto": "Acordar",
+          "duracao": "30min"
+        },
+        {
+          "horario": "08h30",
+          "icone": "🚂",
+          "texto": "Trem Montenvers até Mer de Glace",
+          "duracao": "2h30",
+          "preco": "€37",
+          "info": {
+            "titulo": "Trem Montenvers - Mer de Glace",
+            "endereco": "35 Place de la Mer de Glace, 74400 Chamonix",
+            "altitude": "1.913m",
+            "trajeto": "Trem de cremalheira histórico (1908)",
+            "dicas": [
+              "Segunda maior geleira da França",
+              "Trem histórico a vapor",
+              "Vista espetacular durante a subida",
+              "Temperatura baixa no destino",
+              "Leve roupas quentes"
+            ]
+          }
+        },
+        {
+          "horario": "11h30",
+          "icone": "🧊",
+          "texto": "Grotte de Glace (Caverna de Gelo)",
+          "duracao": "1h",
+          "preco": "incluído",
+          "info": {
+            "titulo": "Grotte de Glace",
+            "localizacao": "Interior da geleira Mer de Glace",
+            "experiencia": "Caverna esculpida no gelo",
+            "temperatura": "-2°C a -5°C",
+            "atracao": [
+              "Esculturas de gelo renovadas anualmente",
+              "Experiência única dentro da geleira",
+              "Túneis e salas de gelo azul",
+              "História da glaciologia"
+            ],
+            "dicas": [
+              "Roupas muito quentes obrigatórias",
+              "Calçado antiderrapante",
+              "Experiência inesquecível",
+              "Fotos permitidas"
+            ]
+          }
+        },
+        {
+          "horario": "13h30",
+          "icone": "🛷",
+          "texto": "Passeio de trenó (Planards)",
+          "duracao": "2h",
+          "preco": "€9",
+          "reservado": false,
+          "info": {
+            "titulo": "Luge d'été - Les Planards",
+            "endereco": "Les Planards, 74400 Chamonix",
+            "funcionamento": "Sábados: 11h às 17h30",
+            "status": "Aguardando confirmação de tickets",
+            "atividade": "Trenó alpino de verão",
+            "dicas": [
+              "Atividade exclusiva aos sábados",
+              "Pista de 1,2km através da floresta",
+              "Controle próprio da velocidade",
+              "Vista panorâmica durante o trajeto",
+              "Adequado para todas as idades"
+            ]
+          }
+        },
+        {
+          "horario": "16h00",
+          "icone": "😴",
+          "texto": "Descansar",
+          "duracao": "2h",
+          "info": {
+            "titulo": "Descanso Estratégico",
+            "objetivo": "Preparação para viagem noturna",
+            "atividades": [
+              "Volta ao hotel para higiene",
+              "Organização das bagagens",
+              "Lanche leve",
+              "Relaxamento antes da partida"
+            ]
+          }
+        },
+        {
+          "horario": "23h30",
+          "icone": "🚌",
+          "texto": "Deslocamento para Florença (ônibus)",
+          "duracao": "8h",
+          "info": {
+            "titulo": "Ônibus Noturno Chamonix → Florença",
+            "empresa": "FlixBus ou similar",
+            "duracao": "≈8 horas",
+            "chegada": "≈07h30 em Florença",
+            "dicas": [
+              "Viagem noturna - economiza hospedagem",
+              "Leve travesseiro e cobertor",
+              "Baixe entretenimento offline",
+              "Chegada matinal em Florença"
+            ]
+          }
         }
-
-        // Função para renderizar dicas
-        function renderizarDicas() {
-            const container = document.getElementById('dicas-container');
-            let html = `
-                <div class="legend">
-                    <h3><i class="fas fa-lightbulb"></i> Dicas Importantes</h3>
-                    <div style="margin-top: 15px; text-align: left;">
-            `;
-            ROTEIRO_CHAMONIX.dicas.forEach(dica => {
-                html += `<p><strong>${dica}</strong></p>`;
-            });
-            html += `</div></div>`;
-            container.innerHTML = html;
-        }
-
-        // Função para toggle do orçamento
-        function toggleBudget(type) {
-            const totalLabel = document.getElementById('total-label');
-            const totalAmount = document.getElementById('total-amount');
-            const buttons = document.querySelectorAll('.toggle-btn');
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            if (type === 'pessoa') {
-                totalLabel.textContent = 'Total por Pessoa';
-                totalAmount.textContent = ROTEIRO_CHAMONIX.orcamento.pessoa.totalGeral;
-                buttons[0].classList.add('active');
-            } else {
-                totalLabel.textContent = 'Total para Casal';
-                totalAmount.textContent = ROTEIRO_CHAMONIX.orcamento.casal.totalGeral;
-                buttons[1].classList.add('active');
-            }
-        }
-
-        // Função para checkboxes
-        function inicializarCheckboxes() {
-            const checkboxes = document.querySelectorAll('.activity-checkbox');
-            
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    const activity = this.closest('.activity');
-                    if (this.checked) {
-                        activity.classList.add('completed');
-                    } else {
-                        activity.classList.remove('completed');
-                    }
-                    saveProgress();
-                });
-            });
-            
-            loadProgress();
-        }
-
-        function saveProgress() {
-            const checkboxes = document.querySelectorAll('.activity-checkbox');
-            const progress = Array.from(checkboxes).map(cb => cb.checked);
-            const storageKey = 'roteiro_' + ROTEIRO_CHAMONIX.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
-            localStorage.setItem(storageKey, JSON.stringify(progress));
-        }
-
-        function loadProgress() {
-            const storageKey = 'roteiro_' + ROTEIRO_CHAMONIX.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
-            const saved = localStorage.getItem(storageKey);
-            if (saved) {
-                const progress = JSON.parse(saved);
-                const checkboxes = document.querySelectorAll('.activity-checkbox');
-                checkboxes.forEach((checkbox, index) => {
-                    if (progress[index]) {
-                        checkbox.checked = true;
-                        checkbox.closest('.activity').classList.add('completed');
-                    }
-                });
-            }
-        }
-
-        // Função helper para acessar informações por índice
-        function showInfoByIndex(diaIndex, atividadeIndex) {
-            const infoData = ROTEIRO_CHAMONIX.dias[diaIndex].atividades[atividadeIndex].info;
-            showInfo(infoData);
-        }
-
-        // Função para exibir informações no modal
-        function showInfo(infoData) {
-            const modalContent = document.getElementById('modalContent');
-            const modal = document.getElementById('infoModal');
-            
-            // Construir HTML das informações
-            let html = `<h3>${infoData.titulo}</h3>`;
-            
-            // Adicionar informações básicas se existirem
-            if (infoData.endereco) html += `<p><strong>Endereço:</strong> ${infoData.endereco}</p>`;
-            if (infoData.metro) html += `<p><strong>Metrô:</strong> ${infoData.metro}</p>`;
-            if (infoData.especialidade) html += `<p><strong>Especialidade:</strong> ${infoData.especialidade}</p>`;
-            if (infoData.precoMedio) html += `<p><strong>Preço médio:</strong> ${infoData.precoMedio}</p>`;
-            if (infoData.entrada) html += `<p><strong>Entrada:</strong> ${infoData.entrada}</p>`;
-            if (infoData.horarios) html += `<p><strong>Horários:</strong> ${infoData.horarios}</p>`;
-            if (infoData.ingresso) html += `<p><strong>Ingresso:</strong> ${infoData.ingresso}</p>`;
-            if (infoData.acesso) html += `<p><strong>Acesso:</strong> ${infoData.acesso}</p>`;
-            if (infoData.estrategia) html += `<p><strong>Estratégia:</strong> ${infoData.estrategia}</p>`;
-            if (infoData.objetivo) html += `<p><strong>Objetivo:</strong> ${infoData.objetivo}</p>`;
-            if (infoData.orcamento) html += `<p><strong>Orçamento:</strong> ${infoData.orcamento}</p>`;
-            if (infoData.terraco) html += `<p><strong>Terraço:</strong> ${infoData.terraco}</p>`;
-            if (infoData.visita) html += `<p><strong>Visita:</strong> ${infoData.visita}</p>`;
-            if (infoData.petitTrain) html += `<p><strong>Petit Train:</strong> ${infoData.petitTrain}</p>`;
-            if (infoData.dica) html += `<p><strong>Dica:</strong> ${infoData.dica}</p>`;
-            
-            // Adicionar listas se existirem
-            if (infoData.dicas && infoData.dicas.length > 0) {
-                html += `<p><strong>Dicas:</strong></p><ul>`;
-                infoData.dicas.forEach(dica => html += `<li>${dica}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.pontosFoto && infoData.pontosFoto.length > 0) {
-                html += `<p><strong>Pontos de foto:</strong></p><ul>`;
-                infoData.pontosFoto.forEach(ponto => html += `<li>${ponto}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.roteiro5h30 && infoData.roteiro5h30.length > 0) {
-                html += `<p><strong>Roteiro 5h30:</strong></p><ul>`;
-                infoData.roteiro5h30.forEach(item => html += `<li>${item}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.roteiro6h && infoData.roteiro6h.length > 0) {
-                html += `<p><strong>Roteiro 6h com pausa:</strong></p><ul>`;
-                infoData.roteiro6h.forEach(item => html += `<li>${item}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.roteiro3h && infoData.roteiro3h.length > 0) {
-                html += `<p><strong>Roteiro 3h:</strong></p><ul>`;
-                infoData.roteiro3h.forEach(item => html += `<li>${item}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.estrategiaAntiCansaco && infoData.estrategiaAntiCansaco.length > 0) {
-                html += `<p><strong>Estratégia Anti-Cansaço:</strong></p><ul>`;
-                infoData.estrategiaAntiCansaco.forEach(item => html += `<li>${item}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.obrasImperdiveis && infoData.obrasImperdiveis.length > 0) {
-                html += `<p><strong>Obras Imperdíveis:</strong></p><ul>`;
-                infoData.obrasImperdiveis.forEach(obra => html += `<li>${obra}</li>`);
-                html += `</ul>`;
-            }
-            
-            // Estruturas complexas específicas
-            if (infoData.locaisSugeridos && infoData.locaisSugeridos.length > 0) {
-                html += `<p><strong>Locais Sugeridos:</strong></p><ul>`;
-                infoData.locaisSugeridos.forEach(local => html += `<li>${local}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.atividadesOpcionais && infoData.atividadesOpcionais.length > 0) {
-                html += `<p><strong>Atividades Opcionais:</strong></p><ul>`;
-                infoData.atividadesOpcionais.forEach(atividade => html += `<li>${atividade}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.opcoes && infoData.opcoes.length > 0) {
-                html += `<p><strong>Opções:</strong></p><ul>`;
-                infoData.opcoes.forEach(opcao => html += `<li>${opcao}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.beneficios && infoData.beneficios.length > 0) {
-                html += `<p><strong>Benefícios:</strong></p><ul>`;
-                infoData.beneficios.forEach(beneficio => html += `<li>${beneficio}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.vantagens && infoData.vantagens.length > 0) {
-                html += `<p><strong>Vantagens:</strong></p><ul>`;
-                infoData.vantagens.forEach(vantagem => html += `<li>${vantagem}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.tiposRestaurante && infoData.tiposRestaurante.length > 0) {
-                html += `<p><strong>Tipos de Restaurante:</strong></p><ul>`;
-                infoData.tiposRestaurante.forEach(tipo => html += `<li>${tipo}</li>`);
-                html += `</ul>`;
-            }
-            
-            // Opções específicas para tempo livre
-            ['opcao1Compras', 'opcao2Cultura', 'opcao3Relaxar', 'opcao1RevisitarFavorito', 'opcao2PendenciaSemana', 'opcao3DescobertaNova', 'opcao4RelaxTotal'].forEach(opcaoKey => {
-                if (infoData[opcaoKey] && infoData[opcaoKey].length > 0) {
-                    const titulo = opcaoKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
-                    html += `<p><strong>${titulo}:</strong></p><ul>`;
-                    infoData[opcaoKey].forEach(item => html += `<li>${item}</li>`);
-                    html += `</ul>`;
-                }
-            });
-            
-            // Informações específicas de ruas
-            if (infoData.rueBuenosAires) html += `<p><strong>Rue Buenos Aires:</strong> ${infoData.rueBuenosAires}</p>`;
-            if (infoData.rueUniversite) html += `<p><strong>Rue de l'Université:</strong> ${infoData.rueUniversite}</p>`;
-            
-            // Inserir o HTML no modal e exibir
-            modalContent.innerHTML = html;
-            modal.style.display = 'block';
-        }
-
-        // Configuração do modal
-        const modal = document.getElementById('infoModal');
-        const span = document.getElementsByClassName('close')[0];
-
-        // Quando o usuário clica no X, fecha o modal
-        span.onclick = function() {
-            modal.style.display = 'none';
-        }
-
-        // Quando o usuário clica fora do modal, fecha ele
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        // Função para inicializar elementos dinâmicos da página
-        function inicializarElementosDinamicos() {
-            // Atualizar título da página
-            document.title = ROTEIRO_CHAMONIX.meta.titulo + ' - Checklist Prático';
-            
-            // Atualizar header
-            document.getElementById('roteiro-icone').className = ROTEIRO_CHAMONIX.meta.icone;
-            document.getElementById('roteiro-titulo').textContent = ROTEIRO_CHAMONIX.meta.titulo;
-            document.getElementById('roteiro-subtitulo').textContent = ROTEIRO_CHAMONIX.meta.subtitulo;
-        }
-
-        // Inicializar quando a página carregar
-        document.addEventListener('DOMContentLoaded', function() {
-            inicializarElementosDinamicos();
-            renderizarEstatisticas();
-            renderizarLegenda();
-            renderizarDias();
-            renderizarOrcamento();
-            renderizarDicas();
-            inicializarCheckboxes();
-        });
+      ]
+    }
+  ],
+  "orcamento": {
+    "pessoa": { 
+      "transporte": "€134",
+      "atrações": "€140", 
+      "alimentação": "€75",
+      "totalGeral": "€349" 
+    },
+    "casal": { 
+      "transporte": "€268",
+      "atrações": "€280", 
+      "alimentação": "€150",
+      "totalGeral": "€698" 
+    }
+  },
+  "dicas": [
+    "🏔️ Leve roupas quentes - temperatura pode ser negativa nas atrações de altitude",
+    "🎫 Reserve Aiguille du Midi com antecedência - alta demanda",
+    "🥾 Calçado de trilha é essencial para as caminhadas",
+    "📱 Apps Úteis: Chamonix Mont-Blanc, Maps.me offline",
+    "🚡 Verifique condições meteorológicas - teleféricos podem fechar",
+    "🧊 Leve luvas e gorro para Grotte de Glace",
+    "💰 Muitos locais aceitam apenas dinheiro - tenha euros em mãos"
+  ]
+};
     </script>
 </body>
 </html>

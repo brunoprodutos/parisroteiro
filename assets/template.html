@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Roteiro - Checklist Prático</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navegação entre roteiros -->
+        <div class="navigation">
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn">Paris</a>
+                <a href="chamonix.html" class="nav-btn">Chamonix</a>
+                <a href="florenca.html" class="nav-btn">Florença</a>
+                <a href="roma.html" class="nav-btn">Roma</a>
+                <a href="barcelona.html" class="nav-btn">Barcelona</a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1><i id="roteiro-icone" class="fas fa-map-marked-alt"></i> <span id="roteiro-titulo"></span></h1>
+            <p id="roteiro-subtitulo"></p>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="summary-stats" id="estatisticas-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Legenda -->
+        <div class="legend" id="legenda-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Dias do roteiro -->
+        <div id="dias-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Seção de Orçamento -->
+        <div class="budget-section" id="orcamento-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+
+        <!-- Dicas -->
+        <div id="dicas-container">
+            <!-- Será preenchido dinamicamente -->
+        </div>
+    </div>
+
+    <!-- Modal para informações -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/roteiro-engine.js"></script>
+    <script>
+        // O arquivo específico de dados será carregado aqui
+        // Por exemplo: carregarRoteiro('barcelona');
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Roteiro Barcelona 2025 - Checklist Prático</title>
+    <title id="page-title">Roteiro Roma 2025 - Checklist Prático</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -16,14 +16,14 @@
                 <a href="chamonix.html" class="nav-btn">Chamonix</a>
                 <a href="florenca.html" class="nav-btn">Florença</a>
                 <a href="roma.html" class="nav-btn active">Roma</a>
-                <a href="barcelona.html" class="nav-btn ">Barcelona</a>
+                <a href="barcelona.html" class="nav-btn">Barcelona</a>
             </div>
         </div>
 
         <!-- Header -->
         <div class="header">
-            <h1><i id="roteiro-icone" class="fas fa-map-marked-alt"></i> <span id="roteiro-titulo"></span></h1>
-            <p id="roteiro-subtitulo"></p>
+            <h1><i id="roteiro-icone" class="fas fa-map-marked-alt"></i> <span id="roteiro-titulo">Carregando...</span></h1>
+            <p id="roteiro-subtitulo">Carregando dados...</p>
         </div>
 
         <!-- Estatísticas -->
@@ -60,1096 +60,735 @@
         </div>
     </div>
 
+    <!-- Scripts -->
+    <script src="assets/roteiro-engine.js"></script>
     <script>
-        const ROTEIRO_ROMA = {
-        "meta": {
-            "titulo": "Roteiro Roma 2025",
-            "subtitulo": "07 a 11 de Outubro • Checklist Prática",
-            "icone": "fas fa-archway"
-        },
-        "estatisticas": [
-            { "numero": "5", "label": "Dias em Roma" },
-            { "numero": "3", "label": "Agendamentos" },
-            { "numero": "€350", "label": "Orçamento Estimado" },
-            { "numero": "20+", "label": "Atrações" }
-        ],
-        "legenda": [
-            { "icone": "fas fa-utensils", "texto": "Refeição" },
-            { "icone": "fas fa-coffee", "texto": "Café/Lanche" },
-            { "icone": "fas fa-clock", "texto": "Agendamento Necessário" },
-            { "icone": "fas fa-ticket-alt", "texto": "Ingresso Pago" },
-            { "icone": "fas fa-camera", "texto": "Foto Obrigatória" },
-            { "icone": "fas fa-subway", "texto": "Estação Metrô" }
-        ],
-        "dias": [
-            {
-            "numero": 1,
+        // Dados do roteiro embutidos no HTML
+        window.ROTEIRO_DATA = {
+  "meta": {
+    "titulo": "Roteiro Roma 2025",
+    "subtitulo": "07 a 11 de Outubro • Checklist Prática",
+    "icone": "fas fa-archway"
+  },
+  "estatisticas": [
+    { "numero": "5", "label": "Dias em Roma" },
+    { "numero": "3", "label": "Agendamentos" },
+    { "numero": "€350", "label": "Orçamento Estimado" },
+    { "numero": "20+", "label": "Atrações" }
+  ],
+  "legenda": [
+    { "icone": "fas fa-utensils", "texto": "Refeição" },
+    { "icone": "fas fa-coffee", "texto": "Café/Lanche" },
+    { "icone": "fas fa-clock", "texto": "Agendamento Necessário" },
+    { "icone": "fas fa-ticket-alt", "texto": "Ingresso Pago" },
+    { "icone": "fas fa-camera", "texto": "Foto Obrigatória" },
+    { "icone": "fas fa-subway", "texto": "Estação Metrô" }
+  ],
+  "dias": [
+    {
+      "numero": 1,
+      "titulo": "Chegada em Roma",
+      "data": "07/10/2025",
+      "diaSemana": "Terça-feira",
+      "atividades": [
+        {
+          "horario": "16h19",
+          "icone": "🚂",
+          "texto": "Chegada em Roma Termini",
+          "duracao": "30min",
+          "info": {
             "titulo": "Chegada em Roma",
-            "data": "07/10/2025",
-            "diaSemana": "Terça-feira",
-            "atividades": [
-                {
-                "horario": "16h19",
-                "icone": "🚂",
-                "texto": "Chegada em Roma Termini",
-                "duracao": "30min",
-                "info": {
-                    "titulo": "Chegada em Roma",
-                    "endereco": "Stazione Roma Termini",
-                    "dicas": [
-                    "Trem de Florença chega às 16h19",
-                    "Pegar metrô ou táxi para hotel",
-                    "Check-in no hotel",
-                    "Descansar após viagem"
-                    ]
-                }
-                },
-                {
-                "horario": "17h00",
-                "icone": "🏨",
-                "texto": "Check-in no hotel e descanso",
-                "duracao": "1h30",
-                "info": {
-                    "titulo": "Acomodação",
-                    "dicas": [
-                    "Deixar bagagens no quarto",
-                    "Descansar da viagem",
-                    "Planejar primeira saída em Roma"
-                    ]
-                }
-                },
-                {
-                "horario": "18h30",
-                "icone": "🍝",
-                "texto": "Jantar leve - primeira refeição em Roma",
-                "duracao": "1h30",
-                "preco": "€15",
-                "info": {
-                    "titulo": "Primeira refeição em Roma",
-                    "dicas": [
-                    "Escolha restaurante próximo ao hotel",
-                    "Jantar leve após viagem",
-                    "Experimentar a culinária romana",
-                    "Volta cedo para descansar"
-                    ]
-                }
-            }
+            "endereco": "Stazione Roma Termini",
+            "dicas": [
+              "Trem de Florença chega às 16h19",
+              "Pegar metrô ou táxi para hotel",
+              "Check-in no hotel",
+              "Descansar após viagem"
             ]
-            },
-            {
-            "numero": 2,
-            "titulo": "Roma Antiga",
-            "data": "08/10/2025",
-            "diaSemana": "Quarta-feira",
-            "atividades": [
-                {
-                "horario": "08h00",
-                "icone": "⏰",
-                "texto": "Acordar e preparar",
-                "duracao": "30min"
-                },
-                {
-                "horario": "08h30",
-                "icone": "☕",
-                "texto": "Café no hotel",
-                "duracao": "30min",
-                "preco": "€8"
-                },
-                {
-                "horario": "09h00",
-                "icone": "🏛️",
-                "texto": "Coliseu",
-                "duracao": "2h",
-                "preco": "€24",
-                "reservado": true,
-                "reservaLink": "https://placeholder-link-coliseu.com",
-                "info": {
-                    "titulo": "Coliseu",
-                    "endereco": "Piazza del Colosseo, 1, 00184 Roma",
-                    "metro": "Colosseo (Linha B)",
-                    "horarios": "8h30-19h15 (verão)",
-                    "ingresso": "€24 (inclui Fórum Romano e Monte Palatino)",
-                    "dicas": [
-                    "Ticket reservado para 07/09",
-                    "Chegue 15min antes do horário agendado",
-                    "Entrada prioritária com reserva",
-                    "Audioguia disponível por €5,50",
-                    "Evite mochilas grandes"
-                    ]
-                }
-                },
-                {
-                "horario": "11h00",
-                "icone": "🏛️",
-                "texto": "Fórum Romano e Monte Palatino",
-                "duracao": "2h30",
-                "info": {
-                    "titulo": "Fórum Romano e Monte Palatino",
-                    "endereco": "Via della Salara Vecchia, 5/6, 00186 Roma",
-                    "ingresso": "Incluído no bilhete do Coliseu",
-                    "dicas": [
-                    "Vista panorâmica do Monte Palatino",
-                    "Casa de Augusto vale a visita",
-                    "Leve água - poucas fontes disponíveis",
-                    "Use sapatos confortáveis"
-                    ]
-                }
-                },
-                {
-                "horario": "13h30",
-                "icone": "🍕",
-                "texto": "Almoço La Biga (perto do Coliseu)",
-                "duracao": "1h",
-                "preco": "€10",
-                "info": {
-                    "titulo": "La Biga",
-                    "especialidade": "Pizza romana",
-                    "precoMedio": "€10 pizza",
-                    "dicas": [
-                    "Próximo ao Coliseu",
-                    "Pizza al taglio (por pedaço)",
-                    "Rápido e econômico",
-                    "Boa opção para almoço rápido"
-                    ]
-                }
-                },
-                {
-                "horario": "14h30",
-                "icone": "📸",
-                "texto": "Piazza di Spagna e Escadaria Espanhola",
-                "duracao": "45min",
-                "info": {
-                    "titulo": "Piazza di Spagna",
-                    "endereco": "Piazza di Spagna, 00187 Roma",
-                    "metro": "Spagna (Linha A)",
-                    "dicas": [
-                    "Melhor foto do topo da escadaria",
-                    "Não é permitido sentar nos degraus",
-                    "Fonte Barcaccia ao pé da escada",
-                    "Rua Via Condotti para vitrines de luxo"
-                    ]
-                }
-                },
-                {
-                "horario": "15h15",
-                "icone": "🏛️",
-                "texto": "Templo de Adriano",
-                "duracao": "20min",
-                "info": {
-                    "titulo": "Templo de Adriano",
-                    "endereco": "Piazza di Pietra, 00186 Roma",
-                    "entrada": "Gratuita (exterior)",
-                    "dicas": [
-                    "11 colunas coríntias preservadas",
-                    "Hoje é sede da Bolsa de Valores",
-                    "Melhor iluminação à tarde",
-                    "Praça charmosa para fotos"
-                    ]
-                }
-                },
-                {
-                "horario": "18h30",
-                "icone": "🍝",
-                "texto": "Jantar AL42 Pasta Chef Rione Monti ou Pinsitaly",
-                "duracao": "1h30",
-                "preco": "€8-18",
-                "info": {
-                    "titulo": "AL42 Pasta Chef / Pinsitaly",
-                    "precoMedio": "€8-18 (AL42) / Pizza €10 (Pinsitaly)",
-                    "dicas": [
-                    "AL42: pasta fresca preparada na hora",
-                    "Pinsitaly: pinsa romana (tipo de pizza)",
-                    "Ambos no bairro Monti",
-                    "Reserva recomendada para jantar"
-                    ]
-                }
-                },
-                {
-                "horario": "20h00",
-                "icone": "🍦",
-                "texto": "Elisa Gelateria",
-                "duracao": "20min",
-                "preco": "€6",
-                "info": {
-                    "titulo": "Elisa Gelateria",
-                    "precoMedio": "€6 por gelato",
-                    "dicas": [
-                    "Gelato artesanal",
-                    "Sabores sazonais",
-                    "Porções generosas"
-                    ]
-                }
-                },
-                {
-                "horario": "20h20",
-                "icone": "🛒",
-                "texto": "Carrefour Express (compras café da manhã)",
-                "duracao": "20min",
-                "preco": "€15"
-                }
-            ]
-            },
-            {
-            "numero": 3,
-            "titulo": "Centro Histórico e Trastevere",
-            "data": "09/10/2025",
-            "diaSemana": "Quinta-feira",
-            "atividades": [
-                {
-                "horario": "08h00",
-                "icone": "⏰",
-                "texto": "Acordar",
-                "duracao": "30min"
-                },
-                {
-                "horario": "08h30",
-                "icone": "⛲",
-                "texto": "Fontana di Trevi",
-                "duracao": "30min",
-                "info": {
-                    "titulo": "Fontana di Trevi",
-                    "endereco": "Piazza di Trevi, 00187 Roma",
-                    "metro": "Barberini (Linha A)",
-                    "dicas": [
-                    "Melhor horário: manhã cedo (menos gente)",
-                    "Jogue a moeda com mão direita sobre ombro esquerdo",
-                    "Cuidado com batedores de carteira",
-                    "Volta garantida a Roma segundo a lenda"
-                    ]
-                }
-                },
-                {
-                "horario": "09h00",
-                "icone": "☕",
-                "texto": "Café L'Antico Forno",
-                "duracao": "30min",
-                "preco": "€7,90",
-                "info": {
-                    "titulo": "Cafeteria L'Antico Forno",
-                    "precoMedio": "Cappuccino €3,90 + Cornetto €4",
-                    "dicas": [
-                    "Café típico italiano",
-                    "Cornetto fresco pela manhã",
-                    "Consumo no balcão é mais barato"
-                    ]
-                }
-                },
-                {
-                "horario": "09h30",
-                "icone": "🏛️",
-                "texto": "Pantheon",
-                "duracao": "45min",
-                "preco": "€5",
-                "reservado": true,
-                "reservaLink": "https://placeholder-link-pantheon.com",
-                "info": {
-                    "titulo": "Pantheon",
-                    "endereco": "Piazza della Rotonda, 00186 Roma",
-                    "horarios": "9h-19h",
-                    "ingresso": "€5 (reserva obrigatória)",
-                    "dicas": [
-                    "Ticket reservado para 01/09",
-                    "Cúpula com óculo aberto impressionante",
-                    "Túmulo de Rafael",
-                    "Melhor luz natural ao meio-dia"
-                    ]
-                }
-                },
-                {
-                "horario": "10h15",
-                "icone": "🍦",
-                "texto": "Gelateria Giolitti",
-                "duracao": "20min",
-                "preco": "€6",
-                "info": {
-                    "titulo": "Gelateria Giolitti",
-                    "endereco": "Via degli Uffici del Vicario, 40",
-                    "precoMedio": "€6 com 4 sabores",
-                    "dicas": [
-                    "Uma das gelaterias mais antigas de Roma",
-                    "Pague primeiro no caixa",
-                    "Apresente o ticket no balcão"
-                    ]
-                }
-                },
-                {
-                "horario": "10h35",
-                "icone": "⛪",
-                "texto": "Igreja Santo Inácio de Loyola",
-                "duracao": "30min",
-                "info": {
-                    "titulo": "Igreja Santo Inácio de Loyola",
-                    "endereco": "Via del Caravita, 8a, 00186 Roma",
-                    "entrada": "Gratuita",
-                    "dicas": [
-                    "Teto com ilusão de ótica impressionante",
-                    "Fique no disco de mármore no chão para melhor vista",
-                    "Arquitetura barroca espetacular",
-                    "Menos turística que outras igrejas"
-                    ]
-                }
-                },
-                {
-                "horario": "11h05",
-                "icone": "🍝",
-                "texto": "Almoço Pasta Imperiale",
-                "duracao": "45min",
-                "preco": "€6",
-                "info": {
-                    "titulo": "Pasta Imperiale",
-                    "precoMedio": "€6 por prato",
-                    "dicas": [
-                    "Pasta fresca a preço justo",
-                    "Porções individuais",
-                    "Rápido e saboroso",
-                    "Popular entre locais"
-                    ]
-                }
-                },
-                {
-                "horario": "13h00",
-                "icone": "🚶",
-                "texto": "Deslocamento para Trastevere",
-                "duracao": "30min"
-                },
-                {
-                "horario": "13h30",
-                "icone": "🏘️",
-                "texto": "Piazza Santa Maria e ruas medievais (Trastevere)",
-                "duracao": "1h30",
-                "info": {
-                    "titulo": "Bairro Trastevere",
-                    "endereco": "Piazza di Santa Maria in Trastevere",
-                    "dicas": [
-                    "Bairro boêmio e autêntico",
-                    "Ruas de paralelepípedos medievais",
-                    "Basílica Santa Maria in Trastevere",
-                    "Artistas de rua e atmosfera local",
-                    "Explore as ruelas sem pressa"
-                    ]
-                }
-                },
-                {
-                "horario": "15h00",
-                "icone": "⛲",
-                "texto": "Fontana Dell'Acqua Paola",
-                "duracao": "30min",
-                "info": {
-                    "titulo": "Fontana Dell'Acqua Paola",
-                    "endereco": "Via Garibaldi, 00153 Roma",
-                    "dicas": [
-                    "Parece a Fontana di Trevi mas vazia",
-                    "Mirante com vista panorâmica de Roma",
-                    "Ótimo para pôr do sol",
-                    "Subida íngreme mas vale a pena"
-                    ]
-                }
-                },
-                {
-                "horario": "18h30",
-                "icone": "🍕",
-                "texto": "Jantar Tonnarello",
-                "duracao": "1h30",
-                "preco": "€11",
-                "info": {
-                    "titulo": "Tonnarello",
-                    "endereco": "Via della Paglia, 1, 00153 Roma",
-                    "precoMedio": "Pizza €11",
-                    "dicas": [
-                    "Restaurante típico de Trastevere",
-                    "Pizza romana tradicional",
-                    "Cacio e pepe recomendado",
-                    "Ambiente animado",
-                    "Pode ter fila no jantar"
-                    ]
-                }
-                }
-            ]
-            },
-            {
-            "numero": 4,
-            "titulo": "Vaticano",
-            "data": "10/10/2025",
-            "diaSemana": "Sexta-feira",
-            "atividades": [
-                {
-                "horario": "07h30",
-                "icone": "⏰",
-                "texto": "Acordar CEDO",
-                "duracao": "30min"
-                },
-                {
-                "horario": "08h00",
-                "icone": "🚇",
-                "texto": "Deslocamento para Vaticano",
-                "duracao": "30min",
-                "info": {
-                    "titulo": "Deslocamento ao Vaticano",
-                    "metro": "Ottaviano (Linha A) ou Cipro (Linha A)",
-                    "dicas": [
-                    "Saia na estação Ottaviano para Museus",
-                    "Use Cipro para Basílica São Pedro",
-                    "Chegue cedo para evitar filas"
-                    ]
-                }
-                },
-                {
-                "horario": "08h30",
-                "icone": "🎨",
-                "texto": "Museus do Vaticano e Capela Sistina",
-                "duracao": "3h30",
-                "preco": "€26",
-                "reservado": true,
-                "info": {
-                    "titulo": "Museus do Vaticano e Capela Sistina",
-                    "endereco": "Viale Vaticano, 00165 Roma",
-                    "ingresso": "€26 (reserva online essencial)",
-                    "roteiro": [
-                    "Começar pela Capela Sistina",
-                    "Voltar pelas salas do museu",
-                    "Galeria dos Mapas",
-                    "Salas de Rafael"
-                    ],
-                    "dicas": [
-                    "Reserve com antecedência",
-                    "Dress code: ombros e joelhos cobertos",
-                    "Foto proibida na Capela Sistina",
-                    "Audioguia vale a pena"
-                    ]
-                }
-                },
-                {
-                "horario": "12h00",
-                "icone": "🍝",
-                "texto": "Almoço Pastaciutta ou EGG Pasta Fresca",
-                "duracao": "1h",
-                "preco": "€6,50-7",
-                "info": {
-                    "titulo": "Pastaciutta / EGG Pasta Fresca",
-                    "precoMedio": "Pastaciutta €6,50 / EGG €7",
-                    "dicas": [
-                    "Próximos ao Vaticano",
-                    "Pasta fresca feita na hora",
-                    "Porções generosas",
-                    "Rápido e econômico"
-                    ]
-                }
-                },
-                {
-                "horario": "13h00",
-                "icone": "⛪",
-                "texto": "Basílica de São Pedro e Cúpula",
-                "duracao": "2h30",
-                "preco": "€10",
-                "info": {
-                    "titulo": "Basílica de São Pedro",
-                    "endereco": "Piazza San Pietro, 00120 Città del Vaticano",
-                    "entrada": "Gratuita (basílica) / €10 (cúpula com elevador)",
-                    "horarios": "7h-19h (verão)",
-                    "dicas": [
-                    "Pietà de Michelangelo logo na entrada",
-                    "Subida da cúpula: 551 degraus (320 se usar elevador)",
-                    "Vista espetacular de Roma do topo",
-                    "Dress code obrigatório"
-                    ]
-                }
-                },
-                {
-                "horario": "15h30",
-                "icone": "🍦",
-                "texto": "Gelateria Del Monte ou Old Bridge",
-                "duracao": "20min",
-                "preco": "€3",
-                "info": {
-                    "titulo": "Gelaterias próximas ao Vaticano",
-                    "precoMedio": "€3",
-                    "dicas": [
-                    "Old Bridge: favorita dos locais",
-                    "Del Monte: sabores artesanais",
-                    "Ambas próximas ao Vaticano"
-                    ]
-                }
-                },
-                {
-                "horario": "15h50",
-                "icone": "🏰",
-                "texto": "Castelo Sant'Angelo (exterior)",
-                "duracao": "30min",
-                "info": {
-                    "titulo": "Castelo Sant'Angelo",
-                    "endereco": "Lungotevere Castello, 50, 00193 Roma",
-                    "dicas": [
-                    "Vista exterior impressionante",
-                    "Ponte Sant'Angelo com estátuas de anjos",
-                    "Ótimo para fotos ao pôr do sol",
-                    "Interior €15 (opcional)"
-                    ]
-                }
-                },
-                {
-                "horario": "16h20",
-                "icone": "🚇",
-                "texto": "Retorno para Roma centro",
-                "duracao": "30min"
-                },
-                {
-                "horario": "18h30",
-                "icone": "🍝",
-                "texto": "Jantar Nannarella",
-                "duracao": "1h30",
-                "preco": "€12,50-14",
-                "info": {
-                    "titulo": "Restaurante Nannarella",
-                    "precoMedio": "Massa €12,50 / Lasanha €14",
-                    "dicas": [
-                    "Restaurante familiar tradicional",
-                    "Lasanha altamente recomendada",
-                    "Porções generosas",
-                    "Ambiente acolhedor"
-                    ]
-                }
-                },
-                {
-                "horario": "20h00",
-                "icone": "🍰",
-                "texto": "Pompi para tiramisu",
-                "duracao": "30min",
-                "preco": "€5",
-                "info": {
-                    "titulo": "Pompi",
-                    "especialidade": "Tiramisu",
-                    "precoMedio": "€5",
-                    "dicas": [
-                    "Considerado melhor tiramisu de Roma",
-                    "Várias lojas pela cidade",
-                    "Para levar ou comer no local"
-                    ]
-                }
-                }
-            ]
-            },
-            {
-            "numero": 5,
-            "titulo": "Praças e Despedida",
-            "data": "11/10/2025",
-            "diaSemana": "Sábado",
-            "atividades": [
-                {
-                "horario": "08h30",
-                "icone": "⏰",
-                "texto": "Acordar",
-                "duracao": "30min"
-                },
-                {
-                "horario": "09h00",
-                "icone": "🏛️",
-                "texto": "Piazza Navona",
-                "duracao": "45min",
-                "info": {
-                    "titulo": "Piazza Navona",
-                    "endereco": "Piazza Navona, 00186 Roma",
-                    "dicas": [
-                    "Praça barroca com 3 fontes",
-                    "Fonte dos Quatro Rios de Bernini",
-                    "Artistas de rua e pintores",
-                    "Igreja Sant'Agnese in Agone"
-                    ]
-                }
-                },
-                {
-                "horario": "09h45",
-                "icone": "🥖",
-                "texto": "Lanche All'Antico Vinaio",
-                "duracao": "30min",
-                "preco": "€9",
-                "info": {
-                    "titulo": "All'Antico Vinaio",
-                    "especialidade": "Sanduíche toscano",
-                    "precoMedio": "€9",
-                    "dicas": [
-                    "Famoso sanduíche schiacciata",
-                    "Ingredientes frescos e generosos",
-                    "Fila comum mas anda rápido",
-                    "Vale a pena a espera"
-                    ]
-                }
-                },
-                {
-                "horario": "10h15",
-                "icone": "🍰",
-                "texto": "Two Sizes - Tiramisu",
-                "duracao": "15min",
-                "preco": "€3",
-                "info": {
-                    "titulo": "Two Sizes",
-                    "especialidade": "Tiramisu individual",
-                    "precoMedio": "€3",
-                    "dicas": [
-                    "Tiramisu em copinho",
-                    "Perfeito para levar",
-                    "Vários sabores disponíveis"
-                    ]
-                }
-                },
-                {
-                "horario": "10h30",
-                "icone": "🏛️",
-                "texto": "Piazza Venezia e Monumento Vittorio Emanuele",
-                "duracao": "1h",
-                "info": {
-                    "titulo": "Monumento Vittorio Emanuele II",
-                    "endereco": "Piazza Venezia, 00186 Roma",
-                    "entrada": "Gratuita / Elevador panorâmico €10",
-                    "dicas": [
-                    "Apelidado de 'Bolo de Noiva' ou 'Máquina de Escrever'",
-                    "Terraço com vista 360° de Roma",
-                    "Museu do Risorgimento interno",
-                    "Túmulo do Soldado Desconhecido"
-                    ]
-                }
-                },
-                {
-                "horario": "12h30",
-                "icone": "🍝",
-                "texto": "Almoço La Base, Hostaria dei Pastini, Bona Pizza ou Mariuccia",
-                "duracao": "1h30",
-                "preco": "€10-15",
-                "info": {
-                    "titulo": "Opções de Almoço",
-                    "opcoes": [
-                    "La Base: pizza moderna",
-                    "Hostaria dei Pastini: lasanha €10",
-                    "Bona Pizza Roma: pizza tradicional",
-                    "Mariuccia: cozinha romana"
-                    ],
-                    "dicas": [
-                    "Hostaria dei Pastini: lasanha recomendada",
-                    "Todos no centro histórico",
-                    "Reserva útil no sábado"
-                    ]
-                }
-                },
-                {
-                "horario": "14h00",
-                "icone": "🍦",
-                "texto": "Gelateria Del Angeleto",
-                "duracao": "20min",
-                "preco": "€4"
-                },
-                {
-                "horario": "16h30",
-                "icone": "🌅",
-                "texto": "Piazza del Quirinale para pôr do sol",
-                "duracao": "1h",
-                "info": {
-                    "titulo": "Piazza del Quirinale",
-                    "endereco": "Piazza del Quirinale, 00187 Roma",
-                    "dicas": [
-                    "Palácio presidencial italiano",
-                    "Vista panorâmica de Roma",
-                    "Melhor horário: pôr do sol",
-                    "Troca da guarda aos domingos às 16h (verão)"
-                    ]
-                }
-                },
-                {
-                "horario": "18h30",
-                "icone": "🍝",
-                "texto": "Jantar La Osteria Vieira (lasanha recomendada)",
-                "duracao": "1h30",
-                "preco": "€15",
-                "info": {
-                    "titulo": "La Osteria Vieira",
-                    "especialidade": "Lasanha",
-                    "precoMedio": "€15",
-                    "dicas": [
-                    "Dica do Matrips para melhor lasanha",
-                    "Ambiente aconchegante",
-                    "Reserva recomendada",
-                    "Porções fartas"
-                    ]
-                }
-                }
-            ]
-            }
-        ],
-        "orcamento": {
-            "pessoa": { "totalGeral": "€350" },
-            "casal": { "totalGeral": "€700" }
+          }
         },
-        "dicas": [
-            "🎫 Agendamentos Obrigatórios: Coliseu, Pantheon, Museus Vaticanos",
-            "🎫 Agendamentos Recomendados: Cúpula São Pedro",
-            "🚇 Passe Recomendado: Roma Pass 48h (€32) ou bilhetes individuais",
-            "📱 Apps Essenciais: Citymapper, Rome2Rio, Google Translate",
-            "💡 Dress code obrigatório no Vaticano: ombros e joelhos cobertos",
-            "⛲ Fontes de água potável por toda cidade (nasoni)"
-        ]
-        };
-
-
-
-
-
-        // Função para renderizar estatísticas
-        function renderizarEstatisticas() {
-            const container = document.getElementById('estatisticas-container');
-            let html = '';
-            ROTEIRO_ROMA.estatisticas.forEach(stat => {
-                html += `
-                    <div class="stat-card">
-                        <div class="stat-number">${stat.numero}</div>
-                        <div class="stat-label">${stat.label}</div>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
+        {
+          "horario": "17h00",
+          "icone": "🏨",
+          "texto": "Check-in no hotel e descanso",
+          "duracao": "1h30",
+          "info": {
+            "titulo": "Acomodação",
+            "dicas": [
+              "Deixar bagagens no quarto",
+              "Descansar da viagem",
+              "Planejar primeira saída em Roma"
+            ]
+          }
+        },
+        {
+          "horario": "18h30",
+          "icone": "🍝",
+          "texto": "Jantar leve - primeira refeição em Roma",
+          "duracao": "1h30",
+          "preco": "€15",
+          "info": {
+            "titulo": "Primeira refeição em Roma",
+            "dicas": [
+              "Escolha restaurante próximo ao hotel",
+              "Jantar leve após viagem",
+              "Experimentar a culinária romana",
+              "Volta cedo para descansar"
+            ]
+          }
         }
-
-        // Função para renderizar legenda
-        function renderizarLegenda() {
-            const container = document.getElementById('legenda-container');
-            let html = `
-                <h3><i class="fas fa-info-circle"></i> Legenda</h3>
-                <div class="legend-grid">
-            `;
-            ROTEIRO_ROMA.legenda.forEach(item => {
-                html += `
-                    <div class="legend-item">
-                        <i class="${item.icone}"></i> ${item.texto}
-                    </div>
-                `;
-            });
-            html += '</div>';
-            container.innerHTML = html;
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Roma Antiga",
+      "data": "08/10/2025",
+      "diaSemana": "Quarta-feira",
+      "atividades": [
+        {
+          "horario": "08h00",
+          "icone": "⏰",
+          "texto": "Acordar e preparar",
+          "duracao": "30min"
+        },
+        {
+          "horario": "08h30",
+          "icone": "☕",
+          "texto": "Café no hotel",
+          "duracao": "30min",
+          "preco": "€8"
+        },
+        {
+          "horario": "09h00",
+          "icone": "🏛️",
+          "texto": "Coliseu",
+          "duracao": "2h",
+          "preco": "€24",
+          "reservado": true,
+          "reservaLink": "https://placeholder-link-coliseu.com",
+          "info": {
+            "titulo": "Coliseu",
+            "endereco": "Piazza del Colosseo, 1, 00184 Roma",
+            "metro": "Colosseo (Linha B)",
+            "horarios": "8h30-19h15 (verão)",
+            "ingresso": "€24 (inclui Fórum Romano e Monte Palatino)",
+            "dicas": [
+              "Ticket reservado para 07/09",
+              "Chegue 15min antes do horário agendado",
+              "Entrada prioritária com reserva",
+              "Audioguia disponível por €5,50",
+              "Evite mochilas grandes"
+            ]
+          }
+        },
+        {
+          "horario": "11h00",
+          "icone": "🏛️",
+          "texto": "Fórum Romano e Monte Palatino",
+          "duracao": "2h30",
+          "info": {
+            "titulo": "Fórum Romano e Monte Palatino",
+            "endereco": "Via della Salara Vecchia, 5/6, 00186 Roma",
+            "ingresso": "Incluído no bilhete do Coliseu",
+            "dicas": [
+              "Vista panorâmica do Monte Palatino",
+              "Casa de Augusto vale a visita",
+              "Leve água - poucas fontes disponíveis",
+              "Use sapatos confortáveis"
+            ]
+          }
+        },
+        {
+          "horario": "13h30",
+          "icone": "🍕",
+          "texto": "Almoço La Biga (perto do Coliseu)",
+          "duracao": "1h",
+          "preco": "€10",
+          "info": {
+            "titulo": "La Biga",
+            "especialidade": "Pizza romana",
+            "precoMedio": "€10 pizza",
+            "dicas": [
+              "Próximo ao Coliseu",
+              "Pizza al taglio (por pedaço)",
+              "Rápido e econômico",
+              "Boa opção para almoço rápido"
+            ]
+          }
+        },
+        {
+          "horario": "14h30",
+          "icone": "📸",
+          "texto": "Piazza di Spagna e Escadaria Espanhola",
+          "duracao": "45min",
+          "info": {
+            "titulo": "Piazza di Spagna",
+            "endereco": "Piazza di Spagna, 00187 Roma",
+            "metro": "Spagna (Linha A)",
+            "dicas": [
+              "Melhor foto do topo da escadaria",
+              "Não é permitido sentar nos degraus",
+              "Fonte Barcaccia ao pé da escada",
+              "Rua Via Condotti para vitrines de luxo"
+            ]
+          }
+        },
+        {
+          "horario": "15h15",
+          "icone": "🏛️",
+          "texto": "Templo de Adriano",
+          "duracao": "20min",
+          "info": {
+            "titulo": "Templo de Adriano",
+            "endereco": "Piazza di Pietra, 00186 Roma",
+            "entrada": "Gratuita (exterior)",
+            "dicas": [
+              "11 colunas coríntias preservadas",
+              "Hoje é sede da Bolsa de Valores",
+              "Melhor iluminação à tarde",
+              "Praça charmosa para fotos"
+            ]
+          }
+        },
+        {
+          "horario": "18h30",
+          "icone": "🍝",
+          "texto": "Jantar AL42 Pasta Chef Rione Monti ou Pinsitaly",
+          "duracao": "1h30",
+          "preco": "€8-18",
+          "info": {
+            "titulo": "AL42 Pasta Chef / Pinsitaly",
+            "precoMedio": "€8-18 (AL42) / Pizza €10 (Pinsitaly)",
+            "dicas": [
+              "AL42: pasta fresca preparada na hora",
+              "Pinsitaly: pinsa romana (tipo de pizza)",
+              "Ambos no bairro Monti",
+              "Reserva recomendada para jantar"
+            ]
+          }
+        },
+        {
+          "horario": "20h00",
+          "icone": "🍦",
+          "texto": "Elisa Gelateria",
+          "duracao": "20min",
+          "preco": "€6",
+          "info": {
+            "titulo": "Elisa Gelateria",
+            "precoMedio": "€6 por gelato",
+            "dicas": [
+              "Gelato artesanal",
+              "Sabores sazonais",
+              "Porções generosas"
+            ]
+          }
+        },
+        {
+          "horario": "20h20",
+          "icone": "🛒",
+          "texto": "Carrefour Express (compras café da manhã)",
+          "duracao": "20min",
+          "preco": "€15"
         }
-
-        // Função para renderizar dias
-        function renderizarDias() {
-            const container = document.getElementById('dias-container');
-            let html = '';
-            
-            ROTEIRO_ROMA.dias.forEach(dia => {
-                html += `
-                    <div class="day-card">
-                        <div class="day-header">
-                            <h2>Dia ${dia.numero} - ${dia.titulo}</h2>
-                            <div class="date-info">${dia.data} • ${dia.diaSemana}</div>
-                        </div>
-                        <div class="activities">
-                `;
-                
-                dia.atividades.forEach(atividade => {
-                    let detailsHtml = '';
-                    
-                    if (atividade.duracao) {
-                        detailsHtml += `<span class="activity-duration">${atividade.duracao}</span>`;
-                    }
-                    
-                    if (atividade.preco) {
-                        detailsHtml += `<span class="price">${atividade.preco}</span>`;
-                    }
-                    
-                    if (atividade.reservado === true && atividade.reservaLink) {
-                        detailsHtml += `<a href="${atividade.reservaLink}" target="_blank" class="reserved-btn">✓ Reservado</a>`;
-                    } else if (atividade.reservado === false) {
-                        detailsHtml += `<button class="pending-btn">⚠ Reservar</button>`;
-                    }
-                    
-                    if (atividade.info) {
-                        const infoIndex = ROTEIRO_ROMA.dias.findIndex(d => d.numero === dia.numero);
-                        const atividadeIndex = dia.atividades.findIndex(a => a === atividade);
-                        detailsHtml += `<button class="info-btn" onclick="showInfoByIndex(${infoIndex}, ${atividadeIndex})">Info</button>`;
-                    } else {
-                        detailsHtml += `<button class="info-btn" disabled>Info</button>`;
-                    }
-                    
-                    html += `
-                        <div class="activity">
-                            <input type="checkbox" class="activity-checkbox">
-                            <span class="activity-time">${atividade.horario}</span>
-                            <span class="activity-icon">${atividade.icone}</span>
-                            <span class="activity-text">${atividade.texto}</span>
-                            <div class="activity-details">
-                                ${detailsHtml}
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                html += `
-                        </div>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = html;
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Centro Histórico e Trastevere",
+      "data": "09/10/2025",
+      "diaSemana": "Quinta-feira",
+      "atividades": [
+        {
+          "horario": "08h00",
+          "icone": "⏰",
+          "texto": "Acordar",
+          "duracao": "30min"
+        },
+        {
+          "horario": "08h30",
+          "icone": "⛲",
+          "texto": "Fontana di Trevi",
+          "duracao": "30min",
+          "info": {
+            "titulo": "Fontana di Trevi",
+            "endereco": "Piazza di Trevi, 00187 Roma",
+            "metro": "Barberini (Linha A)",
+            "dicas": [
+              "Melhor horário: manhã cedo (menos gente)",
+              "Jogue a moeda com mão direita sobre ombro esquerdo",
+              "Cuidado com batedores de carteira",
+              "Volta garantida a Roma segundo a lenda"
+            ]
+          }
+        },
+        {
+          "horario": "09h00",
+          "icone": "☕",
+          "texto": "Café L'Antico Forno",
+          "duracao": "30min",
+          "preco": "€7,90",
+          "info": {
+            "titulo": "Cafeteria L'Antico Forno",
+            "precoMedio": "Cappuccino €3,90 + Cornetto €4",
+            "dicas": [
+              "Café típico italiano",
+              "Cornetto fresco pela manhã",
+              "Consumo no balcão é mais barato"
+            ]
+          }
+        },
+        {
+          "horario": "09h30",
+          "icone": "🏛️",
+          "texto": "Pantheon",
+          "duracao": "45min",
+          "preco": "€5",
+          "reservado": true,
+          "reservaLink": "https://placeholder-link-pantheon.com",
+          "info": {
+            "titulo": "Pantheon",
+            "endereco": "Piazza della Rotonda, 00186 Roma",
+            "horarios": "9h-19h",
+            "ingresso": "€5 (reserva obrigatória)",
+            "dicas": [
+              "Ticket reservado para 01/09",
+              "Cúpula com óculo aberto impressionante",
+              "Túmulo de Rafael",
+              "Melhor luz natural ao meio-dia"
+            ]
+          }
+        },
+        {
+          "horario": "10h15",
+          "icone": "🍦",
+          "texto": "Gelateria Giolitti",
+          "duracao": "20min",
+          "preco": "€6",
+          "info": {
+            "titulo": "Gelateria Giolitti",
+            "endereco": "Via degli Uffici del Vicario, 40",
+            "precoMedio": "€6 com 4 sabores",
+            "dicas": [
+              "Uma das gelaterias mais antigas de Roma",
+              "Pague primeiro no caixa",
+              "Apresente o ticket no balcão"
+            ]
+          }
+        },
+        {
+          "horario": "10h35",
+          "icone": "⛪",
+          "texto": "Igreja Santo Inácio de Loyola",
+          "duracao": "30min",
+          "info": {
+            "titulo": "Igreja Santo Inácio de Loyola",
+            "endereco": "Via del Caravita, 8a, 00186 Roma",
+            "entrada": "Gratuita",
+            "dicas": [
+              "Teto com ilusão de ótica impressionante",
+              "Fique no disco de mármore no chão para melhor vista",
+              "Arquitetura barroca espetacular",
+              "Menos turística que outras igrejas"
+            ]
+          }
+        },
+        {
+          "horario": "11h05",
+          "icone": "🍝",
+          "texto": "Almoço Pasta Imperiale",
+          "duracao": "45min",
+          "preco": "€6",
+          "info": {
+            "titulo": "Pasta Imperiale",
+            "precoMedio": "€6 por prato",
+            "dicas": [
+              "Pasta fresca a preço justo",
+              "Porções individuais",
+              "Rápido e saboroso",
+              "Popular entre locais"
+            ]
+          }
+        },
+        {
+          "horario": "13h00",
+          "icone": "🚶",
+          "texto": "Deslocamento para Trastevere",
+          "duracao": "30min"
+        },
+        {
+          "horario": "13h30",
+          "icone": "🏘️",
+          "texto": "Piazza Santa Maria e ruas medievais (Trastevere)",
+          "duracao": "1h30",
+          "info": {
+            "titulo": "Bairro Trastevere",
+            "endereco": "Piazza di Santa Maria in Trastevere",
+            "dicas": [
+              "Bairro boêmio e autêntico",
+              "Ruas de paralelepípedos medievais",
+              "Basílica Santa Maria in Trastevere",
+              "Artistas de rua e atmosfera local",
+              "Explore as ruelas sem pressa"
+            ]
+          }
+        },
+        {
+          "horario": "15h00",
+          "icone": "⛲",
+          "texto": "Fontana Dell'Acqua Paola",
+          "duracao": "30min",
+          "info": {
+            "titulo": "Fontana Dell'Acqua Paola",
+            "endereco": "Via Garibaldi, 00153 Roma",
+            "dicas": [
+              "Parece a Fontana di Trevi mas vazia",
+              "Mirante com vista panorâmica de Roma",
+              "Ótimo para pôr do sol",
+              "Subida íngreme mas vale a pena"
+            ]
+          }
+        },
+        {
+          "horario": "18h30",
+          "icone": "🍕",
+          "texto": "Jantar Tonnarello",
+          "duracao": "1h30",
+          "preco": "€11",
+          "info": {
+            "titulo": "Tonnarello",
+            "endereco": "Via della Paglia, 1, 00153 Roma",
+            "precoMedio": "Pizza €11",
+            "dicas": [
+              "Restaurante típico de Trastevere",
+              "Pizza romana tradicional",
+              "Cacio e pepe recomendado",
+              "Ambiente animado",
+              "Pode ter fila no jantar"
+            ]
+          }
         }
-
-        // Função para renderizar orçamento
-        function renderizarOrcamento() {
-            const container = document.getElementById('orcamento-container');
-            container.innerHTML = `
-                <h3><i class="fas fa-calculator"></i> Orçamento Detalhado</h3>
-                
-                <div class="budget-toggle">
-                    <button class="toggle-btn active" onclick="toggleBudget('pessoa')">Por Pessoa</button>
-                    <button class="toggle-btn" onclick="toggleBudget('casal')">Para Casal</button>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #2c3e50, #34495e); color: white; border-radius: 15px;">
-                    <h4 style="margin-bottom: 10px;">
-                        <i class="fas fa-calculator"></i> 
-                        <span id="total-label">Total por Pessoa</span>
-                    </h4>
-                    <div style="font-size: 2rem; font-weight: bold;" id="total-amount">${ROTEIRO_ROMA.orcamento.pessoa.totalGeral}</div>
-                    <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">*Valores estimados, sem hospedagem</div>
-                </div>
-            `;
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Vaticano",
+      "data": "10/10/2025",
+      "diaSemana": "Sexta-feira",
+      "atividades": [
+        {
+          "horario": "07h30",
+          "icone": "⏰",
+          "texto": "Acordar CEDO",
+          "duracao": "30min"
+        },
+        {
+          "horario": "08h00",
+          "icone": "🚇",
+          "texto": "Deslocamento para Vaticano",
+          "duracao": "30min",
+          "info": {
+            "titulo": "Deslocamento ao Vaticano",
+            "metro": "Ottaviano (Linha A) ou Cipro (Linha A)",
+            "dicas": [
+              "Saia na estação Ottaviano para Museus",
+              "Use Cipro para Basílica São Pedro",
+              "Chegue cedo para evitar filas"
+            ]
+          }
+        },
+        {
+          "horario": "08h30",
+          "icone": "🎨",
+          "texto": "Museus do Vaticano e Capela Sistina",
+          "duracao": "3h30",
+          "preco": "€26",
+          "reservado": true,
+          "info": {
+            "titulo": "Museus do Vaticano e Capela Sistina",
+            "endereco": "Viale Vaticano, 00165 Roma",
+            "ingresso": "€26 (reserva online essencial)",
+            "roteiro": [
+              "Começar pela Capela Sistina",
+              "Voltar pelas salas do museu",
+              "Galeria dos Mapas",
+              "Salas de Rafael"
+            ],
+            "dicas": [
+              "Reserve com antecedência",
+              "Dress code: ombros e joelhos cobertos",
+              "Foto proibida na Capela Sistina",
+              "Audioguia vale a pena"
+            ]
+          }
+        },
+        {
+          "horario": "12h00",
+          "icone": "🍝",
+          "texto": "Almoço Pastaciutta ou EGG Pasta Fresca",
+          "duracao": "1h",
+          "preco": "€6,50-7",
+          "info": {
+            "titulo": "Pastaciutta / EGG Pasta Fresca",
+            "precoMedio": "Pastaciutta €6,50 / EGG €7",
+            "dicas": [
+              "Próximos ao Vaticano",
+              "Pasta fresca feita na hora",
+              "Porções generosas",
+              "Rápido e econômico"
+            ]
+          }
+        },
+        {
+          "horario": "13h00",
+          "icone": "⛪",
+          "texto": "Basílica de São Pedro e Cúpula",
+          "duracao": "2h30",
+          "preco": "€10",
+          "info": {
+            "titulo": "Basílica de São Pedro",
+            "endereco": "Piazza San Pietro, 00120 Città del Vaticano",
+            "entrada": "Gratuita (basílica) / €10 (cúpula com elevador)",
+            "horarios": "7h-19h (verão)",
+            "dicas": [
+              "Pietá de Michelangelo logo na entrada",
+              "Subida da cúpula: 551 degraus (320 se usar elevador)",
+              "Vista espetacular de Roma do topo",
+              "Dress code obrigatório"
+            ]
+          }
+        },
+        {
+          "horario": "15h30",
+          "icone": "🍦",
+          "texto": "Gelateria Del Monte ou Old Bridge",
+          "duracao": "20min",
+          "preco": "€3",
+          "info": {
+            "titulo": "Gelaterias próximas ao Vaticano",
+            "precoMedio": "€3",
+            "dicas": [
+              "Old Bridge: favorita dos locais",
+              "Del Monte: sabores artesanais",
+              "Ambas próximas ao Vaticano"
+            ]
+          }
+        },
+        {
+          "horario": "15h50",
+          "icone": "🏰",
+          "texto": "Castelo Sant'Angelo (exterior)",
+          "duracao": "30min",
+          "info": {
+            "titulo": "Castelo Sant'Angelo",
+            "endereco": "Lungotevere Castello, 50, 00193 Roma",
+            "dicas": [
+              "Vista exterior impressionante",
+              "Ponte Sant'Angelo com estátuas de anjos",
+              "Ótimo para fotos ao pôr do sol",
+              "Interior €15 (opcional)"
+            ]
+          }
+        },
+        {
+          "horario": "16h20",
+          "icone": "🚇",
+          "texto": "Retorno para Roma centro",
+          "duracao": "30min"
+        },
+        {
+          "horario": "18h30",
+          "icone": "🍝",
+          "texto": "Jantar Nannarella",
+          "duracao": "1h30",
+          "preco": "€12,50-14",
+          "info": {
+            "titulo": "Restaurante Nannarella",
+            "precoMedio": "Massa €12,50 / Lasanha €14",
+            "dicas": [
+              "Restaurante familiar tradicional",
+              "Lasanha altamente recomendada",
+              "Porções generosas",
+              "Ambiente acolhedor"
+            ]
+          }
+        },
+        {
+          "horario": "20h00",
+          "icone": "🍰",
+          "texto": "Pompi para tiramisu",
+          "duracao": "30min",
+          "preco": "€5",
+          "info": {
+            "titulo": "Pompi",
+            "especialidade": "Tiramisu",
+            "precoMedio": "€5",
+            "dicas": [
+              "Considerado melhor tiramisu de Roma",
+              "Várias lojas pela cidade",
+              "Para levar ou comer no local"
+            ]
+          }
         }
-
-        // Função para renderizar dicas
-        function renderizarDicas() {
-            const container = document.getElementById('dicas-container');
-            let html = `
-                <div class="legend">
-                    <h3><i class="fas fa-lightbulb"></i> Dicas Importantes</h3>
-                    <div style="margin-top: 15px; text-align: left;">
-            `;
-            ROTEIRO_ROMA.dicas.forEach(dica => {
-                html += `<p><strong>${dica}</strong></p>`;
-            });
-            html += `</div></div>`;
-            container.innerHTML = html;
+      ]
+    },
+    {
+      "numero": 5,
+      "titulo": "Praças e Despedida",
+      "data": "11/10/2025",
+      "diaSemana": "Sábado",
+      "atividades": [
+        {
+          "horario": "08h30",
+          "icone": "⏰",
+          "texto": "Acordar",
+          "duracao": "30min"
+        },
+        {
+          "horario": "09h00",
+          "icone": "🏛️",
+          "texto": "Piazza Navona",
+          "duracao": "45min",
+          "info": {
+            "titulo": "Piazza Navona",
+            "endereco": "Piazza Navona, 00186 Roma",
+            "dicas": [
+              "Praça barroca com 3 fontes",
+              "Fonte dos Quatro Rios de Bernini",
+              "Artistas de rua e pintores",
+              "Igreja Sant'Agnese in Agone"
+            ]
+          }
+        },
+        {
+          "horario": "09h45",
+          "icone": "🥖",
+          "texto": "Lanche All'Antico Vinaio",
+          "duracao": "30min",
+          "preco": "€9",
+          "info": {
+            "titulo": "All'Antico Vinaio",
+            "especialidade": "Sanduíche toscano",
+            "precoMedio": "€9",
+            "dicas": [
+              "Famoso sanduíche schiacciata",
+              "Ingredientes frescos e generosos",
+              "Fila comum mas anda rápido",
+              "Vale a pena a espera"
+            ]
+          }
+        },
+        {
+          "horario": "10h15",
+          "icone": "🍰",
+          "texto": "Two Sizes - Tiramisu",
+          "duracao": "15min",
+          "preco": "€3",
+          "info": {
+            "titulo": "Two Sizes",
+            "especialidade": "Tiramisu individual",
+            "precoMedio": "€3",
+            "dicas": [
+              "Tiramisu em copinho",
+              "Perfeito para levar",
+              "Vários sabores disponíveis"
+            ]
+          }
+        },
+        {
+          "horario": "10h30",
+          "icone": "🏛️",
+          "texto": "Piazza Venezia e Monumento Vittorio Emanuele",
+          "duracao": "1h",
+          "info": {
+            "titulo": "Monumento Vittorio Emanuele II",
+            "endereco": "Piazza Venezia, 00186 Roma",
+            "entrada": "Gratuita / Elevador panorâmico €10",
+            "dicas": [
+              "Apelidado de 'Bolo de Noiva' ou 'Máquina de Escrever'",
+              "Terraço com vista 360° de Roma",
+              "Museu do Risorgimento interno",
+              "Túmulo do Soldado Desconhecido"
+            ]
+          }
+        },
+        {
+          "horario": "12h30",
+          "icone": "🍝",
+          "texto": "Almoço La Base, Hostaria dei Pastini, Bona Pizza ou Mariuccia",
+          "duracao": "1h30",
+          "preco": "€10-15",
+          "info": {
+            "titulo": "Opções de Almoço",
+            "opcoes": [
+              "La Base: pizza moderna",
+              "Hostaria dei Pastini: lasanha €10",
+              "Bona Pizza Roma: pizza tradicional",
+              "Mariuccia: cozinha romana"
+            ],
+            "dicas": [
+              "Hostaria dei Pastini: lasanha recomendada",
+              "Todos no centro histórico",
+              "Reserva útil no sábado"
+            ]
+          }
+        },
+        {
+          "horario": "14h00",
+          "icone": "🍦",
+          "texto": "Gelateria Del Angeleto",
+          "duracao": "20min",
+          "preco": "€4"
+        },
+        {
+          "horario": "16h30",
+          "icone": "🌅",
+          "texto": "Piazza del Quirinale para pôr do sol",
+          "duracao": "1h",
+          "info": {
+            "titulo": "Piazza del Quirinale",
+            "endereco": "Piazza del Quirinale, 00187 Roma",
+            "dicas": [
+              "Palácio presidencial italiano",
+              "Vista panorâmica de Roma",
+              "Melhor horário: pôr do sol",
+              "Troca da guarda aos domingos às 16h (verão)"
+            ]
+          }
+        },
+        {
+          "horario": "18h30",
+          "icone": "🍝",
+          "texto": "Jantar La Osteria Vieira (lasanha recomendada)",
+          "duracao": "1h30",
+          "preco": "€15",
+          "info": {
+            "titulo": "La Osteria Vieira",
+            "especialidade": "Lasanha",
+            "precoMedio": "€15",
+            "dicas": [
+              "Dica do Matrips para melhor lasanha",
+              "Ambiente aconchegante",
+              "Reserva recomendada",
+              "Porções fartas"
+            ]
+          }
         }
-
-        // Função para toggle do orçamento
-        function toggleBudget(type) {
-            const totalLabel = document.getElementById('total-label');
-            const totalAmount = document.getElementById('total-amount');
-            const buttons = document.querySelectorAll('.toggle-btn');
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            if (type === 'pessoa') {
-                totalLabel.textContent = 'Total por Pessoa';
-                totalAmount.textContent = ROTEIRO_ROMA.orcamento.pessoa.totalGeral;
-                buttons[0].classList.add('active');
-            } else {
-                totalLabel.textContent = 'Total para Casal';
-                totalAmount.textContent = ROTEIRO_ROMA.orcamento.casal.totalGeral;
-                buttons[1].classList.add('active');
-            }
-        }
-
-        // Função para checkboxes
-        function inicializarCheckboxes() {
-            const checkboxes = document.querySelectorAll('.activity-checkbox');
-            
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    const activity = this.closest('.activity');
-                    if (this.checked) {
-                        activity.classList.add('completed');
-                    } else {
-                        activity.classList.remove('completed');
-                    }
-                    saveProgress();
-                });
-            });
-            
-            loadProgress();
-        }
-
-        function saveProgress() {
-            const checkboxes = document.querySelectorAll('.activity-checkbox');
-            const progress = Array.from(checkboxes).map(cb => cb.checked);
-            const storageKey = 'roteiro_' + ROTEIRO_ROMA.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
-            localStorage.setItem(storageKey, JSON.stringify(progress));
-        }
-
-        function loadProgress() {
-            const storageKey = 'roteiro_' + ROTEIRO_ROMA.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
-            const saved = localStorage.getItem(storageKey);
-            if (saved) {
-                const progress = JSON.parse(saved);
-                const checkboxes = document.querySelectorAll('.activity-checkbox');
-                checkboxes.forEach((checkbox, index) => {
-                    if (progress[index]) {
-                        checkbox.checked = true;
-                        checkbox.closest('.activity').classList.add('completed');
-                    }
-                });
-            }
-        }
-
-        // Função helper para acessar informações por índice
-        function showInfoByIndex(diaIndex, atividadeIndex) {
-            const infoData = ROTEIRO_ROMA.dias[diaIndex].atividades[atividadeIndex].info;
-            showInfo(infoData);
-        }
-
-        // Função para exibir informações no modal
-        function showInfo(infoData) {
-            const modalContent = document.getElementById('modalContent');
-            const modal = document.getElementById('infoModal');
-            
-            // Construir HTML das informações
-            let html = `<h3>${infoData.titulo}</h3>`;
-            
-            // Adicionar informações básicas se existirem
-            if (infoData.endereco) html += `<p><strong>Endereço:</strong> ${infoData.endereco}</p>`;
-            if (infoData.metro) html += `<p><strong>Metrô:</strong> ${infoData.metro}</p>`;
-            if (infoData.especialidade) html += `<p><strong>Especialidade:</strong> ${infoData.especialidade}</p>`;
-            if (infoData.precoMedio) html += `<p><strong>Preço médio:</strong> ${infoData.precoMedio}</p>`;
-            if (infoData.entrada) html += `<p><strong>Entrada:</strong> ${infoData.entrada}</p>`;
-            if (infoData.horarios) html += `<p><strong>Horários:</strong> ${infoData.horarios}</p>`;
-            if (infoData.ingresso) html += `<p><strong>Ingresso:</strong> ${infoData.ingresso}</p>`;
-            if (infoData.acesso) html += `<p><strong>Acesso:</strong> ${infoData.acesso}</p>`;
-            if (infoData.estrategia) html += `<p><strong>Estratégia:</strong> ${infoData.estrategia}</p>`;
-            if (infoData.objetivo) html += `<p><strong>Objetivo:</strong> ${infoData.objetivo}</p>`;
-            if (infoData.orcamento) html += `<p><strong>Orçamento:</strong> ${infoData.orcamento}</p>`;
-            if (infoData.terraco) html += `<p><strong>Terraço:</strong> ${infoData.terraco}</p>`;
-            if (infoData.visita) html += `<p><strong>Visita:</strong> ${infoData.visita}</p>`;
-            if (infoData.petitTrain) html += `<p><strong>Petit Train:</strong> ${infoData.petitTrain}</p>`;
-            if (infoData.dica) html += `<p><strong>Dica:</strong> ${infoData.dica}</p>`;
-            
-            // Adicionar listas se existirem
-            if (infoData.dicas && infoData.dicas.length > 0) {
-                html += `<p><strong>Dicas:</strong></p><ul>`;
-                infoData.dicas.forEach(dica => html += `<li>${dica}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.pontosFoto && infoData.pontosFoto.length > 0) {
-                html += `<p><strong>Pontos de foto:</strong></p><ul>`;
-                infoData.pontosFoto.forEach(ponto => html += `<li>${ponto}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.roteiro5h30 && infoData.roteiro5h30.length > 0) {
-                html += `<p><strong>Roteiro 5h30:</strong></p><ul>`;
-                infoData.roteiro5h30.forEach(item => html += `<li>${item}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.roteiro6h && infoData.roteiro6h.length > 0) {
-                html += `<p><strong>Roteiro 6h com pausa:</strong></p><ul>`;
-                infoData.roteiro6h.forEach(item => html += `<li>${item}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.roteiro3h && infoData.roteiro3h.length > 0) {
-                html += `<p><strong>Roteiro 3h:</strong></p><ul>`;
-                infoData.roteiro3h.forEach(item => html += `<li>${item}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.estrategiaAntiCansaco && infoData.estrategiaAntiCansaco.length > 0) {
-                html += `<p><strong>Estratégia Anti-Cansaço:</strong></p><ul>`;
-                infoData.estrategiaAntiCansaco.forEach(item => html += `<li>${item}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.obrasImperdiveis && infoData.obrasImperdiveis.length > 0) {
-                html += `<p><strong>Obras Imperdíveis:</strong></p><ul>`;
-                infoData.obrasImperdiveis.forEach(obra => html += `<li>${obra}</li>`);
-                html += `</ul>`;
-            }
-            
-            // Estruturas complexas específicas
-            if (infoData.locaisSugeridos && infoData.locaisSugeridos.length > 0) {
-                html += `<p><strong>Locais Sugeridos:</strong></p><ul>`;
-                infoData.locaisSugeridos.forEach(local => html += `<li>${local}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.atividadesOpcionais && infoData.atividadesOpcionais.length > 0) {
-                html += `<p><strong>Atividades Opcionais:</strong></p><ul>`;
-                infoData.atividadesOpcionais.forEach(atividade => html += `<li>${atividade}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.opcoes && infoData.opcoes.length > 0) {
-                html += `<p><strong>Opções:</strong></p><ul>`;
-                infoData.opcoes.forEach(opcao => html += `<li>${opcao}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.beneficios && infoData.beneficios.length > 0) {
-                html += `<p><strong>Benefícios:</strong></p><ul>`;
-                infoData.beneficios.forEach(beneficio => html += `<li>${beneficio}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.vantagens && infoData.vantagens.length > 0) {
-                html += `<p><strong>Vantagens:</strong></p><ul>`;
-                infoData.vantagens.forEach(vantagem => html += `<li>${vantagem}</li>`);
-                html += `</ul>`;
-            }
-            
-            if (infoData.tiposRestaurante && infoData.tiposRestaurante.length > 0) {
-                html += `<p><strong>Tipos de Restaurante:</strong></p><ul>`;
-                infoData.tiposRestaurante.forEach(tipo => html += `<li>${tipo}</li>`);
-                html += `</ul>`;
-            }
-            
-            // Opções específicas para tempo livre
-            ['opcao1Compras', 'opcao2Cultura', 'opcao3Relaxar', 'opcao1RevisitarFavorito', 'opcao2PendenciaSemana', 'opcao3DescobertaNova', 'opcao4RelaxTotal'].forEach(opcaoKey => {
-                if (infoData[opcaoKey] && infoData[opcaoKey].length > 0) {
-                    const titulo = opcaoKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
-                    html += `<p><strong>${titulo}:</strong></p><ul>`;
-                    infoData[opcaoKey].forEach(item => html += `<li>${item}</li>`);
-                    html += `</ul>`;
-                }
-            });
-            
-            // Informações específicas de ruas
-            if (infoData.rueBuenosAires) html += `<p><strong>Rue Buenos Aires:</strong> ${infoData.rueBuenosAires}</p>`;
-            if (infoData.rueUniversite) html += `<p><strong>Rue de l'Université:</strong> ${infoData.rueUniversite}</p>`;
-            
-            // Inserir o HTML no modal e exibir
-            modalContent.innerHTML = html;
-            modal.style.display = 'block';
-        }
-
-        // Configuração do modal
-        const modal = document.getElementById('infoModal');
-        const span = document.getElementsByClassName('close')[0];
-
-        // Quando o usuário clica no X, fecha o modal
-        span.onclick = function() {
-            modal.style.display = 'none';
-        }
-
-        // Quando o usuário clica fora do modal, fecha ele
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        // Função para inicializar elementos dinâmicos da página
-        function inicializarElementosDinamicos() {
-            // Atualizar título da página
-            document.title = ROTEIRO_ROMA.meta.titulo + ' - Checklist Prático';
-            
-            // Atualizar header
-            document.getElementById('roteiro-icone').className = ROTEIRO_ROMA.meta.icone;
-            document.getElementById('roteiro-titulo').textContent = ROTEIRO_ROMA.meta.titulo;
-            document.getElementById('roteiro-subtitulo').textContent = ROTEIRO_ROMA.meta.subtitulo;
-        }
-
-        // Inicializar quando a página carregar
-        document.addEventListener('DOMContentLoaded', function() {
-            inicializarElementosDinamicos();
-            renderizarEstatisticas();
-            renderizarLegenda();
-            renderizarDias();
-            renderizarOrcamento();
-            renderizarDicas();
-            inicializarCheckboxes();
-        });
+      ]
+    }
+  ],
+  "orcamento": {
+    "pessoa": { "totalGeral": "€350" },
+    "casal": { "totalGeral": "€700" }
+  },
+  "dicas": [
+    "🎫 Agendamentos Obrigatórios: Coliseu, Pantheon, Museus Vaticanos",
+    "🎫 Agendamentos Recomendados: Cúpula São Pedro",
+    "🚇 Passe Recomendado: Roma Pass 48h (€32) ou bilhetes individuais",
+    "📱 Apps Essenciais: Citymapper, Rome2Rio, Google Translate",
+    "💡 Dress code obrigatório no Vaticano: ombros e joelhos cobertos",
+    "⛲ Fontes de água potável por toda cidade (nasoni)"
+  ]
+};
     </script>
 </body>
 </html>
