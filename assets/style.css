@@ -530,7 +530,8 @@ body {
     /* Detalhes ficam na linha de baixo */
     .activity-details {
         width: 100%;
-        justify-content: center;
+        justify-content: right;
+        align-items: right;
         margin-top: 8px;
         margin-left: 35px; /* Alinha com o texto */
     }
