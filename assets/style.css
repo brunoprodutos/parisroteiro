@@ -154,21 +154,13 @@ body {
     margin: 0 -10px;
 }
 
-.activity-checkbox {
-    margin-right: 15px;
-    width: 22px;
-    height: 22px;
-    cursor: pointer;
-    accent-color: #2c3e50;
-    flex-shrink: 0;
-}
 
 .activity-time {
     font-weight: bold;
     color: #2c3e50;
     min-width: 70px;
     margin-right: 15px;
-    font-size: clamp(0.85rem, 2vw, 1rem);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     flex-shrink: 0;
 }
 
@@ -425,10 +417,6 @@ body {
     font-size: clamp(1rem, 2.5vw, 1.1rem);
 }
 
-.completed {
-    opacity: 0.6;
-    text-decoration: line-through;
-}
 
 /* Estilos para o modal */
 .modal {
@@ -502,16 +490,10 @@ body {
         width: 100%;
     }
 
-    /* Ajustes para elementos principais */
-    .activity-checkbox {
-        margin-right: 8px;
-        flex-shrink: 0;
-    }
-
     .activity-time {
-        min-width: 50px;
-        margin-right: 8px;
-        font-size: 0.85rem;
+        min-width: 60px;
+        margin-right: 10px;
+        font-size: 1rem;
         flex-shrink: 0;
     }
 

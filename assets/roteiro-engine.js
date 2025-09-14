@@ -31,7 +31,6 @@ function inicializarInterface() {
     renderizarDias();
     renderizarOrcamento();
     renderizarDicas();
-    inicializarCheckboxes();
     configurarModal();
     configurarNavegacao();
 }
@@ -135,7 +134,6 @@ function renderizarDias() {
             html += `
                 <div class="activity">
                     <div class="activity-main">
-                        <input type="checkbox" class="activity-checkbox">
                         <span class="activity-time">${atividade.horario}</span>
                         <span class="activity-icon">${atividade.icone}</span>
                         <span class="activity-text">${atividade.texto}</span>
@@ -212,46 +210,6 @@ function toggleBudget(type) {
     }
 }
 
-// Função para checkboxes
-function inicializarCheckboxes() {
-    const checkboxes = document.querySelectorAll('.activity-checkbox');
-    
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            const activity = this.closest('.activity');
-            if (this.checked) {
-                activity.classList.add('completed');
-            } else {
-                activity.classList.remove('completed');
-            }
-            saveProgress();
-        });
-    });
-    
-    loadProgress();
-}
-
-function saveProgress() {
-    const checkboxes = document.querySelectorAll('.activity-checkbox');
-    const progress = Array.from(checkboxes).map(cb => cb.checked);
-    const storageKey = 'roteiro_' + ROTEIRO_DATA.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
-    localStorage.setItem(storageKey, JSON.stringify(progress));
-}
-
-function loadProgress() {
-    const storageKey = 'roteiro_' + ROTEIRO_DATA.meta.titulo.toLowerCase().replace(/[^a-z0-9]/g, '_');
-    const saved = localStorage.getItem(storageKey);
-    if (saved) {
-        const progress = JSON.parse(saved);
-        const checkboxes = document.querySelectorAll('.activity-checkbox');
-        checkboxes.forEach((checkbox, index) => {
-            if (progress[index]) {
-                checkbox.checked = true;
-                checkbox.closest('.activity').classList.add('completed');
-            }
-        });
-    }
-}
 
 // Função helper para acessar informações por índice
 function showInfoByIndex(diaIndex, atividadeIndex) {
