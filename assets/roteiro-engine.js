@@ -134,10 +134,12 @@ function renderizarDias() {
             
             html += `
                 <div class="activity">
-                    <input type="checkbox" class="activity-checkbox">
-                    <span class="activity-time">${atividade.horario}</span>
-                    <span class="activity-icon">${atividade.icone}</span>
-                    <span class="activity-text">${atividade.texto}</span>
+                    <div class="activity-main">
+                        <input type="checkbox" class="activity-checkbox">
+                        <span class="activity-time">${atividade.horario}</span>
+                        <span class="activity-icon">${atividade.icone}</span>
+                        <span class="activity-text">${atividade.texto}</span>
+                    </div>
                     <div class="activity-details">
                         ${detailsHtml}
                     </div>
