@@ -330,6 +330,10 @@ body {
     transform: scale(1.02);
 }
 
+/*
+LEGENDA REMOVIDA PARA ECONOMIA DE ESPAÇO
+Mantido comentado para compatibilidade futura
+
 .legend {
     background: white;
     border-radius: 20px;
@@ -366,6 +370,7 @@ body {
     margin-right: 8px;
     width: 20px;
 }
+*/
 
 .summary-stats {
     display: grid;

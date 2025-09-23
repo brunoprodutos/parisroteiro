@@ -27,7 +27,7 @@ function inicializarInterface() {
     
     inicializarElementosDinamicos();
     renderizarEstatisticas();
-    renderizarLegenda();
+    // renderizarLegenda(); // Removido para economia de espaço
     renderizarDias();
     renderizarOrcamento();
     renderizarDicas();
@@ -74,9 +74,11 @@ function renderizarEstatisticas() {
     container.innerHTML = html;
 }
 
-// Função para renderizar legenda
+// Função para renderizar legenda (REMOVIDA PARA ECONOMIA DE ESPAÇO)
+/*
 function renderizarLegenda() {
     const container = document.getElementById('legenda-container');
+    if (!container) return; // Proteção caso container não exista
     let html = `
         <h3><i class="fas fa-info-circle"></i> Legenda</h3>
         <div class="legend-grid">
@@ -91,6 +93,7 @@ function renderizarLegenda() {
     html += '</div>';
     container.innerHTML = html;
 }
+*/
 
 // Função para renderizar dias
 function renderizarDias() {
