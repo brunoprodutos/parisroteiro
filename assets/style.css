@@ -84,6 +84,24 @@ body {
     pointer-events: none;
 }
 
+/* Garantir que a navegação seja sempre visível em desktop */
+@media (min-width: 1025px) {
+    .hamburger-menu {
+        display: none !important;
+    }
+
+    .nav-links {
+        display: flex !important;
+        position: static !important;
+        background: transparent !important;
+        flex-direction: row !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+    }
+}
+
 .nav-links {
     display: flex;
     justify-content: center;
@@ -544,10 +562,6 @@ Mantido comentado para compatibilidade futura
         box-shadow: 0 6px 25px rgba(0,0,0,0.3);
     }
 
-    .nav-links:not(.active) {
-        display: none;
-    }
-
     .nav-links {
         position: fixed;
         top: 0;
@@ -663,8 +677,26 @@ Mantido comentado para compatibilidade futura
         box-shadow: 0 6px 25px rgba(0,0,0,0.3);
     }
 
-    .nav-links:not(.active) {
-        display: none;
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        gap: 20px;
+        padding: 80px 30px 30px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .nav-links.active {
+        right: 0;
     }
 }
 
