@@ -34,23 +34,27 @@ body {
     flex-direction: column;
     cursor: pointer;
     padding: 15px;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 1001;
-    background: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    border: 2px solid rgba(44, 62, 80, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
 .hamburger-line {
-    width: 25px;
-    height: 3px;
+    width: 28px;
+    height: 4px;
     background-color: #2c3e50;
-    margin: 3px 0;
+    margin: 4px 0;
     transition: all 0.3s ease;
     border-radius: 2px;
     display: block;
+    opacity: 1;
 }
 
 .hamburger-menu.active .hamburger-line:nth-child(1) {
@@ -63,6 +67,21 @@ body {
 
 .hamburger-menu.active .hamburger-line:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Garantir clicabilidade do menu hamburger */
+.hamburger-menu {
+    pointer-events: all !important;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger-menu:active {
+    transform: scale(0.95);
+}
+
+.hamburger-line {
+    pointer-events: none;
 }
 
 .nav-links {
@@ -508,6 +527,16 @@ body {
 
     .hamburger-menu {
         display: flex !important;
+        position: fixed !important;
+        top: 20px !important;
+        right: 20px !important;
+        z-index: 9999 !important;
+    }
+
+    .hamburger-menu:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(0,0,0,0.3);
     }
 
     .nav-links:not(.active) {
@@ -617,6 +646,16 @@ body {
 @media (max-width: 1024px) and (min-width: 769px) {
     .hamburger-menu {
         display: flex !important;
+        position: fixed !important;
+        top: 20px !important;
+        right: 20px !important;
+        z-index: 9999 !important;
+    }
+
+    .hamburger-menu:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(0,0,0,0.3);
     }
 
     .nav-links:not(.active) {
